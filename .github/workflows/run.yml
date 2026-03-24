@@ -1,0 +1,25 @@
+name: TbullsBot Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo indir
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Paketleri kur
+        run: pip install -r requirements.txt
+
+      - name: Botu çalıştır
+        run: python bot.py
