@@ -1,8 +1,8 @@
 import yfinance as yf
 import requests
 
-TOKEN = "BURAYA_TELEGRAM_BOT_TOKEN"
-CHAT_ID = "BURAYA_CHAT_ID"
+TOKEN = "8669851019:AAEKNYtBGKaRJnfeYgCm8eZZhR8QcuuVzbc"
+CHAT_ID = "605922503"
 
 def send_telegram(text):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
