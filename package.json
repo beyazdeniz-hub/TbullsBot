@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^1.7.2",
     "form-data": "^4.0.0",
+    "jimp": "^0.22.12",
     "puppeteer": "^22.15.0"
   }
 }
