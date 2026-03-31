@@ -12,7 +12,7 @@ const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=I
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
 const OUT_DIR = path.join(__dirname, "charts");
-const MAX_SYMBOLS = 80;
+const MAX_SYMBOLS = 60;
 const WAIT_BETWEEN_SYMBOLS = 1200;
 
 function sleep(ms) {
@@ -82,20 +82,15 @@ async function removeFixedAds(page) {
         const s = window.getComputedStyle(el);
         const rect = el.getBoundingClientRect();
 
-        const looksFixed =
-          s.position === "fixed" || s.position === "sticky";
-
-        const bigBottomBar =
-          rect.width > window.innerWidth * 0.6 &&
+        const fixedBottom =
+          (s.position === "fixed" || s.position === "sticky") &&
+          rect.width > window.innerWidth * 0.5 &&
           rect.height > 40 &&
           rect.bottom >= window.innerHeight - 5;
 
-        const iframeOrAd =
-          el.tagName === "IFRAME" ||
-          el.tagName === "INS" ||
-          (el.innerText || "").toLowerCase().includes("reklam");
+        const iframeLike = el.tagName === "IFRAME" || el.tagName === "INS";
 
-        if ((looksFixed && bigBottomBar) || iframeOrAd) {
+        if (fixedBottom || iframeLike) {
           el.style.display = "none";
         }
       }
@@ -149,8 +144,8 @@ async function extractTickers(page) {
 
       if (/SignalPage\.aspx/i.test(href) || /Ticker=/i.test(href)) {
         let ticker = null;
-
         const match = href.match(/Ticker=([^&]+)/i);
+
         if (match && match[1]) {
           ticker = decodeURIComponent(match[1]);
         } else if (/^[A-ZÇĞİÖŞÜ.]{2,10}$/.test(text)) {
@@ -185,78 +180,28 @@ async function extractTickers(page) {
   return tickers.slice(0, MAX_SYMBOLS);
 }
 
-async function findSignalHeaderBox(page) {
-  const handle = await page.evaluateHandle(() => {
-    const wanted = [
-      "SATIN ALMAK",
-      "SENETTE KAL",
-      "BUY",
-      "AL",
-      "SAT"
-    ];
-
-    const elements = Array.from(document.querySelectorAll("div, span, td, h1, h2, h3, h4"));
-
-    let best = null;
-
-    for (const el of elements) {
-      const txt = (el.innerText || "").replace(/\s+/g, " ").trim().toUpperCase();
-      if (!txt) continue;
-
-      const match = wanted.some((w) => txt.includes(w));
-      if (!match) continue;
-
-      const rect = el.getBoundingClientRect();
-      if (rect.width < 80 || rect.height < 20) continue;
-      if (rect.top < 80 || rect.top > 900) continue;
-
-      best = el;
-      break;
-    }
-
-    return best;
-  });
-
-  const el = handle.asElement();
-  if (!el) return null;
-
-  const box = await el.boundingBox();
-  return box || null;
-}
-
-async function captureChartCrop(page, ticker) {
+async function cropChartFromTopScreenshot(page, ticker) {
   ensureDir(OUT_DIR);
 
   const safeTicker = ticker.replace(/[^\w.-]/g, "_");
-  const fullPath = path.join(OUT_DIR, `${safeTicker}_full.png`);
+  const fullPath = path.join(OUT_DIR, `${safeTicker}_top.png`);
   const cropPath = path.join(OUT_DIR, `${safeTicker}.png`);
 
   await page.screenshot({
     path: fullPath,
-    fullPage: true,
+    fullPage: false,
   });
 
   const img = await Jimp.read(fullPath);
-  const pageWidth = img.bitmap.width;
-  const pageHeight = img.bitmap.height;
+  const w = img.bitmap.width;
+  const h = img.bitmap.height;
 
-  const headerBox = await findSignalHeaderBox(page);
-
-  let cropX = 8;
-  let cropY = 360;
-  let cropW = pageWidth - 16;
-  let cropH = 520;
-
-  if (headerBox) {
-    cropX = Math.max(0, Math.floor(headerBox.x) - 10);
-    cropY = Math.max(0, Math.floor(headerBox.y + headerBox.height + 5));
-    cropW = Math.min(pageWidth - cropX - 8, Math.max(260, Math.floor(pageWidth - cropX - 12)));
-    cropH = 560;
-  }
-
-  if (cropY + cropH > pageHeight) {
-    cropH = pageHeight - cropY - 10;
-  }
+  // Mobil görünüm için sabit kırpma
+  // Senin gönderdiğin ekran görüntüsüne göre ayarlandı.
+  const cropX = Math.floor(w * 0.02);
+  const cropY = Math.floor(h * 0.23);
+  const cropW = Math.floor(w * 0.96);
+  const cropH = Math.floor(h * 0.47);
 
   if (cropW < 200 || cropH < 150) {
     return null;
@@ -282,7 +227,7 @@ async function processTicker(browser, ticker) {
 
     await page.setViewport({
       width: 430,
-      height: 1400,
+      height: 1600,
       isMobile: true,
       hasTouch: true,
       deviceScaleFactor: 2,
@@ -301,7 +246,7 @@ async function processTicker(browser, ticker) {
     await page.evaluate(() => window.scrollTo(0, 0));
     await sleep(1200);
 
-    return await captureChartCrop(page, ticker);
+    return await cropChartFromTopScreenshot(page, ticker);
   } finally {
     await page.close().catch(() => {});
   }
@@ -328,7 +273,7 @@ async function main() {
 
     await page.setViewport({
       width: 430,
-      height: 1400,
+      height: 1600,
       isMobile: true,
       hasTouch: true,
       deviceScaleFactor: 2,
@@ -366,7 +311,7 @@ async function main() {
 
         if (!imagePath || !fs.existsSync(imagePath)) {
           await telegramSendMessage(
-            `<b>${escapeHtml(ticker)}</b>\nGrafik kırpılamadı.`
+            `<b>${escapeHtml(ticker)}</b>\nGrafik alınamadı.`
           );
         } else {
           await telegramSendPhoto(imagePath, `<b>${escapeHtml(ticker)}</b>`);
