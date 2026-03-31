@@ -1,9 +1,10 @@
+import os
 import yfinance as yf
 import requests
 import pandas as pd
 
-TOKEN = "8669851019:AAEKNYtBGKaRJnfeYgCm8eZZhR8QcuuVzbc"
-CHAT_ID = "605922503"
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 HISSELER = [
     "THYAO.IS",
@@ -19,6 +20,9 @@ HISSELER = [
 ]
 
 def send_telegram(text):
+    if not TOKEN or not CHAT_ID:
+        raise ValueError("TELEGRAM_BOT_TOKEN veya TELEGRAM_CHAT_ID eksik.")
+
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     data = {
         "chat_id": CHAT_ID,
@@ -90,7 +94,6 @@ def sinyal_kontrol(hisse):
         hacim_son = float(son["Volume"])
         hacim_ort = float(df["Volume"].tail(20).mean())
 
-        # AL sinyali şartları
         ema_kesisim = ema9_onceki <= ema21_onceki and ema9_son > ema21_son
         trend_ustu = fiyat > ema9_son and fiyat > ema21_son
         rsi_uygun = 50 <= rsi_son <= 70
