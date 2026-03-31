@@ -3,6 +3,7 @@ const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 const FormData = require("form-data");
+const Jimp = require("jimp");
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -10,7 +11,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB";
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
-const DOWNLOAD_DIR = path.join(__dirname, "charts");
+const OUT_DIR = path.join(__dirname, "charts");
 const MAX_SYMBOLS = 80;
 const WAIT_BETWEEN_SYMBOLS = 1200;
 
@@ -29,15 +30,6 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-}
-
-function normalizeUrl(src, baseUrl) {
-  if (!src) return null;
-  try {
-    return new URL(src, baseUrl).href;
-  } catch {
-    return null;
-  }
 }
 
 async function telegramSendMessage(text) {
@@ -63,52 +55,6 @@ async function telegramSendPhoto(photoPath, caption) {
   });
 }
 
-async function downloadImage(url, outPath) {
-  const res = await axios.get(url, {
-    responseType: "stream",
-    timeout: 120000,
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-      Referer: "https://www.turkishbulls.com/",
-    },
-  });
-
-  await new Promise((resolve, reject) => {
-    const writer = fs.createWriteStream(outPath);
-    res.data.pipe(writer);
-    writer.on("finish", resolve);
-    writer.on("error", reject);
-  });
-
-  return outPath;
-}
-
-async function autoScrollToBottom(page) {
-  let lastHeight = 0;
-  let stableCount = 0;
-
-  for (let i = 0; i < 100; i++) {
-    const currentHeight = await page.evaluate(() => {
-      window.scrollTo(0, document.body.scrollHeight);
-      return document.body.scrollHeight;
-    });
-
-    await sleep(1800);
-
-    if (currentHeight === lastHeight) {
-      stableCount++;
-    } else {
-      stableCount = 0;
-      lastHeight = currentHeight;
-    }
-
-    if (stableCount >= 4) break;
-  }
-
-  await sleep(1000);
-}
-
 async function acceptCookiesIfAny(page) {
   const possibleTexts = ["Kabul", "Accept", "Tamam", "I Agree", "Anladım"];
 
@@ -125,7 +71,60 @@ async function acceptCookiesIfAny(page) {
         break;
       }
     }
-  } catch {}
+  } catch (_) {}
+}
+
+async function removeFixedAds(page) {
+  try {
+    await page.evaluate(() => {
+      const nodes = Array.from(document.querySelectorAll("*"));
+      for (const el of nodes) {
+        const s = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+
+        const looksFixed =
+          s.position === "fixed" || s.position === "sticky";
+
+        const bigBottomBar =
+          rect.width > window.innerWidth * 0.6 &&
+          rect.height > 40 &&
+          rect.bottom >= window.innerHeight - 5;
+
+        const iframeOrAd =
+          el.tagName === "IFRAME" ||
+          el.tagName === "INS" ||
+          (el.innerText || "").toLowerCase().includes("reklam");
+
+        if ((looksFixed && bigBottomBar) || iframeOrAd) {
+          el.style.display = "none";
+        }
+      }
+    });
+  } catch (_) {}
+}
+
+async function autoScrollToBottom(page) {
+  let lastHeight = 0;
+  let stable = 0;
+
+  for (let i = 0; i < 100; i++) {
+    const h = await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+      return document.body.scrollHeight;
+    });
+
+    await sleep(1700);
+
+    if (h === lastHeight) stable++;
+    else {
+      stable = 0;
+      lastHeight = h;
+    }
+
+    if (stable >= 4) break;
+  }
+
+  await sleep(1000);
 }
 
 async function extractTickers(page) {
@@ -150,8 +149,8 @@ async function extractTickers(page) {
 
       if (/SignalPage\.aspx/i.test(href) || /Ticker=/i.test(href)) {
         let ticker = null;
-        const match = href.match(/Ticker=([^&]+)/i);
 
+        const match = href.match(/Ticker=([^&]+)/i);
         if (match && match[1]) {
           ticker = decodeURIComponent(match[1]);
         } else if (/^[A-ZÇĞİÖŞÜ.]{2,10}$/.test(text)) {
@@ -186,92 +185,91 @@ async function extractTickers(page) {
   return tickers.slice(0, MAX_SYMBOLS);
 }
 
-async function findChartImageUrl(page, detailUrl) {
-  const result = await page.evaluate((currentUrl) => {
-    function absUrl(src) {
-      try {
-        return new URL(src, currentUrl).href;
-      } catch {
-        return null;
-      }
+async function findSignalHeaderBox(page) {
+  const handle = await page.evaluateHandle(() => {
+    const wanted = [
+      "SATIN ALMAK",
+      "SENETTE KAL",
+      "BUY",
+      "AL",
+      "SAT"
+    ];
+
+    const elements = Array.from(document.querySelectorAll("div, span, td, h1, h2, h3, h4"));
+
+    let best = null;
+
+    for (const el of elements) {
+      const txt = (el.innerText || "").replace(/\s+/g, " ").trim().toUpperCase();
+      if (!txt) continue;
+
+      const match = wanted.some((w) => txt.includes(w));
+      if (!match) continue;
+
+      const rect = el.getBoundingClientRect();
+      if (rect.width < 80 || rect.height < 20) continue;
+      if (rect.top < 80 || rect.top > 900) continue;
+
+      best = el;
+      break;
     }
 
-    const imgs = Array.from(document.querySelectorAll("img"));
-
-    const scored = imgs
-      .map((img) => {
-        const rect = img.getBoundingClientRect();
-        const src = img.getAttribute("src") || "";
-        const id = img.getAttribute("id") || "";
-        const cls = img.getAttribute("class") || "";
-        const alt = img.getAttribute("alt") || "";
-        const title = img.getAttribute("title") || "";
-        const blob = `${src} ${id} ${cls} ${alt} ${title}`.toLowerCase();
-
-        let score = 0;
-
-        if (blob.includes("chart")) score += 10;
-        if (blob.includes("grafik")) score += 10;
-        if (blob.includes("signal")) score += 3;
-        if (blob.includes("candle")) score += 3;
-        if (rect.width >= 250) score += 3;
-        if (rect.height >= 180) score += 3;
-        if (rect.top > 100 && rect.top < 1400) score += 2;
-
-        return {
-          src,
-          absSrc: absUrl(src),
-          width: rect.width,
-          height: rect.height,
-          top: rect.top,
-          score,
-        };
-      })
-      .filter((x) => x.absSrc && x.width >= 200 && x.height >= 150)
-      .sort((a, b) => b.score - a.score);
-
-    return scored[0] || null;
-  }, detailUrl);
-
-  return result?.absSrc || null;
-}
-
-async function captureChartByScreenshot(page, ticker) {
-  ensureDir(DOWNLOAD_DIR);
-
-  const safeTicker = ticker.replace(/[^\w.-]/g, "_");
-  const outPath = path.join(DOWNLOAD_DIR, `${safeTicker}.png`);
-
-  const handle = await page.evaluateHandle(() => {
-    const imgs = Array.from(document.querySelectorAll("img"));
-
-    const scored = imgs
-      .map((img) => {
-        const rect = img.getBoundingClientRect();
-        const src = img.getAttribute("src") || "";
-        const id = img.getAttribute("id") || "";
-        const cls = img.getAttribute("class") || "";
-        const text = `${src} ${id} ${cls}`.toLowerCase();
-
-        let score = 0;
-        if (text.includes("chart")) score += 10;
-        if (text.includes("grafik")) score += 10;
-        if (rect.width >= 250) score += 3;
-        if (rect.height >= 180) score += 3;
-
-        return { img, score, width: rect.width, height: rect.height };
-      })
-      .filter((x) => x.width >= 200 && x.height >= 150)
-      .sort((a, b) => b.score - a.score);
-
-    return scored[0]?.img || null;
+    return best;
   });
 
   const el = handle.asElement();
   if (!el) return null;
 
-  await el.screenshot({ path: outPath });
-  return outPath;
+  const box = await el.boundingBox();
+  return box || null;
+}
+
+async function captureChartCrop(page, ticker) {
+  ensureDir(OUT_DIR);
+
+  const safeTicker = ticker.replace(/[^\w.-]/g, "_");
+  const fullPath = path.join(OUT_DIR, `${safeTicker}_full.png`);
+  const cropPath = path.join(OUT_DIR, `${safeTicker}.png`);
+
+  await page.screenshot({
+    path: fullPath,
+    fullPage: true,
+  });
+
+  const img = await Jimp.read(fullPath);
+  const pageWidth = img.bitmap.width;
+  const pageHeight = img.bitmap.height;
+
+  const headerBox = await findSignalHeaderBox(page);
+
+  let cropX = 8;
+  let cropY = 360;
+  let cropW = pageWidth - 16;
+  let cropH = 520;
+
+  if (headerBox) {
+    cropX = Math.max(0, Math.floor(headerBox.x) - 10);
+    cropY = Math.max(0, Math.floor(headerBox.y + headerBox.height + 5));
+    cropW = Math.min(pageWidth - cropX - 8, Math.max(260, Math.floor(pageWidth - cropX - 12)));
+    cropH = 560;
+  }
+
+  if (cropY + cropH > pageHeight) {
+    cropH = pageHeight - cropY - 10;
+  }
+
+  if (cropW < 200 || cropH < 150) {
+    return null;
+  }
+
+  img.crop(cropX, cropY, cropW, cropH);
+  await img.writeAsync(cropPath);
+
+  if (!fs.existsSync(cropPath) || fs.statSync(cropPath).size < 4000) {
+    return null;
+  }
+
+  return cropPath;
 }
 
 async function processTicker(browser, ticker) {
@@ -279,9 +277,16 @@ async function processTicker(browser, ticker) {
 
   try {
     await page.setUserAgent(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      "Mozilla/5.0 (Linux; Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
     );
-    await page.setViewport({ width: 1400, height: 2400 });
+
+    await page.setViewport({
+      width: 430,
+      height: 1400,
+      isMobile: true,
+      hasTouch: true,
+      deviceScaleFactor: 2,
+    });
 
     const detailUrl = `${DETAIL_URL}${encodeURIComponent(ticker)}`;
     await page.goto(detailUrl, {
@@ -291,25 +296,12 @@ async function processTicker(browser, ticker) {
 
     await sleep(2500);
     await acceptCookiesIfAny(page);
-    await page.evaluate(() => window.scrollTo(0, 250));
-    await sleep(1000);
+    await removeFixedAds(page);
 
-    ensureDir(DOWNLOAD_DIR);
-    const safeTicker = ticker.replace(/[^\w.-]/g, "_");
-    const outPath = path.join(DOWNLOAD_DIR, `${safeTicker}.png`);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await sleep(1200);
 
-    const imageUrl = await findChartImageUrl(page, detailUrl);
-
-    if (imageUrl) {
-      try {
-        await downloadImage(imageUrl, outPath);
-        if (fs.existsSync(outPath) && fs.statSync(outPath).size > 5000) {
-          return outPath;
-        }
-      } catch {}
-    }
-
-    return await captureChartByScreenshot(page, ticker);
+    return await captureChartCrop(page, ticker);
   } finally {
     await page.close().catch(() => {});
   }
@@ -320,19 +312,27 @@ async function main() {
     throw new Error("TELEGRAM_BOT_TOKEN veya TELEGRAM_CHAT_ID eksik.");
   }
 
-  ensureDir(DOWNLOAD_DIR);
+  ensureDir(OUT_DIR);
 
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    defaultViewport: { width: 1400, height: 2400 },
   });
 
   try {
     const page = await browser.newPage();
+
     await page.setUserAgent(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      "Mozilla/5.0 (Linux; Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
     );
+
+    await page.setViewport({
+      width: 430,
+      height: 1400,
+      isMobile: true,
+      hasTouch: true,
+      deviceScaleFactor: 2,
+    });
 
     await page.goto(URL, {
       waitUntil: "networkidle2",
@@ -365,7 +365,9 @@ async function main() {
         const imagePath = await processTicker(browser, ticker);
 
         if (!imagePath || !fs.existsSync(imagePath)) {
-          await telegramSendMessage(`<b>${escapeHtml(ticker)}</b>\nGrafik resmi alınamadı.`);
+          await telegramSendMessage(
+            `<b>${escapeHtml(ticker)}</b>\nGrafik kırpılamadı.`
+          );
         } else {
           await telegramSendPhoto(imagePath, `<b>${escapeHtml(ticker)}</b>`);
         }
@@ -389,7 +391,7 @@ main().catch(async (err) => {
       await telegramSendMessage(
         `Bot hata verdi:\n<code>${escapeHtml(err.message || String(err))}</code>`
       );
-    } catch {}
+    } catch (_) {}
   }
   process.exit(1);
 });
