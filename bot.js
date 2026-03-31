@@ -11,7 +11,7 @@ const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=I
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
 const SCREENSHOT_DIR = path.join(__dirname, "charts");
-const MAX_SYMBOLS = 80; // İstersen artırırız
+const MAX_SYMBOLS = 80;
 const WAIT_BETWEEN_SYMBOLS = 1500;
 
 function sleep(ms) {
@@ -59,44 +59,30 @@ async function telegramSendPhoto(photoPath, caption) {
 }
 
 async function autoScrollToBottom(page) {
-  let lastCount = 0;
-  let stableRounds = 0;
+  let lastHeight = 0;
+  let sameCount = 0;
 
-  for (let i = 0; i < 80; i++) {
-    const before = await page.evaluate(() => {
-      const rowTexts = Array.from(document.querySelectorAll("tr"))
-        .map((tr) => tr.innerText.replace(/\s+/g, " ").trim())
-        .filter(Boolean);
-      return rowTexts.length;
-    });
-
-    await page.evaluate(() => {
+  for (let i = 0; i < 100; i++) {
+    const currentHeight = await page.evaluate(() => {
       window.scrollTo(0, document.body.scrollHeight);
+      return document.body.scrollHeight;
     });
 
     await sleep(1800);
 
-    const after = await page.evaluate(() => {
-      const rowTexts = Array.from(document.querySelectorAll("tr"))
-        .map((tr) => tr.innerText.replace(/\s+/g, " ").trim())
-        .filter(Boolean);
-      return rowTexts.length;
-    });
-
-    if (after <= before && after === lastCount) {
-      stableRounds++;
+    if (currentHeight === lastHeight) {
+      sameCount++;
     } else {
-      stableRounds = 0;
+      sameCount = 0;
+      lastHeight = currentHeight;
     }
 
-    lastCount = after;
-
-    if (stableRounds >= 4) {
+    if (sameCount >= 4) {
       break;
     }
   }
 
-  await sleep(1500);
+  await sleep(1000);
 }
 
 async function extractTickers(page) {
@@ -130,14 +116,15 @@ async function extractTickers(page) {
         }
 
         ticker = normalizeTicker(ticker);
+
         if (/^[A-Z.]{2,10}$/.test(ticker)) {
           found.push(ticker);
         }
       }
     }
 
-    const trs = Array.from(document.querySelectorAll("tr"));
-    for (const tr of trs) {
+    const rows = Array.from(document.querySelectorAll("tr"));
+    for (const tr of rows) {
       const rowText = tr.innerText.replace(/\s+/g, " ").trim();
       if (!rowText) continue;
       if (!/al/i.test(rowText)) continue;
@@ -168,38 +155,93 @@ async function extractTickers(page) {
 }
 
 async function acceptCookiesIfAny(page) {
-  const possibleTexts = [
-    "Kabul",
-    "Accept",
-    "Tamam",
-    "I Agree",
-    "Anladım",
+  const possibleTexts = ["Kabul", "Accept", "Tamam", "I Agree", "Anladım"];
+
+  try {
+    const elements = await page.$$("button, a, input[type='button'], input[type='submit']");
+    for (const el of elements) {
+      const value = await page.evaluate((node) => {
+        return (node.innerText || node.textContent || node.value || "").trim();
+      }, el);
+
+      if (possibleTexts.some((t) => value.toLowerCase() === t.toLowerCase())) {
+        await el.click().catch(() => {});
+        await sleep(1000);
+        break;
+      }
+    }
+  } catch (_) {}
+}
+
+async function closeBottomAdsIfAny(page) {
+  const possibleSelectors = [
+    "div[style*='position: fixed'] .close",
+    "div[style*='position:fixed'] .close",
+    "div[style*='position: fixed'] button",
+    "div[style*='position:fixed'] button",
+    "div[style*='position: fixed'] a",
+    "div[style*='position:fixed'] a",
   ];
 
-  for (const text of possibleTexts) {
+  for (const selector of possibleSelectors) {
     try {
-      const elements = await page.$$("button, a, input[type='button'], input[type='submit']");
-      for (const el of elements) {
-        const value = await page.evaluate((node) => {
-          return (
-            node.innerText ||
-            node.textContent ||
-            node.value ||
-            ""
-          ).trim();
+      const list = await page.$$(selector);
+      for (const el of list) {
+        const text = await page.evaluate((node) => {
+          return (node.innerText || node.textContent || "").trim();
         }, el);
 
-        if (value && value.toLowerCase() === text.toLowerCase()) {
+        if (["×", "x", "X", "Kapat", "Close"].includes(text)) {
           await el.click().catch(() => {});
-          await sleep(1000);
+          await sleep(800);
           return;
         }
       }
     } catch (_) {}
   }
+
+  try {
+    await page.evaluate(() => {
+      const fixeds = Array.from(document.querySelectorAll("*")).filter((el) => {
+        const s = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        return (
+          s.position === "fixed" &&
+          rect.height > 40 &&
+          rect.width > 100 &&
+          rect.bottom >= window.innerHeight - 5
+        );
+      });
+
+      fixeds.forEach((el) => {
+        el.style.display = "none";
+      });
+    });
+  } catch (_) {}
 }
 
-async function findMiniChartElement(page) {
+async function hideNoise(page) {
+  try {
+    await page.evaluate(() => {
+      const hideByText = ["reklam", "advertisement", "sponsor"];
+      const all = Array.from(document.querySelectorAll("div, iframe, ins, aside"));
+
+      for (const el of all) {
+        const txt = (el.innerText || "").toLowerCase();
+        if (hideByText.some((t) => txt.includes(t))) {
+          el.style.display = "none";
+        }
+      }
+
+      const possible = document.querySelectorAll("iframe, ins");
+      possible.forEach((el) => {
+        el.style.display = "none";
+      });
+    });
+  } catch (_) {}
+}
+
+async function findMainChartElement(page) {
   const selectors = [
     "img[src*='chart']",
     "img[src*='Chart']",
@@ -208,29 +250,27 @@ async function findMiniChartElement(page) {
     "canvas",
     "#ContentPlaceHolder1_Image1",
     "#ContentPlaceHolder1_imgChart",
-    "table img",
-    ".chart img",
-    ".chart canvas",
   ];
 
   for (const selector of selectors) {
     try {
-      const el = await page.$(selector);
-      if (!el) continue;
+      const elements = await page.$$(selector);
 
-      const box = await el.boundingBox();
-      if (!box) continue;
-      if (box.width < 120 || box.height < 60) continue;
+      for (const el of elements) {
+        const box = await el.boundingBox();
+        if (!box) continue;
+        if (box.width < 250 || box.height < 180) continue;
 
-      return el;
+        return el;
+      }
     } catch (_) {}
   }
 
   try {
     const handle = await page.evaluateHandle(() => {
-      const all = Array.from(document.querySelectorAll("img, canvas"));
+      const elements = Array.from(document.querySelectorAll("img, canvas"));
 
-      const scored = all
+      const scored = elements
         .map((el) => {
           const rect = el.getBoundingClientRect();
           const src = (el.getAttribute && el.getAttribute("src")) || "";
@@ -239,15 +279,22 @@ async function findMiniChartElement(page) {
           const text = `${src} ${id} ${cls}`.toLowerCase();
 
           let score = 0;
-          if (text.includes("chart")) score += 6;
-          if (text.includes("grafik")) score += 6;
-          if (el.tagName.toLowerCase() === "canvas") score += 2;
-          if (rect.width >= 150) score += 1;
-          if (rect.height >= 70) score += 1;
 
-          return { el, score, width: rect.width, height: rect.height };
+          if (text.includes("chart")) score += 10;
+          if (text.includes("grafik")) score += 10;
+          if (el.tagName.toLowerCase() === "canvas") score += 3;
+          if (rect.width >= 300) score += 3;
+          if (rect.height >= 200) score += 3;
+
+          return {
+            el,
+            score,
+            width: rect.width,
+            height: rect.height,
+            top: rect.top,
+          };
         })
-        .filter((x) => x.width >= 120 && x.height >= 60)
+        .filter((x) => x.width >= 250 && x.height >= 180 && x.top > 50)
         .sort((a, b) => b.score - a.score);
 
       return scored[0]?.el || null;
@@ -260,18 +307,30 @@ async function findMiniChartElement(page) {
   return null;
 }
 
-async function captureMiniChart(page, ticker) {
+async function captureMainChart(page, ticker) {
   ensureDir(SCREENSHOT_DIR);
 
   const safeTicker = ticker.replace(/[^\w.-]/g, "_");
   const outPath = path.join(SCREENSHOT_DIR, `${safeTicker}.png`);
 
-  const chartEl = await findMiniChartElement(page);
-  if (!chartEl) {
-    return null;
-  }
+  const chartEl = await findMainChartElement(page);
+  if (!chartEl) return null;
 
-  await chartEl.screenshot({ path: outPath });
+  const box = await chartEl.boundingBox();
+  if (!box) return null;
+
+  const clip = {
+    x: Math.max(0, Math.floor(box.x - 8)),
+    y: Math.max(0, Math.floor(box.y - 8)),
+    width: Math.floor(box.width + 16),
+    height: Math.floor(box.height + 16),
+  };
+
+  await page.screenshot({
+    path: outPath,
+    clip,
+  });
+
   return outPath;
 }
 
@@ -283,7 +342,7 @@ async function processTicker(browser, ticker) {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     );
 
-    await page.setViewport({ width: 1440, height: 2200 });
+    await page.setViewport({ width: 1400, height: 2400 });
 
     const url = `${DETAIL_URL}${encodeURIComponent(ticker)}`;
     await page.goto(url, {
@@ -293,8 +352,13 @@ async function processTicker(browser, ticker) {
 
     await sleep(2500);
     await acceptCookiesIfAny(page);
+    await closeBottomAdsIfAny(page);
+    await hideNoise(page);
 
-    const imagePath = await captureMiniChart(page, ticker);
+    await page.evaluate(() => window.scrollTo(0, 250));
+    await sleep(1000);
+
+    const imagePath = await captureMainChart(page, ticker);
     return imagePath;
   } finally {
     await page.close().catch(() => {});
@@ -311,11 +375,12 @@ async function main() {
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    defaultViewport: { width: 1440, height: 2200 },
+    defaultViewport: { width: 1400, height: 2400 },
   });
 
   try {
     const page = await browser.newPage();
+
     await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     );
@@ -341,7 +406,7 @@ async function main() {
     });
 
     await telegramSendMessage(
-      `<b>Mini Grafik Taraması</b>\n` +
+      `<b>Turkishbulls Grafik Taraması</b>\n` +
       `Tarama zamanı: <b>${escapeHtml(now)}</b>\n` +
       `Bulunan hisse: <b>${tickers.length}</b>`
     );
@@ -351,15 +416,14 @@ async function main() {
         const imagePath = await processTicker(browser, ticker);
 
         if (!imagePath || !fs.existsSync(imagePath)) {
-          await telegramSendMessage(`<b>${escapeHtml(ticker)}</b>\nMini grafik bulunamadı.`);
+          await telegramSendMessage(
+            `<b>${escapeHtml(ticker)}</b>\nGrafik alanı bulunamadı.`
+          );
           await sleep(WAIT_BETWEEN_SYMBOLS);
           continue;
         }
 
-        await telegramSendPhoto(
-          imagePath,
-          `<b>${escapeHtml(ticker)}</b>`
-        );
+        await telegramSendPhoto(imagePath, `<b>${escapeHtml(ticker)}</b>`);
       } catch (err) {
         await telegramSendMessage(
           `<b>${escapeHtml(ticker)}</b>\nHata: <code>${escapeHtml(err.message || String(err))}</code>`
