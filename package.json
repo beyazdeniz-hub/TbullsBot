@@ -1,7 +1,7 @@
 {
   "name": "bistbot",
   "version": "1.0.0",
-  "description": "Turkishbulls grafik ekran görüntüsü botu",
+  "description": "Turkishbulls grafik yakalama botu",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
