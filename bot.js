@@ -3,17 +3,14 @@ const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 const FormData = require("form-data");
-const Jimp = require("jimp");
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB";
+const LIST_URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB";
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
-const OUT_DIR = path.join(__dirname, "charts");
-const MAX_SYMBOLS = 60;
-const WAIT_BETWEEN_SYMBOLS = 1200;
+const OUT_DIR = path.join(__dirname, "screens");
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -74,56 +71,34 @@ async function acceptCookiesIfAny(page) {
   } catch (_) {}
 }
 
-async function removeFixedAds(page) {
-  try {
-    await page.evaluate(() => {
-      const nodes = Array.from(document.querySelectorAll("*"));
-      for (const el of nodes) {
-        const s = window.getComputedStyle(el);
-        const rect = el.getBoundingClientRect();
-
-        const fixedBottom =
-          (s.position === "fixed" || s.position === "sticky") &&
-          rect.width > window.innerWidth * 0.5 &&
-          rect.height > 40 &&
-          rect.bottom >= window.innerHeight - 5;
-
-        const iframeLike = el.tagName === "IFRAME" || el.tagName === "INS";
-
-        if (fixedBottom || iframeLike) {
-          el.style.display = "none";
-        }
-      }
-    });
-  } catch (_) {}
-}
-
-async function autoScrollToBottom(page) {
+async function autoScrollList(page) {
   let lastHeight = 0;
-  let stable = 0;
+  let stableCount = 0;
 
-  for (let i = 0; i < 100; i++) {
-    const h = await page.evaluate(() => {
+  for (let i = 0; i < 60; i++) {
+    const currentHeight = await page.evaluate(() => {
       window.scrollTo(0, document.body.scrollHeight);
       return document.body.scrollHeight;
     });
 
-    await sleep(1700);
+    await sleep(1500);
 
-    if (h === lastHeight) stable++;
-    else {
-      stable = 0;
-      lastHeight = h;
+    if (currentHeight === lastHeight) {
+      stableCount++;
+    } else {
+      stableCount = 0;
+      lastHeight = currentHeight;
     }
 
-    if (stable >= 4) break;
+    if (stableCount >= 3) break;
   }
 
-  await sleep(1000);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await sleep(1200);
 }
 
-async function extractTickers(page) {
-  const tickers = await page.evaluate(() => {
+async function getFirstTicker(page) {
+  const ticker = await page.evaluate(() => {
     const normalizeTicker = (text) =>
       String(text || "")
         .trim()
@@ -135,26 +110,20 @@ async function extractTickers(page) {
         .replace(/Ş/g, "S")
         .replace(/Ü/g, "U");
 
-    const found = [];
-
     const links = Array.from(document.querySelectorAll("a"));
+
     for (const a of links) {
       const href = a.getAttribute("href") || "";
       const text = (a.textContent || "").trim();
 
       if (/SignalPage\.aspx/i.test(href) || /Ticker=/i.test(href)) {
-        let ticker = null;
         const match = href.match(/Ticker=([^&]+)/i);
-
         if (match && match[1]) {
-          ticker = decodeURIComponent(match[1]);
-        } else if (/^[A-ZÇĞİÖŞÜ.]{2,10}$/.test(text)) {
-          ticker = text;
+          return normalizeTicker(decodeURIComponent(match[1]));
         }
 
-        ticker = normalizeTicker(ticker);
-        if (/^[A-Z.]{2,10}$/.test(ticker)) {
-          found.push(ticker);
+        if (/^[A-ZÇĞİÖŞÜ.]{2,10}$/.test(text)) {
+          return normalizeTicker(text);
         }
       }
     }
@@ -166,90 +135,15 @@ async function extractTickers(page) {
       if (!/al/i.test(rowText)) continue;
 
       const candidates = rowText.match(/\b[A-ZÇĞİÖŞÜ]{2,10}\b/g) || [];
-      for (const c of candidates) {
-        const ticker = normalizeTicker(c);
-        if (/^[A-Z.]{2,10}$/.test(ticker)) {
-          found.push(ticker);
-        }
+      if (candidates.length > 0) {
+        return normalizeTicker(candidates[0]);
       }
     }
 
-    return [...new Set(found)];
+    return null;
   });
 
-  return tickers.slice(0, MAX_SYMBOLS);
-}
-
-async function cropChartFromTopScreenshot(page, ticker) {
-  ensureDir(OUT_DIR);
-
-  const safeTicker = ticker.replace(/[^\w.-]/g, "_");
-  const fullPath = path.join(OUT_DIR, `${safeTicker}_top.png`);
-  const cropPath = path.join(OUT_DIR, `${safeTicker}.png`);
-
-  await page.screenshot({
-    path: fullPath,
-    fullPage: false,
-  });
-
-  const img = await Jimp.read(fullPath);
-  const w = img.bitmap.width;
-  const h = img.bitmap.height;
-
-  // Mobil görünüm için sabit kırpma
-  // Senin gönderdiğin ekran görüntüsüne göre ayarlandı.
-  const cropX = Math.floor(w * 0.02);
-  const cropY = Math.floor(h * 0.23);
-  const cropW = Math.floor(w * 0.96);
-  const cropH = Math.floor(h * 0.47);
-
-  if (cropW < 200 || cropH < 150) {
-    return null;
-  }
-
-  img.crop(cropX, cropY, cropW, cropH);
-  await img.writeAsync(cropPath);
-
-  if (!fs.existsSync(cropPath) || fs.statSync(cropPath).size < 4000) {
-    return null;
-  }
-
-  return cropPath;
-}
-
-async function processTicker(browser, ticker) {
-  const page = await browser.newPage();
-
-  try {
-    await page.setUserAgent(
-      "Mozilla/5.0 (Linux; Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
-    );
-
-    await page.setViewport({
-      width: 430,
-      height: 1600,
-      isMobile: true,
-      hasTouch: true,
-      deviceScaleFactor: 2,
-    });
-
-    const detailUrl = `${DETAIL_URL}${encodeURIComponent(ticker)}`;
-    await page.goto(detailUrl, {
-      waitUntil: "networkidle2",
-      timeout: 120000,
-    });
-
-    await sleep(2500);
-    await acceptCookiesIfAny(page);
-    await removeFixedAds(page);
-
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await sleep(1200);
-
-    return await cropChartFromTopScreenshot(page, ticker);
-  } finally {
-    await page.close().catch(() => {});
-  }
+  return ticker;
 }
 
 async function main() {
@@ -279,51 +173,65 @@ async function main() {
       deviceScaleFactor: 2,
     });
 
-    await page.goto(URL, {
+    await telegramSendMessage("<b>Test başladı</b>\nListe sayfasına gidiliyor.");
+
+    await page.goto(LIST_URL, {
       waitUntil: "networkidle2",
       timeout: 120000,
     });
 
     await sleep(3000);
     await acceptCookiesIfAny(page);
-    await autoScrollToBottom(page);
+    await autoScrollList(page);
 
-    const tickers = await extractTickers(page);
+    const ticker = await getFirstTicker(page);
 
-    if (!tickers.length) {
-      await telegramSendMessage("Hiç hisse bulunamadı.");
-      return;
+    if (!ticker) {
+      throw new Error("İlk hisse bulunamadı.");
     }
-
-    const now = new Date().toLocaleString("tr-TR", {
-      timeZone: "Europe/Istanbul",
-    });
 
     await telegramSendMessage(
-      `<b>Turkishbulls Grafik Taraması</b>\n` +
-      `Tarama zamanı: <b>${escapeHtml(now)}</b>\n` +
-      `Bulunan hisse: <b>${tickers.length}</b>`
+      `<b>İlk hisse bulundu</b>\nTicker: <b>${escapeHtml(ticker)}</b>`
     );
 
-    for (const ticker of tickers) {
-      try {
-        const imagePath = await processTicker(browser, ticker);
+    const detailPage = await browser.newPage();
 
-        if (!imagePath || !fs.existsSync(imagePath)) {
-          await telegramSendMessage(
-            `<b>${escapeHtml(ticker)}</b>\nGrafik alınamadı.`
-          );
-        } else {
-          await telegramSendPhoto(imagePath, `<b>${escapeHtml(ticker)}</b>`);
-        }
-      } catch (err) {
-        await telegramSendMessage(
-          `<b>${escapeHtml(ticker)}</b>\nHata: <code>${escapeHtml(err.message || String(err))}</code>`
-        );
-      }
+    await detailPage.setUserAgent(
+      "Mozilla/5.0 (Linux; Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+    );
 
-      await sleep(WAIT_BETWEEN_SYMBOLS);
-    }
+    await detailPage.setViewport({
+      width: 430,
+      height: 1600,
+      isMobile: true,
+      hasTouch: true,
+      deviceScaleFactor: 2,
+    });
+
+    const detailUrl = `${DETAIL_URL}${encodeURIComponent(ticker)}`;
+
+    await detailPage.goto(detailUrl, {
+      waitUntil: "networkidle2",
+      timeout: 120000,
+    });
+
+    await sleep(5000);
+    await acceptCookiesIfAny(detailPage);
+    await sleep(2000);
+
+    const filePath = path.join(OUT_DIR, `${ticker}_detail_full.png`);
+
+    await detailPage.screenshot({
+      path: filePath,
+      fullPage: true,
+    });
+
+    await telegramSendPhoto(
+      filePath,
+      `<b>Test ekran görüntüsü</b>\nHisse: <b>${escapeHtml(ticker)}</b>`
+    );
+
+    await detailPage.close().catch(() => {});
   } finally {
     await browser.close().catch(() => {});
   }
