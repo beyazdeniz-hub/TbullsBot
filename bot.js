@@ -11,7 +11,7 @@ const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=I
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function sendTelegramMessage(text) {
@@ -44,6 +44,7 @@ async function getFirstTicker(page) {
 
   const ticker = await page.evaluate(() => {
     const links = Array.from(document.querySelectorAll("a"));
+
     for (const a of links) {
       const href = a.getAttribute("href") || "";
       const text = (a.textContent || "").trim().toUpperCase();
@@ -51,17 +52,14 @@ async function getFirstTicker(page) {
       if (
         text &&
         /^[A-ZÇĞİÖŞÜ]{2,10}$/.test(text) &&
-        (
-          href.includes("SignalPage.aspx") ||
-          href.includes("Ticker=")
-        )
+        (href.includes("SignalPage.aspx") || href.includes("Ticker="))
       ) {
         return text;
       }
     }
 
     const bodyText = document.body.innerText || "";
-    const lines = bodyText.split("\n").map(x => x.trim()).filter(Boolean);
+    const lines = bodyText.split("\n").map((x) => x.trim()).filter(Boolean);
 
     for (const line of lines) {
       const t = line.toUpperCase();
@@ -114,9 +112,9 @@ async function captureChart(page, ticker) {
           bestArea = area;
           best = {
             x: Math.max(0, r.x),
-            y: Math.max(0, r.y - 40),
+            y: Math.max(0, r.y - 80),
             width: Math.min(r.width + 20, window.innerWidth - Math.max(0, r.x)),
-            height: Math.min(r.height + 90, window.innerHeight - Math.max(0, r.y - 40))
+            height: Math.min(r.height + 120, window.innerHeight - Math.max(0, r.y - 80)),
           };
         }
       }
@@ -139,16 +137,21 @@ async function captureChart(page, ticker) {
   if (!clip) {
     clip = {
       x: 0,
-      y: 70,      // yukarı çektik
+      y: 40,
       width: 950,
-      height: 520
+      height: 390,
     };
   }
 
   const vp = page.viewport();
+
+  if (clip.x < 0) clip.x = 0;
+  if (clip.y < 0) clip.y = 0;
+
   if (clip.x + clip.width > vp.width) {
     clip.width = vp.width - clip.x;
   }
+
   if (clip.y + clip.height > vp.height) {
     clip.height = vp.height - clip.y;
   }
@@ -192,7 +195,7 @@ async function main() {
       "accept-language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
     });
 
-    await sendTelegramMessage("İlk hisse detay sayfası açılıyor, grafik alınıyor...");
+    await sendTelegramMessage("İlk hisse detay sayfası açılıyor, grafik daha yukarıdan alınacak...");
 
     const ticker = await getFirstTicker(page);
 
