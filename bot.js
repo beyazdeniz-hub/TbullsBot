@@ -218,11 +218,11 @@ async function main() {
     await detailPage.screenshot({
       path: cropPath,
       clip: {
-        x: 10,
-        y: 180,
-        width: 410,
-        height: 900,
-      },
+  x: 10,
+  y: 320,
+  width: 410,
+  height: 700,
+},
     });
 
     await telegramSendPhoto(
