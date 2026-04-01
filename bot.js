@@ -53,7 +53,7 @@ async function telegramSendPhoto(photoPath, caption) {
 }
 
 async function acceptCookiesIfAny(page) {
-  const possibleTexts = ["Kabul", "Accept", "Tamam", "I Agree", "Anladım"];
+  const possibleTexts = ["Kabul", "Accept", "Tamam", "I Agree", "Anladım", "Reddet"];
 
   try {
     const elements = await page.$$("button, a, input[type='button'], input[type='submit']");
@@ -65,7 +65,6 @@ async function acceptCookiesIfAny(page) {
       if (possibleTexts.some((t) => value.toLowerCase() === t.toLowerCase())) {
         await el.click().catch(() => {});
         await sleep(1000);
-        break;
       }
     }
   } catch (_) {}
@@ -160,7 +159,7 @@ async function main() {
       deviceScaleFactor: 2,
     });
 
-    await telegramSendMessage("<b>Test başladı</b>\nİlk hisse bulunup grafik alanı kırpılacak.");
+    await telegramSendMessage("<b>Test başladı</b>\nİlk hisse için sadece grafik alanı gönderilecek.");
 
     await page.goto(LIST_URL, {
       waitUntil: "networkidle2",
@@ -201,38 +200,24 @@ async function main() {
     await acceptCookiesIfAny(detailPage);
     await sleep(2000);
 
-    // Sayfayı biraz aşağı kaydırıyoruz ki grafik alanı ortalara gelsin
-    await detailPage.evaluate(() => window.scrollTo(0, 350));
+    await detailPage.evaluate(() => window.scrollTo(0, 300));
     await sleep(2000);
 
-    const fullPath = path.join(OUT_DIR, `${ticker}_full.png`);
-    const cropPath = path.join(OUT_DIR, `${ticker}_chart.png`);
+    const cropPath = path.join(OUT_DIR, `${ticker}_chart_only.png`);
 
-    // Önce kontrol için mevcut görünümü al
-    await detailPage.screenshot({
-      path: fullPath,
-      fullPage: false,
-    });
-
-    // Sonra sadece orta-alt grafik alanını kırp
     await detailPage.screenshot({
       path: cropPath,
       clip: {
-  x: 10,
-  y: 320,
-  width: 410,
-  height: 700,
-},
+        x: 15,
+        y: 300,
+        width: 390,
+        height: 620,
+      },
     });
 
     await telegramSendPhoto(
-      fullPath,
-      `<b>Kontrol ekranı</b>\nHisse: <b>${escapeHtml(ticker)}</b>`
-    );
-
-    await telegramSendPhoto(
       cropPath,
-      `<b>Kırpılmış alan</b>\nHisse: <b>${escapeHtml(ticker)}</b>`
+      `<b>Sadece grafik alanı</b>\nHisse: <b>${escapeHtml(ticker)}</b>`
     );
 
     await detailPage.close().catch(() => {});
