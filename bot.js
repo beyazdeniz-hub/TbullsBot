@@ -77,7 +77,6 @@ async function getFirstTicker(page) {
 async function captureChart(page, ticker) {
   const detailUrl = `${DETAIL_URL}${encodeURIComponent(ticker)}`;
   await page.goto(detailUrl, { waitUntil: "networkidle2", timeout: 120000 });
-  await sleep(7000);
 
   await page.setViewport({
     width: 1000,
@@ -85,7 +84,11 @@ async function captureChart(page, ticker) {
     deviceScaleFactor: 1,
   });
 
-  await sleep(2000);
+  await sleep(8000);
+
+  // Sayfa en üste alınsın ki koordinat sabit çalışsın
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await sleep(1500);
 
   const outputDir = path.join(__dirname, "tmp");
   if (!fs.existsSync(outputDir)) {
@@ -94,54 +97,14 @@ async function captureChart(page, ticker) {
 
   const photoPath = path.join(outputDir, `${ticker}_chart.png`);
 
-  let clip = null;
-
-  try {
-    const svgBox = await page.evaluate(() => {
-      const svgs = Array.from(document.querySelectorAll("svg"));
-      if (!svgs.length) return null;
-
-      let best = null;
-      let bestArea = 0;
-
-      for (const svg of svgs) {
-        const r = svg.getBoundingClientRect();
-        const area = r.width * r.height;
-
-        if (r.width > 300 && r.height > 150 && area > bestArea) {
-          bestArea = area;
-          best = {
-            x: Math.max(0, r.x),
-            y: Math.max(0, r.y - 80),
-            width: Math.min(r.width + 20, window.innerWidth - Math.max(0, r.x)),
-            height: Math.min(r.height + 120, window.innerHeight - Math.max(0, r.y - 80)),
-          };
-        }
-      }
-
-      return best;
-    });
-
-    if (svgBox) {
-      clip = {
-        x: Math.round(svgBox.x),
-        y: Math.round(svgBox.y),
-        width: Math.round(svgBox.width),
-        height: Math.round(svgBox.height),
-      };
-    }
-  } catch (e) {
-    console.log("SVG alanı alınamadı, sabit clip kullanılacak.");
-  }
-
-  if (!clip) {
-    clip = {
-      x: 0,
-      y: 40,
-      width: 950,
-      height: 390,
-    };
-  }
+  // SADECE sabit kırpma kullanılacak
+  // Üstü daha yukarı aldım
+  const clip = {
+    x: 0,
+    y: 10,
+    width: 950,
+    height: 420,
+  };
 
   const vp = page.viewport();
 
@@ -195,7 +158,7 @@ async function main() {
       "accept-language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
     });
 
-    await sendTelegramMessage("İlk hisse detay sayfası açılıyor, grafik daha yukarıdan alınacak...");
+    await sendTelegramMessage("İlk hisse açılıyor, sabit koordinatla daha yukarıdan ekran alınacak...");
 
     const ticker = await getFirstTicker(page);
 
