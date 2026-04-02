@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const axios = require("axios");
 const fs = require("fs");
+const FormData = require("form-data");
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -13,7 +14,6 @@ function sleep(ms) {
 }
 
 async function sendTelegramPhoto(filePath, caption = "") {
-  const FormData = require("form-data");
   const form = new FormData();
   form.append("chat_id", CHAT_ID);
   form.append("caption", caption);
@@ -32,53 +32,6 @@ async function sendTelegramMessage(text) {
   });
 }
 
-async function autoScrollToBottom(page) {
-  let lastHeight = 0;
-  let stableCount = 0;
-
-  for (let i = 0; i < 40; i++) {
-    await page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight * 1.5);
-    });
-
-    await sleep(1200);
-
-    const info = await page.evaluate(() => {
-      return {
-        scrollY: window.scrollY,
-        innerHeight: window.innerHeight,
-        bodyHeight: document.body.scrollHeight,
-      };
-    });
-
-    if (info.bodyHeight === lastHeight) {
-      stableCount++;
-    } else {
-      stableCount = 0;
-      lastHeight = info.bodyHeight;
-    }
-
-    if (stableCount >= 4) break;
-  }
-
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await sleep(1200);
-}
-
-async function getFirstTicker(page) {
-  const ticker = await page.evaluate(() => {
-    const links = Array.from(document.querySelectorAll("a[href*='SignalPage.aspx?lang=tr&Ticker=']"));
-    for (const a of links) {
-      const href = a.getAttribute("href") || "";
-      const m = href.match(/Ticker=([^&]+)/i);
-      if (m && m[1]) return m[1].trim().toUpperCase();
-    }
-    return null;
-  });
-
-  return ticker;
-}
-
 async function closePopups(page) {
   const texts = [
     "Kabul",
@@ -87,15 +40,18 @@ async function closePopups(page) {
     "Anladım",
     "Got it",
     "Close",
-    "Kapat"
+    "Kapat",
+    "I Agree",
+    "Allow",
+    "Onayla"
   ];
 
   try {
-    const buttons = await page.$$("button, a, div[role='button']");
+    const buttons = await page.$$("button, a, div[role='button'], span[role='button']");
     for (const btn of buttons) {
       try {
-        const txt = await page.evaluate(el => (el.innerText || "").trim(), btn);
-        if (texts.some(t => txt.includes(t))) {
+        const txt = await page.evaluate((el) => (el.innerText || el.textContent || "").trim(), btn);
+        if (texts.some((t) => txt.toLowerCase().includes(t.toLowerCase()))) {
           await btn.click().catch(() => {});
           await sleep(500);
         }
@@ -104,15 +60,311 @@ async function closePopups(page) {
   } catch {}
 }
 
+async function autoScrollToBottom(page) {
+  let lastHeight = 0;
+  let stableCount = 0;
+
+  for (let i = 0; i < 50; i++) {
+    await page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight * 1.6);
+    });
+
+    await sleep(1300);
+
+    const info = await page.evaluate(() => ({
+      scrollY: window.scrollY,
+      innerHeight: window.innerHeight,
+      bodyHeight: Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      ),
+    }));
+
+    if (info.bodyHeight === lastHeight) {
+      stableCount++;
+    } else {
+      stableCount = 0;
+      lastHeight = info.bodyHeight;
+    }
+
+    if (stableCount >= 5) break;
+  }
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await sleep(1200);
+}
+
+async function getFirstTicker(page) {
+  return await page.evaluate(() => {
+    const links = Array.from(
+      document.querySelectorAll("a[href*='SignalPage.aspx?lang=tr&Ticker=']")
+    );
+
+    for (const a of links) {
+      const href = a.getAttribute("href") || "";
+      const match = href.match(/Ticker=([^&]+)/i);
+      if (match && match[1]) {
+        return match[1].trim().toUpperCase();
+      }
+    }
+    return null;
+  });
+}
+
+async function waitForChartContent(page) {
+  for (let i = 0; i < 15; i++) {
+    const info = await page.evaluate(() => {
+      const svgs = document.querySelectorAll("svg").length;
+      const canvases = document.querySelectorAll("canvas").length;
+      const imgs = document.querySelectorAll("img").length;
+      return { svgs, canvases, imgs };
+    });
+
+    if (info.svgs > 0 || info.canvases > 0 || info.imgs > 0) {
+      return true;
+    }
+
+    await sleep(1000);
+  }
+
+  return false;
+}
+
+async function findBestChartClip(page) {
+  const result = await page.evaluate(() => {
+    function rectObj(el) {
+      const r = el.getBoundingClientRect();
+      return {
+        x: r.left + window.scrollX,
+        y: r.top + window.scrollY,
+        width: r.width,
+        height: r.height,
+      };
+    }
+
+    function visibleEnough(r) {
+      return r.width >= 250 && r.height >= 120;
+    }
+
+    function scoreRect(r) {
+      let score = 0;
+      score += Math.min(r.width, 1200);
+      score += Math.min(r.height * 2, 1000);
+
+      if (r.width >= 600) score += 400;
+      if (r.height >= 250) score += 300;
+
+      return score;
+    }
+
+    const candidates = [];
+
+    // 1) En güçlü aday: Mozilla'da gördüğün rect benzeri alan
+    const rects = Array.from(document.querySelectorAll("svg rect"));
+    for (const rect of rects) {
+      const w = Number(rect.getAttribute("width") || 0);
+      const h = Number(rect.getAttribute("height") || 0);
+      const fill = (rect.getAttribute("fill") || "").toLowerCase();
+      const opacity = Number(rect.getAttribute("opacity") || 1);
+
+      const looksLikeChartHitbox =
+        (w >= 600 && h >= 250) ||
+        (w === 647 && h === 296) ||
+        (fill.includes("gray") && opacity <= 0.05 && w >= 500 && h >= 200);
+
+      if (!looksLikeChartHitbox) continue;
+
+      const svg = rect.closest("svg");
+      if (!svg) continue;
+
+      const r = rectObj(svg);
+      if (!visibleEnough(r)) continue;
+
+      candidates.push({
+        type: "svg-rect-parent",
+        x: r.x,
+        y: r.y,
+        width: r.width,
+        height: r.height,
+        score: scoreRect(r) + 2000,
+      });
+    }
+
+    // 2) Büyük SVG alanları
+    const svgs = Array.from(document.querySelectorAll("svg"));
+    for (const svg of svgs) {
+      const r = rectObj(svg);
+      if (!visibleEnough(r)) continue;
+
+      candidates.push({
+        type: "svg",
+        x: r.x,
+        y: r.y,
+        width: r.width,
+        height: r.height,
+        score: scoreRect(r) + 1000,
+      });
+    }
+
+    // 3) Canvas alanları
+    const canvases = Array.from(document.querySelectorAll("canvas"));
+    for (const canvas of canvases) {
+      const r = rectObj(canvas);
+      if (!visibleEnough(r)) continue;
+
+      candidates.push({
+        type: "canvas",
+        x: r.x,
+        y: r.y,
+        width: r.width,
+        height: r.height,
+        score: scoreRect(r) + 800,
+      });
+    }
+
+    // 4) Büyük resimler
+    const imgs = Array.from(document.querySelectorAll("img"));
+    for (const img of imgs) {
+      const r = rectObj(img);
+      if (!visibleEnough(r)) continue;
+
+      candidates.push({
+        type: "img",
+        x: r.x,
+        y: r.y,
+        width: r.width,
+        height: r.height,
+        score: scoreRect(r) + 500,
+      });
+    }
+
+    // 5) Genel büyük bloklar
+    const blocks = Array.from(document.querySelectorAll("div, section, article, td"));
+    for (const el of blocks) {
+      const r = rectObj(el);
+      if (r.width < 600 || r.height < 220) continue;
+
+      const text = (el.innerText || "").toLowerCase();
+      const html = (el.innerHTML || "").toLowerCase();
+
+      let bonus = 0;
+      if (text.includes("grafik")) bonus += 300;
+      if (text.includes("chart")) bonus += 300;
+      if (html.includes("<svg")) bonus += 500;
+      if (html.includes("<canvas")) bonus += 500;
+
+      if (bonus <= 0) continue;
+
+      candidates.push({
+        type: "block",
+        x: r.x,
+        y: r.y,
+        width: r.width,
+        height: r.height,
+        score: scoreRect(r) + bonus,
+      });
+    }
+
+    if (!candidates.length) {
+      return {
+        found: false,
+        debug: {
+          svgCount: document.querySelectorAll("svg").length,
+          canvasCount: document.querySelectorAll("canvas").length,
+          imgCount: document.querySelectorAll("img").length,
+        },
+      };
+    }
+
+    candidates.sort((a, b) => b.score - a.score);
+    const best = candidates[0];
+
+    const paddingX = 20;
+    const paddingY = 20;
+
+    const finalRect = {
+      x: Math.max(0, Math.round(best.x - paddingX)),
+      y: Math.max(0, Math.round(best.y - paddingY)),
+      width: Math.round(best.width + paddingX * 2),
+      height: Math.round(best.height + paddingY * 2),
+      type: best.type,
+      raw: best,
+    };
+
+    return {
+      found: true,
+      rect: finalRect,
+      allTop: candidates.slice(0, 5),
+    };
+  });
+
+  return result;
+}
+
+async function takeClippedScreenshot(page, clipInfo, outputPath) {
+  const viewport = page.viewport() || { width: 1600, height: 1200 };
+
+  const pageSize = await page.evaluate(() => ({
+    width: Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth
+    ),
+    height: Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    ),
+  }));
+
+  const safeX = Math.max(0, clipInfo.x);
+  const safeY = Math.max(0, clipInfo.y);
+
+  const safeWidth = Math.min(
+    clipInfo.width,
+    Math.max(0, pageSize.width - safeX),
+    Math.max(0, viewport.width - 0 + 99999)
+  );
+
+  const safeHeight = Math.min(
+    clipInfo.height,
+    Math.max(0, pageSize.height - safeY)
+  );
+
+  if (safeWidth < 50 || safeHeight < 50) {
+    throw new Error(`Geçersiz kırpma alanı: X:${safeX} Y:${safeY} W:${safeWidth} H:${safeHeight}`);
+  }
+
+  await page.screenshot({
+    path: outputPath,
+    clip: {
+      x: safeX,
+      y: safeY,
+      width: safeWidth,
+      height: safeHeight,
+    },
+  });
+
+  return {
+    x: safeX,
+    y: safeY,
+    width: safeWidth,
+    height: safeHeight,
+  };
+}
+
 async function main() {
   if (!TOKEN || !CHAT_ID) {
     throw new Error("TELEGRAM_BOT_TOKEN veya TELEGRAM_CHAT_ID eksik.");
   }
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: "new",
     defaultViewport: null,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--start-maximized",
+    ],
   });
 
   try {
@@ -131,8 +383,8 @@ async function main() {
     );
 
     await sendTelegramMessage("Liste açılıyor...");
-    await page.goto(LIST_URL, { waitUntil: "networkidle2", timeout: 120000 });
-    await sleep(3000);
+    await page.goto(LIST_URL, { waitUntil: "domcontentloaded", timeout: 120000 });
+    await sleep(4000);
 
     await closePopups(page);
     await autoScrollToBottom(page);
@@ -140,8 +392,9 @@ async function main() {
     const firstTicker = await getFirstTicker(page);
 
     if (!firstTicker) {
-      await page.screenshot({ path: "liste_hata.png", fullPage: true });
-      await sendTelegramPhoto("liste_hata.png", "İlk hisse bulunamadı.");
+      const listFail = "liste_hata.png";
+      await page.screenshot({ path: listFail, fullPage: true });
+      await sendTelegramPhoto(listFail, "İlk hisse bulunamadı.");
       throw new Error("İlk ticker bulunamadı.");
     }
 
@@ -163,80 +416,49 @@ async function main() {
 
     const detailUrl = DETAIL_URL + encodeURIComponent(firstTicker);
 
-    await detailPage.goto(detailUrl, { waitUntil: "networkidle2", timeout: 120000 });
+    await sendTelegramMessage(`Detay açılıyor: ${detailUrl}`);
+    await detailPage.goto(detailUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: 120000,
+    });
+
     await sleep(5000);
     await closePopups(detailPage);
-    await sleep(1500);
+    await sleep(2000);
+    await waitForChartContent(detailPage);
+    await sleep(2000);
 
-    // Önce tam ekran görüntüsü
     const fullPath = "detail_full.png";
     await detailPage.screenshot({ path: fullPath, fullPage: true });
     await sendTelegramPhoto(fullPath, `${firstTicker} detay sayfası tam ekran`);
 
-    // BURASI KRİTİK:
-    // Daha önce kestiği alanı komple yukarı taşıyoruz.
-    // Yükseklik aynı kalıyor, sadece y küçülüyor.
-    //
-    // Eski mantık örneği:
-    // y = 430
-    // height = 320
-    //
-    // Yeni mantık:
-    // y = 350   -> 80 px yukarı taşındı
-    // height = 320
-    //
-    // Böylece hem üst hem alt koordinat yukarı kaymış olur.
-    const clipX = 130;
-    const clipY = 250;   // ESKİYE GÖRE YUKARI ALINDI
-    const clipWidth = 900;
-    const clipHeight = 320; // AYNI TUTULDU
+    const clipResult = await findBestChartClip(detailPage);
 
-    const viewport = detailPage.viewport();
-    const pageSize = await detailPage.evaluate(() => ({
-      bodyWidth: Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth
-      ),
-      bodyHeight: Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-      ),
-    }));
-
-    const safeX = Math.max(0, clipX);
-    const safeY = Math.max(0, clipY);
-    const maxWidth = Math.min(
-      clipWidth,
-      Math.max(0, (viewport?.width || 1600) - safeX),
-      Math.max(0, pageSize.bodyWidth - safeX)
-    );
-    const maxHeight = Math.min(
-      clipHeight,
-      Math.max(0, pageSize.bodyHeight - safeY)
-    );
-
-    if (maxWidth < 50 || maxHeight < 50) {
+    if (!clipResult.found) {
       await sendTelegramMessage(
-        `Kırpma alanı geçersiz oldu.\nX:${safeX} Y:${safeY} W:${maxWidth} H:${maxHeight}`
+        `Grafik alanı DOM'dan bulunamadı.\nSVG:${clipResult.debug.svgCount} CANVAS:${clipResult.debug.canvasCount} IMG:${clipResult.debug.imgCount}`
       );
-      throw new Error("Kırpma alanı geçersiz.");
+      throw new Error("Grafik alanı bulunamadı.");
     }
 
-    const cropPath = "detail_crop.png";
+    const rect = clipResult.rect;
 
-    await detailPage.screenshot({
-      path: cropPath,
-      clip: {
-        x: safeX,
-        y: safeY,
-        width: maxWidth,
-        height: maxHeight,
-      },
-    });
+    await detailPage.evaluate((y) => {
+      window.scrollTo(0, Math.max(0, y - 120));
+    }, rect.y);
+
+    await sleep(1500);
+
+    const cropPath = "detail_crop.png";
+    const finalClip = await takeClippedScreenshot(detailPage, rect, cropPath);
 
     await sendTelegramPhoto(
       cropPath,
-      `${firstTicker} kırpılmış görüntü\nX:${safeX} Y:${safeY} W:${maxWidth} H:${maxHeight}`
+      [
+        `${firstTicker} grafik kırpıldı`,
+        `Tip: ${rect.type}`,
+        `X:${finalClip.x} Y:${finalClip.y} W:${finalClip.width} H:${finalClip.height}`,
+      ].join("\n")
     );
 
     await sendTelegramMessage("Bitti.");
