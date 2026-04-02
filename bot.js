@@ -9,12 +9,12 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const LIST_URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB";
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
-// Detay sayfasında üstten alınacak sabit kırpma alanı
-// Burayı sonra artırıp azaltabiliriz
-const CLIP_X = 110;
-const CLIP_Y = 120;
-const CLIP_WIDTH = 980;
-const CLIP_HEIGHT = 420;
+// ADRES SATIRI HİZASINDAN KESMEK İÇİN:
+// y = 0'dan başlatıyoruz
+const CLIP_X = 0;
+const CLIP_Y = 0;
+const CLIP_WIDTH = 1400;
+const CLIP_HEIGHT = 500;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -140,13 +140,13 @@ async function normalizeClip(page, rect) {
   const width = Math.min(
     Math.round(rect.width),
     Math.max(0, pageSize.width - x),
-    viewport.width - x
+    Math.max(0, viewport.width - x)
   );
 
   const height = Math.min(
     Math.round(rect.height),
     Math.max(0, pageSize.height - y),
-    pageSize.height - y
+    Math.max(0, viewport.height - y)
   );
 
   if (width < 50 || height < 50) {
@@ -165,7 +165,7 @@ async function drawDebugBox(page, rect, labelText = "DEBUG ALANI") {
 
     const div = document.createElement("div");
     div.id = "__chatgpt_debug_box__";
-    div.style.position = "absolute";
+    div.style.position = "fixed";
     div.style.left = `${box.x}px`;
     div.style.top = `${box.y}px`;
     div.style.width = `${box.width}px`;
@@ -179,9 +179,9 @@ async function drawDebugBox(page, rect, labelText = "DEBUG ALANI") {
     const label = document.createElement("div");
     label.id = "__chatgpt_debug_label__";
     label.textContent = `${labelText} | X:${box.x} Y:${box.y} W:${box.width} H:${box.height}`;
-    label.style.position = "absolute";
+    label.style.position = "fixed";
     label.style.left = `${box.x}px`;
-    label.style.top = `${Math.max(0, box.y - 34)}px`;
+    label.style.top = `${Math.max(0, box.y)}px`;
     label.style.background = "red";
     label.style.color = "white";
     label.style.padding = "6px 10px";
@@ -241,9 +241,6 @@ async function main() {
     await sleep(4000);
 
     await closePopups(page);
-
-    // Liste dinamik yüklendiği için burada scroll var.
-    // Bu sadece ilk hisseyi bulmak için.
     await autoScrollToBottom(page);
 
     const firstTicker = await getFirstTicker(page);
@@ -283,21 +280,25 @@ async function main() {
     await closePopups(detailPage);
     await sleep(1500);
 
-    // EN KRİTİK KISIM:
-    // Detay sayfasında HİÇ aşağı kaydırmıyoruz.
-    // Sayfa direkt üstte sabit kalıyor.
-    await detailPage.evaluate(() => window.scrollTo(0, 0));
+    // Sayfayı kesin olarak en üste sabitle
+    await detailPage.evaluate(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
     await sleep(1000);
 
-    // İlk görünen ekranın ekran görüntüsü
+    // İlk ekran - tam viewport
     const firstScreenPath = "detail_first_screen.png";
     await detailPage.screenshot({
       path: firstScreenPath,
       fullPage: false,
+      captureBeyondViewport: false,
     });
     await sendTelegramPhoto(firstScreenPath, `${firstTicker} detay sayfası ilk ekran`);
 
-    // Üstten sabit koordinatla kırpılacak alan
+    // Adres satırı hizası mantığına en yakın çözüm:
+    // viewport'un tam üstünden kırp
     const rawRect = {
       x: CLIP_X,
       y: CLIP_Y,
@@ -307,19 +308,20 @@ async function main() {
 
     const safeRect = await normalizeClip(detailPage, rawRect);
 
-    await drawDebugBox(detailPage, safeRect, "USTTEN SABIT KIRPMA");
+    await drawDebugBox(detailPage, safeRect, "USTTEN KESIM");
     await sleep(700);
 
     const debugPath = "detail_debug_box.png";
     await detailPage.screenshot({
       path: debugPath,
       fullPage: false,
+      captureBeyondViewport: false,
     });
     await sendTelegramPhoto(
       debugPath,
       [
         `${firstTicker} debug işaretli ekran`,
-        `Sayfa scroll edilmedi`,
+        `Üstten kesim`,
         `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
       ].join("\n")
     );
@@ -336,13 +338,13 @@ async function main() {
         width: safeRect.width,
         height: safeRect.height,
       },
+      captureBeyondViewport: false,
     });
 
     await sendTelegramPhoto(
       cropPath,
       [
-        `${firstTicker} kırpılmış görüntü`,
-        `Sayfa scroll edilmedi`,
+        `${firstTicker} üstten kırpılmış görüntü`,
         `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
       ].join("\n")
     );
