@@ -10,7 +10,7 @@ const LIST_URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSym
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
 // Bulduğu alanı zorla yukarı taşı
-const Y_OFFSET = 80;
+const Y_OFFSET = 20;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
