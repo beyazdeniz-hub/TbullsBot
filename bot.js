@@ -43,14 +43,19 @@ async function closePopups(page) {
     "Kapat",
     "I Agree",
     "Allow",
-    "Onayla"
+    "Onayla",
+    "Çerez",
+    "Cookie"
   ];
 
   try {
     const buttons = await page.$$("button, a, div[role='button'], span[role='button']");
     for (const btn of buttons) {
       try {
-        const txt = await page.evaluate((el) => (el.innerText || el.textContent || "").trim(), btn);
+        const txt = await page.evaluate(
+          (el) => (el.innerText || el.textContent || "").trim(),
+          btn
+        );
         if (texts.some((t) => txt.toLowerCase().includes(t.toLowerCase()))) {
           await btn.click().catch(() => {});
           await sleep(500);
@@ -64,7 +69,7 @@ async function autoScrollToBottom(page) {
   let lastHeight = 0;
   let stableCount = 0;
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 55; i++) {
     await page.evaluate(() => {
       window.scrollBy(0, window.innerHeight * 1.6);
     });
@@ -112,26 +117,26 @@ async function getFirstTicker(page) {
 }
 
 async function waitForChartContent(page) {
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 20; i++) {
     const info = await page.evaluate(() => {
-      const svgs = document.querySelectorAll("svg").length;
-      const canvases = document.querySelectorAll("canvas").length;
-      const imgs = document.querySelectorAll("img").length;
-      return { svgs, canvases, imgs };
+      return {
+        svgCount: document.querySelectorAll("svg").length,
+        canvasCount: document.querySelectorAll("canvas").length,
+        imgCount: document.querySelectorAll("img").length,
+      };
     });
 
-    if (info.svgs > 0 || info.canvases > 0 || info.imgs > 0) {
+    if (info.svgCount > 0 || info.canvasCount > 0 || info.imgCount > 0) {
       return true;
     }
 
     await sleep(1000);
   }
-
   return false;
 }
 
 async function findBestChartClip(page) {
-  const result = await page.evaluate(() => {
+  return await page.evaluate(() => {
     function rectObj(el) {
       const r = el.getBoundingClientRect();
       return {
@@ -159,7 +164,7 @@ async function findBestChartClip(page) {
 
     const candidates = [];
 
-    // 1) En güçlü aday: Mozilla'da gördüğün rect benzeri alan
+    // 1) Senin verdiğin Mozilla ipucuna göre svg rect yakalama
     const rects = Array.from(document.querySelectorAll("svg rect"));
     for (const rect of rects) {
       const w = Number(rect.getAttribute("width") || 0);
@@ -190,7 +195,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 2) Büyük SVG alanları
+    // 2) Büyük svg alanları
     const svgs = Array.from(document.querySelectorAll("svg"));
     for (const svg of svgs) {
       const r = rectObj(svg);
@@ -222,7 +227,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 4) Büyük resimler
+    // 4) Büyük img alanları
     const imgs = Array.from(document.querySelectorAll("img"));
     for (const img of imgs) {
       const r = rectObj(img);
@@ -238,7 +243,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 5) Genel büyük bloklar
+    // 5) Grafik içerebilecek büyük bloklar
     const blocks = Array.from(document.querySelectorAll("div, section, article, td"));
     for (const el of blocks) {
       const r = rectObj(el);
@@ -265,6 +270,8 @@ async function findBestChartClip(page) {
       });
     }
 
+    candidates.sort((a, b) => b.score - a.score);
+
     if (!candidates.length) {
       return {
         found: false,
@@ -276,32 +283,26 @@ async function findBestChartClip(page) {
       };
     }
 
-    candidates.sort((a, b) => b.score - a.score);
     const best = candidates[0];
 
     const paddingX = 20;
     const paddingY = 20;
 
-    const finalRect = {
-      x: Math.max(0, Math.round(best.x - paddingX)),
-      y: Math.max(0, Math.round(best.y - paddingY)),
-      width: Math.round(best.width + paddingX * 2),
-      height: Math.round(best.height + paddingY * 2),
-      type: best.type,
-      raw: best,
-    };
-
     return {
       found: true,
-      rect: finalRect,
-      allTop: candidates.slice(0, 5),
+      rect: {
+        x: Math.max(0, Math.round(best.x - paddingX)),
+        y: Math.max(0, Math.round(best.y - paddingY)),
+        width: Math.round(best.width + paddingX * 2),
+        height: Math.round(best.height + paddingY * 2),
+        type: best.type,
+      },
+      topCandidates: candidates.slice(0, 5),
     };
   });
-
-  return result;
 }
 
-async function takeClippedScreenshot(page, clipInfo, outputPath) {
+async function normalizeClip(page, rect) {
   const viewport = page.viewport() || { width: 1600, height: 1200 };
 
   const pageSize = await page.evaluate(() => ({
@@ -315,40 +316,75 @@ async function takeClippedScreenshot(page, clipInfo, outputPath) {
     ),
   }));
 
-  const safeX = Math.max(0, clipInfo.x);
-  const safeY = Math.max(0, clipInfo.y);
+  const x = Math.max(0, Math.round(rect.x));
+  const y = Math.max(0, Math.round(rect.y));
 
-  const safeWidth = Math.min(
-    clipInfo.width,
-    Math.max(0, pageSize.width - safeX),
+  const width = Math.min(
+    Math.round(rect.width),
+    Math.max(0, pageSize.width - x),
     Math.max(0, viewport.width - 0 + 99999)
   );
 
-  const safeHeight = Math.min(
-    clipInfo.height,
-    Math.max(0, pageSize.height - safeY)
+  const height = Math.min(
+    Math.round(rect.height),
+    Math.max(0, pageSize.height - y)
   );
 
-  if (safeWidth < 50 || safeHeight < 50) {
-    throw new Error(`Geçersiz kırpma alanı: X:${safeX} Y:${safeY} W:${safeWidth} H:${safeHeight}`);
+  if (width < 50 || height < 50) {
+    throw new Error(`Geçersiz kırpma alanı: X:${x} Y:${y} W:${width} H:${height}`);
   }
 
-  await page.screenshot({
-    path: outputPath,
-    clip: {
-      x: safeX,
-      y: safeY,
-      width: safeWidth,
-      height: safeHeight,
-    },
-  });
+  return { x, y, width, height };
+}
 
-  return {
-    x: safeX,
-    y: safeY,
-    width: safeWidth,
-    height: safeHeight,
-  };
+async function drawDebugBox(page, rect) {
+  await page.evaluate((box) => {
+    const old = document.getElementById("__chatgpt_debug_box__");
+    if (old) old.remove();
+
+    const labelOld = document.getElementById("__chatgpt_debug_label__");
+    if (labelOld) labelOld.remove();
+
+    const div = document.createElement("div");
+    div.id = "__chatgpt_debug_box__";
+    div.style.position = "absolute";
+    div.style.left = box.x + "px";
+    div.style.top = box.y + "px";
+    div.style.width = box.width + "px";
+    div.style.height = box.height + "px";
+    div.style.border = "4px solid red";
+    div.style.background = "rgba(255,0,0,0.06)";
+    div.style.zIndex = "2147483647";
+    div.style.pointerEvents = "none";
+    div.style.boxSizing = "border-box";
+
+    const label = document.createElement("div");
+    label.id = "__chatgpt_debug_label__";
+    label.textContent = `DEBUG ALANI | ${box.type} | X:${box.x} Y:${box.y} W:${box.width} H:${box.height}`;
+    label.style.position = "absolute";
+    label.style.left = box.x + "px";
+    label.style.top = Math.max(0, box.y - 34) + "px";
+    label.style.background = "red";
+    label.style.color = "white";
+    label.style.padding = "6px 10px";
+    label.style.fontSize = "16px";
+    label.style.fontWeight = "bold";
+    label.style.zIndex = "2147483647";
+    label.style.pointerEvents = "none";
+    label.style.fontFamily = "Arial, sans-serif";
+
+    document.body.appendChild(div);
+    document.body.appendChild(label);
+  }, rect);
+}
+
+async function removeDebugBox(page) {
+  await page.evaluate(() => {
+    const a = document.getElementById("__chatgpt_debug_box__");
+    const b = document.getElementById("__chatgpt_debug_label__");
+    if (a) a.remove();
+    if (b) b.remove();
+  });
 }
 
 async function main() {
@@ -357,7 +393,7 @@ async function main() {
   }
 
   const browser = await puppeteer.launch({
-    headless: "new",
+    headless: true,
     defaultViewport: null,
     args: [
       "--no-sandbox",
@@ -392,9 +428,9 @@ async function main() {
     const firstTicker = await getFirstTicker(page);
 
     if (!firstTicker) {
-      const listFail = "liste_hata.png";
-      await page.screenshot({ path: listFail, fullPage: true });
-      await sendTelegramPhoto(listFail, "İlk hisse bulunamadı.");
+      const failPath = "liste_hata.png";
+      await page.screenshot({ path: failPath, fullPage: true });
+      await sendTelegramPhoto(failPath, "İlk hisse bulunamadı.");
       throw new Error("İlk ticker bulunamadı.");
     }
 
@@ -426,7 +462,7 @@ async function main() {
     await closePopups(detailPage);
     await sleep(2000);
     await waitForChartContent(detailPage);
-    await sleep(2000);
+    await sleep(2500);
 
     const fullPath = "detail_full.png";
     await detailPage.screenshot({ path: fullPath, fullPage: true });
@@ -436,30 +472,70 @@ async function main() {
 
     if (!clipResult.found) {
       await sendTelegramMessage(
-        `Grafik alanı DOM'dan bulunamadı.\nSVG:${clipResult.debug.svgCount} CANVAS:${clipResult.debug.canvasCount} IMG:${clipResult.debug.imgCount}`
+        `Grafik alanı bulunamadı.\nSVG:${clipResult.debug.svgCount} CANVAS:${clipResult.debug.canvasCount} IMG:${clipResult.debug.imgCount}`
       );
-      throw new Error("Grafik alanı bulunamadı.");
+      throw new Error("Grafik alanı DOM üzerinden bulunamadı.");
     }
 
-    const rect = clipResult.rect;
+    const rawRect = clipResult.rect;
+    const safeRect = await normalizeClip(detailPage, rawRect);
 
     await detailPage.evaluate((y) => {
       window.scrollTo(0, Math.max(0, y - 120));
-    }, rect.y);
+    }, safeRect.y);
 
     await sleep(1500);
 
+    await drawDebugBox(detailPage, {
+      ...safeRect,
+      type: rawRect.type,
+    });
+
+    await sleep(1000);
+
+    const debugPath = "detail_debug_box.png";
+    await detailPage.screenshot({ path: debugPath, fullPage: true });
+    await sendTelegramPhoto(
+      debugPath,
+      [
+        `${firstTicker} debug işaretli ekran`,
+        `Tip: ${rawRect.type}`,
+        `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
+      ].join("\n")
+    );
+
+    await removeDebugBox(detailPage);
+    await sleep(500);
+
     const cropPath = "detail_crop.png";
-    const finalClip = await takeClippedScreenshot(detailPage, rect, cropPath);
+    await detailPage.screenshot({
+      path: cropPath,
+      clip: {
+        x: safeRect.x,
+        y: safeRect.y,
+        width: safeRect.width,
+        height: safeRect.height,
+      },
+    });
 
     await sendTelegramPhoto(
       cropPath,
       [
-        `${firstTicker} grafik kırpıldı`,
-        `Tip: ${rect.type}`,
-        `X:${finalClip.x} Y:${finalClip.y} W:${finalClip.width} H:${finalClip.height}`,
+        `${firstTicker} kırpılmış grafik`,
+        `Tip: ${rawRect.type}`,
+        `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
       ].join("\n")
     );
+
+    if (clipResult.topCandidates?.length) {
+      const topText = clipResult.topCandidates
+        .map((c, i) => {
+          return `${i + 1}) ${c.type} | X:${Math.round(c.x)} Y:${Math.round(c.y)} W:${Math.round(c.width)} H:${Math.round(c.height)} | score:${Math.round(c.score)}`;
+        })
+        .join("\n");
+
+      await sendTelegramMessage(`En güçlü adaylar:\n${topText}`);
+    }
 
     await sendTelegramMessage("Bitti.");
     await detailPage.close();
