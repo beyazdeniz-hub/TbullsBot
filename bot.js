@@ -9,6 +9,9 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const LIST_URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB";
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
+// Bulduğu alanı zorla yukarı taşı
+const Y_OFFSET = 120;
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -164,7 +167,7 @@ async function findBestChartClip(page) {
 
     const candidates = [];
 
-    // 1) Senin verdiğin Mozilla ipucuna göre svg rect yakalama
+    // 1) svg rect içinden grafik hitbox yakalama
     const rects = Array.from(document.querySelectorAll("svg rect"));
     for (const rect of rects) {
       const w = Number(rect.getAttribute("width") || 0);
@@ -195,7 +198,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 2) Büyük svg alanları
+    // 2) büyük svg
     const svgs = Array.from(document.querySelectorAll("svg"));
     for (const svg of svgs) {
       const r = rectObj(svg);
@@ -211,7 +214,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 3) Canvas alanları
+    // 3) canvas
     const canvases = Array.from(document.querySelectorAll("canvas"));
     for (const canvas of canvases) {
       const r = rectObj(canvas);
@@ -227,7 +230,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 4) Büyük img alanları
+    // 4) img
     const imgs = Array.from(document.querySelectorAll("img"));
     for (const img of imgs) {
       const r = rectObj(img);
@@ -243,7 +246,7 @@ async function findBestChartClip(page) {
       });
     }
 
-    // 5) Grafik içerebilecek büyük bloklar
+    // 5) grafik içeren büyük bloklar
     const blocks = Array.from(document.querySelectorAll("div, section, article, td"));
     for (const el of blocks) {
       const r = rectObj(el);
@@ -480,14 +483,20 @@ async function main() {
     const rawRect = clipResult.rect;
     const safeRect = await normalizeClip(detailPage, rawRect);
 
+    // Burada alanı yukarı kaydırıyoruz
+    const shiftedRect = {
+      ...safeRect,
+      y: Math.max(0, safeRect.y - Y_OFFSET),
+    };
+
     await detailPage.evaluate((y) => {
       window.scrollTo(0, Math.max(0, y - 120));
-    }, safeRect.y);
+    }, shiftedRect.y);
 
     await sleep(1500);
 
     await drawDebugBox(detailPage, {
-      ...safeRect,
+      ...shiftedRect,
       type: rawRect.type,
     });
 
@@ -500,7 +509,8 @@ async function main() {
       [
         `${firstTicker} debug işaretli ekran`,
         `Tip: ${rawRect.type}`,
-        `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
+        `Yukarı kaydırma: ${Y_OFFSET}px`,
+        `X:${shiftedRect.x} Y:${shiftedRect.y} W:${shiftedRect.width} H:${shiftedRect.height}`,
       ].join("\n")
     );
 
@@ -511,10 +521,10 @@ async function main() {
     await detailPage.screenshot({
       path: cropPath,
       clip: {
-        x: safeRect.x,
-        y: safeRect.y,
-        width: safeRect.width,
-        height: safeRect.height,
+        x: shiftedRect.x,
+        y: shiftedRect.y,
+        width: shiftedRect.width,
+        height: shiftedRect.height,
       },
     });
 
@@ -523,7 +533,8 @@ async function main() {
       [
         `${firstTicker} kırpılmış grafik`,
         `Tip: ${rawRect.type}`,
-        `X:${safeRect.x} Y:${safeRect.y} W:${safeRect.width} H:${safeRect.height}`,
+        `Yukarı kaydırma: ${Y_OFFSET}px`,
+        `X:${shiftedRect.x} Y:${shiftedRect.y} W:${shiftedRect.width} H:${shiftedRect.height}`,
       ].join("\n")
     );
 
