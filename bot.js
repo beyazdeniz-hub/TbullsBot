@@ -187,7 +187,7 @@ async function main() {
     //
     // Böylece hem üst hem alt koordinat yukarı kaymış olur.
     const clipX = 130;
-    const clipY = 350;   // ESKİYE GÖRE YUKARI ALINDI
+    const clipY = 250;   // ESKİYE GÖRE YUKARI ALINDI
     const clipWidth = 900;
     const clipHeight = 320; // AYNI TUTULDU
 
