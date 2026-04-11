@@ -1,13 +1,26 @@
-name: Telegram Mesaj Gönderici
+name: TurkishBulls Sinyal Botu
 on:
-  workflow_dispatch: # Bu satır, senin bir butona basarak botu çalıştırmanı sağlar.
+  schedule:
+    - cron: '0 8 * * 1-5' # Hafta içi her sabah 11:00 (TR saati)
+  workflow_dispatch:
 
 jobs:
-  mesaj_at:
+  sinyal_gonder:
     runs-on: ubuntu-latest
     steps:
-      - name: Telegram'a Sinyal Gönder
-        run: |
-          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
-          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-          -d text="Merhaba! GitHub üzerinden hiçbir kod yazmadan botu tetikledin. 🚀"
+      - name: Kodları Çek
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Gerekli Kütüphaneleri Yükle
+        run: pip install requests beautifulsoup4
+
+      - name: Sinyalleri Al ve Telegram'a At
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python sinyal_al.py
