@@ -1,59 +1,49 @@
 import os
-import time
 import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
+import re
 
-# GitHub Secrets
+# Ayarlar
 bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 chat_id = os.getenv("TELEGRAM_CHAT_ID")
 URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB"
 
-def hisseleri_topla():
-    # Tarayıcı ayarları (GitHub Actions uyumlu)
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=chrome_options)
+def hisseleri_cek():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Referer': 'https://www.turkishbulls.com/'
+    }
 
+    session = requests.Session()
+    
     try:
-        driver.get(URL)
-        time.sleep(5) # Sayfanın yüklenmesini bekle
+        # Sayfaya giriş yap
+        response = session.get(URL, headers=headers, timeout=20)
+        content = response.text
 
-        # Sayfayı en aşağıya kadar kaydır (Gerçek kişi simülasyonu)
-        last_height = driver.execute_script("return document.body.scrollHeight")
-        while True:
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(2) # Yeni kartların yüklenmesi için bekle
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
-                break
-            last_height = new_height
+        # Regex ile HTML içindeki hisse bloklarını ve sinyalleri yakalayalım
+        # Bu yöntem sayfa kaydırmaya gerek duymaz, çünkü tüm HTML verisi içinde arama yapar
+        pattern = r"NameHeader\">([^<]+).*?Son Sinyal.*?>(AL|YENİ AL)<"
+        
+        # re.DOTALL ile satır atlamalarını da hesaba katarak tüm sayfayı tararız
+        bulunanlar = re.findall(pattern, content, re.DOTALL)
+        
+        # Sadece isimleri temizleyip listeye ekleyelim
+        al_verenler = [hisse[0].strip() for hisse in bulunanlar]
+        
+        return list(dict.fromkeys(al_verenler)) # Tekrar edenleri sil
+        
+    except Exception as e:
+        return [f"Hata: {str(e)}"]
 
-        # Yüklenen tüm hisse bloklarını bul
-        hisse_kartlari = driver.find_elements(By.CLASS_NAME, "tdName")
-        al_verenler = []
+# Listeyi hazırla
+hisseler = hisseleri_cek()
 
-        for kart in hisse_kartlari:
-            # Kartın içindeki metni kontrol et (Hisse adı ve Sinyal)
-            # Yapı: ADESE Son Sinyal AL
-            text = kart.text
-            if "AL" in text:
-                hisse_adi = text.split('\n')[0] # İlk satır hisse adıdır
-                al_verenler.append(hisse_adi)
-
-        return list(set(al_verenler)) # Tekrar edenleri temizle
-    finally:
-        driver.quit()
-
-# Çalıştır ve Gönder
-liste = hisseleri_topla()
-if liste:
-    mesaj = "📈 **AL Veren Hisseler (Tüm Liste):**\n\n" + ", ".join(sorted(liste))
+if hisseler and "Hata" not in hisseler[0]:
+    mesaj = f"📈 **AL Veren Hisseler ({len(hisseler)} Adet):**\n\n" + ", ".join(hisseler)
 else:
-    mesaj = "AL veren hisse bulunamadı veya sayfa yüklenemedi."
+    mesaj = "❌ Veri çekilemedi veya 'AL' veren hisse bulunamadı."
 
+# Gönder
 requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", 
               data={"chat_id": chat_id, "text": mesaj, "parse_mode": "Markdown"})
