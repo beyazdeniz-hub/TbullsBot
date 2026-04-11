@@ -1,0 +1,13 @@
+name: Telegram Mesaj Gönderici
+on:
+  workflow_dispatch: # Bu satır, senin bir butona basarak botu çalıştırmanı sağlar.
+
+jobs:
+  mesaj_at:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Telegram'a Sinyal Gönder
+        run: |
+          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="Merhaba! GitHub üzerinden hiçbir kod yazmadan botu tetikledin. 🚀"
