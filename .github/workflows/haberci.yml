@@ -1,18 +1,31 @@
 name: TBullsBot Liste Tarayici
 on:
-  workflow_dispatch: # Elle çalıştırmak için
+  workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      
+      - name: Node.js Kur
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install puppeteer axios
-      - name: Botu Calistir
+
+      - name: Bagimliliklari Yukle
+        run: npm install puppeteer axios
+
+      - name: Dosya Kontrol ve Calistir
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: node index.js
+        run: |
+          # Dosyanın adını ve yerini bulup çalıştırır
+          FILE_PATH=$(find . -name "index.js" | head -n 1)
+          if [ -z "$FILE_PATH" ]; then
+            echo "HATA: index.js dosyası depoda bulunamadı!"
+            exit 1
+          fi
+          echo "Dosya bulundu: $FILE_PATH"
+          node $FILE_PATH
