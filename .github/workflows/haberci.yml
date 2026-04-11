@@ -16,16 +16,8 @@ jobs:
       - name: Bagimliliklari Yukle
         run: npm install puppeteer axios
 
-      - name: Dosya Kontrol ve Calistir
+      - name: Botu Calistir
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          # Dosyanın adını ve yerini bulup çalıştırır
-          FILE_PATH=$(find . -name "index.js" | head -n 1)
-          if [ -z "$FILE_PATH" ]; then
-            echo "HATA: index.js dosyası depoda bulunamadı!"
-            exit 1
-          fi
-          echo "Dosya bulundu: $FILE_PATH"
-          node $FILE_PATH
+        run: node index.js
