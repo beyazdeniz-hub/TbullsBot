@@ -1,4 +1,4 @@
-name: TBullsBot Gelişmiş Tarayıcı
+name: TBullsBot Gerçek Tarayıcı
 on:
   workflow_dispatch:
 
@@ -9,14 +9,15 @@ jobs:
       - name: Kodları Çek
         uses: actions/checkout@v3
 
-      - name: Python ve Chrome Kur
+      - name: Python Kur
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Bağımlılıkları Yükle
+      - name: Playwright Kur
         run: |
-          pip install selenium requests webdriver-manager
+          pip install playwright requests
+          playwright install chromium
 
       - name: Botu Çalıştır
         env:
