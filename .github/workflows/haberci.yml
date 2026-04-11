@@ -7,25 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Node.js Kur
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Bagimliliklari Yukle
-        run: npm install puppeteer axios
-
+      - run: npm install puppeteer axios
       - name: Botu Calistir
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          # Dosyanın ana dizinde olup olmadığını kontrol eder
-          if [ -f "index.js" ]; then
-            node index.js
-          else
-            echo "HATA: index.js dosyası ana dizinde bulunamadı! Lütfen dosyanın klasör dışında olduğundan emin olun."
-            ls -F # Klasör yapısını hata günlüğüne yazdırır
-            exit 1
-          fi
+          echo "--- Mevcut Dosyalar ---"
+          ls -R
+          echo "--- Bot Baslatiliyor ---"
+          node index.js
