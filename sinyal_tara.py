@@ -1,55 +1,59 @@
-import requests
-from bs4 import BeautifulSoup
 import os
+import time
+import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
-# Hedef URL
-URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB"
+# GitHub Secrets
 bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 chat_id = os.getenv("TELEGRAM_CHAT_ID")
+URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB"
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-}
+def hisseleri_topla():
+    # Tarayıcı ayarları (GitHub Actions uyumlu)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(options=chrome_options)
 
-def hisseleri_tara():
     try:
-        response = requests.get(URL, headers=headers)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Sinyal listesinin bulunduğu ana tablo
-        table = soup.find('table', {'id': 'MainContent_GridViewSinyalListesi'})
-        if not table:
-            return "Tablo bulunamadı. Site yapısı veya URL değişmiş olabilir."
+        driver.get(URL)
+        time.sleep(5) # Sayfanın yüklenmesini bekle
 
-        rows = table.find_all('tr')[1:] # Başlık satırını atla
-        al_listesi = []
+        # Sayfayı en aşağıya kadar kaydır (Gerçek kişi simülasyonu)
+        last_height = driver.execute_script("return document.body.scrollHeight")
+        while True:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2) # Yeni kartların yüklenmesi için bekle
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
 
-        for row in rows:
-            cols = row.find_all('td')
-            if len(cols) > 2:
-                hisse_adi = cols[1].get_text(strip=True) # 2. Sütun: Hisse Adı
-                sinyal = cols[2].get_text(strip=True).upper() # 3. Sütun: Son Sinyal
-                
-                # Sadece içinde "AL" geçenleri (AL, YENİ AL vb.) filtrele
-                if "AL" in sinyal:
-                    al_listesi.append(hisse_adi)
+        # Yüklenen tüm hisse bloklarını bul
+        hisse_kartlari = driver.find_elements(By.CLASS_NAME, "tdName")
+        al_verenler = []
 
-        return al_listesi
-    except Exception as e:
-        return f"Hata oluştu: {str(e)}"
+        for kart in hisse_kartlari:
+            # Kartın içindeki metni kontrol et (Hisse adı ve Sinyal)
+            # Yapı: ADESE Son Sinyal AL
+            text = kart.text
+            if "AL" in text:
+                hisse_adi = text.split('\n')[0] # İlk satır hisse adıdır
+                al_verenler.append(hisse_adi)
 
-# İşlemi başlat
-hisseler = hisseleri_tara()
+        return list(set(al_verenler)) # Tekrar edenleri temizle
+    finally:
+        driver.quit()
 
-if isinstance(hisseler, list):
-    if hisseler:
-        # Hisseleri alt alta diz
-        mesaj = "📈 **GÜNCEL 'AL' VEREN HİSSELER**\n\n" + "\n".join(hisseler)
-    else:
-        mesaj = "Şu an listede 'AL' veren hisse bulunmuyor."
+# Çalıştır ve Gönder
+liste = hisseleri_topla()
+if liste:
+    mesaj = "📈 **AL Veren Hisseler (Tüm Liste):**\n\n" + ", ".join(sorted(liste))
 else:
-    mesaj = hisseler
+    mesaj = "AL veren hisse bulunamadı veya sayfa yüklenemedi."
 
-# Telegram'a gönder
 requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", 
               data={"chat_id": chat_id, "text": mesaj, "parse_mode": "Markdown"})
