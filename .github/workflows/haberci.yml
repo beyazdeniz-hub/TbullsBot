@@ -1,25 +1,24 @@
-name: TurkishBulls Sinyal Botu
+name: TBullsBot Gelişmiş Tarayıcı
 on:
-  schedule:
-    - cron: '0 8 * * 1-5' # Hafta içi her sabah 11:00 (TR saati)
   workflow_dispatch:
 
 jobs:
-  sinyal_gonder:
+  tara:
     runs-on: ubuntu-latest
     steps:
       - name: Kodları Çek
         uses: actions/checkout@v3
 
-      - name: Python Kur
+      - name: Python ve Chrome Kur
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Gerekli Kütüphaneleri Yükle
-        run: pip install requests beautifulsoup4
+      - name: Bağımlılıkları Yükle
+        run: |
+          pip install selenium requests webdriver-manager
 
-      - name: Sinyalleri Al ve Telegram'a At
+      - name: Botu Çalıştır
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
