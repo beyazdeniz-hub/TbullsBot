@@ -320,4 +320,3 @@ async function run() {
 }
 
 run().catch((err) => console.log("ANA BOT HATASI:", err.message));
-Çalıştır, === THYAO SAYFA ELEMENTLERİ === kısmındaki çıktıyı yapıştır.
