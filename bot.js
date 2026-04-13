@@ -111,20 +111,70 @@ async function collectTickers(page) {
 
 async function extractDetailAndChart(detailPage, ticker) {
   await safeGoto(detailPage, `${DETAIL_URL}${ticker}`, "networkidle0");
+  await sleep(3000);
+
+  // Sayfadaki tüm img ve canvas elementlerini logla
+  const elements = await detailPage.evaluate(() => {
+    const imgs = Array.from(document.querySelectorAll("img")).map(el => ({
+      tag: "img",
+      id: el.id,
+      className: el.className,
+      src: el.src?.substring(0, 100),
+      width: el.offsetWidth,
+      height: el.offsetHeight,
+    }));
+    const canvases = Array.from(document.querySelectorAll("canvas")).map(el => ({
+      tag: "canvas",
+      id: el.id,
+      className: el.className,
+      width: el.offsetWidth,
+      height: el.offsetHeight,
+    }));
+    return [...imgs, ...canvases];
+  });
+
+  console.log(`\n=== ${ticker} SAYFA ELEMENTLERİ ===`);
+  elements.forEach(el => console.log(JSON.stringify(el)));
+  console.log("================================\n");
 
   let screenshotBuffer = null;
-  const chartSelector = "#ChartImage";
 
-  try {
-    await detailPage.waitForSelector(chartSelector, { timeout: 10000 });
-    const chartElement = await detailPage.$(chartSelector);
-    if (chartElement) {
-      await sleep(1500);
-      screenshotBuffer = await chartElement.screenshot({ type: "png" });
-      console.log(`${ticker} grafiği başarıyla yakalandı.`);
+  // Sırayla tüm olası selector'leri dene
+  const selectors = [
+    "#ChartImage",
+    "img[src*='chart']",
+    "img[src*='Chart']",
+    "img[id*='Chart']",
+    "img[id*='chart']",
+    "img[src*='aspx']",
+    "img[src*='Stock']",
+    "img[src*='stock']",
+    "img[src*='Graph']",
+    "img[src*='graph']",
+    "canvas",
+  ];
+
+  for (const selector of selectors) {
+    try {
+      const el = await detailPage.$(selector);
+      if (el) {
+        const box = await el.boundingBox();
+        if (box && box.width > 100 && box.height > 100) {
+          await sleep(500);
+          screenshotBuffer = await el.screenshot({ type: "png" });
+          console.log(`${ticker} grafiği yakalandı → selector: ${selector} (${box.width}x${box.height})`);
+          break;
+        } else {
+          console.log(`${ticker} selector bulundu ama küçük/görünmez: ${selector}`);
+        }
+      }
+    } catch (e) {
+      // Bu selector çalışmadı, devam et
     }
-  } catch (e) {
-    console.log(`${ticker} grafiği yakalanamadı: ${e.message}`);
+  }
+
+  if (!screenshotBuffer) {
+    console.log(`${ticker} için grafik bulunamadı, tüm selector'ler denendi.`);
   }
 
   const levels = await detailPage.evaluate(() => {
@@ -169,7 +219,7 @@ async function uploadJsonToGithub(remotePath, data, message, retries = 2) {
         );
         sha = res.data.sha;
       } catch (e) {
-        // Dosya henüz yok, sha gerekmez
+        // Dosya henüz yok
       }
 
       await axios.put(
@@ -217,7 +267,10 @@ async function run() {
 
     const results = [];
 
-    for (const ticker of tickers) {
+    // DEBUG: Sadece ilk hisseyi test et, çalışınca bu satırı sil
+    const testTickers = tickers.slice(0, 1);
+
+    for (const ticker of testTickers) {
       try {
         const detail = await extractDetailAndChart(detailPage, ticker);
         const alisNum = toNumber(detail.alSeviyesi);
