@@ -113,7 +113,6 @@ async function extractDetailAndChart(detailPage, ticker) {
   await safeGoto(detailPage, `${DETAIL_URL}${ticker}`, "networkidle0");
   await sleep(3000);
 
-  // Sayfadaki tüm img ve canvas elementlerini logla
   const elements = await detailPage.evaluate(() => {
     const imgs = Array.from(document.querySelectorAll("img")).map(el => ({
       tag: "img",
@@ -139,7 +138,6 @@ async function extractDetailAndChart(detailPage, ticker) {
 
   let screenshotBuffer = null;
 
-  // Sırayla tüm olası selector'leri dene
   const selectors = [
     "#ChartImage",
     "img[src*='chart']",
@@ -267,8 +265,8 @@ async function run() {
 
     const results = [];
 
-    // DEBUG: Sadece ilk hisseyi test et, çalışınca bu satırı sil
-    const testTickers = tickers.slice(0, 1);
+    // DEBUG: Sadece THYAO ile test et
+    const testTickers = ["THYAO"];
 
     for (const ticker of testTickers) {
       try {
@@ -322,3 +320,4 @@ async function run() {
 }
 
 run().catch((err) => console.log("ANA BOT HATASI:", err.message));
+Çalıştır, === THYAO SAYFA ELEMENTLERİ === kısmındaki çıktıyı yapıştır.
