@@ -1,26 +1,29 @@
 const axios = require("axios");
 
-async function test(symbol) {
+async function test() {
   try {
-    const res = await axios.get("https://www.alphavantage.co/query", {
-      params: {
-        function: "TIME_SERIES_DAILY",
-        symbol: symbol,
-        apikey: "T3DAES5QSOIM2T40",
-        outputsize: "compact"
+    const res = await axios.get(
+      "https://query1.finance.yahoo.com/v8/finance/chart/THYAO.IS",
+      {
+        params: {
+          interval: "1d",
+          range: "3mo"
+        },
+        headers: {
+          "User-Agent": "Mozilla/5.0"
+        }
       }
-    });
-    console.log(symbol + ":", JSON.stringify(res.data).substring(0, 200));
+    );
+    const data = res.data;
+    const timestamps = data.chart.result[0].timestamp;
+    const ohlcv = data.chart.result[0].indicators.quote[0];
+    console.log("Toplam bar:", timestamps.length);
+    console.log("Son kapanış:", ohlcv.close[ohlcv.close.length - 1]);
+    console.log("BASARILI");
   } catch (e) {
-    console.log(symbol + " hata:", e.message);
+    console.log("Hata:", e.message);
+    console.log(e.response?.data);
   }
 }
 
-async function run() {
-  await test("THYAO.IST");
-  await test("THYAO.BIST");
-  await test("XTthyao");
-  await test("THYAO:BIST");
-}
-
-run();
+test();
