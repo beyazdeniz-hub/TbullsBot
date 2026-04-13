@@ -131,7 +131,6 @@ async function extractDetailAndChart(detailPage, ticker) {
 
     await sleep(500);
 
-    // 🔴 KOORDİNATLAR AYNI
     screenshotBuffer = await detailPage.screenshot({
       type: "png",
       clip: { x: 0, y: 330, width: 500, height: 430 },
@@ -235,9 +234,9 @@ async function run() {
 
     const results = [];
 
-    const testTickers = ["THYAO"];
+    // 🔥 TEST KAPALI → TÜM HİSSELER
+    const testTickers = [];
 
-    // ✅ SADECE EKLENEN KISIM
     const activeTickers = testTickers.length > 0 ? testTickers : tickers;
 
     for (const ticker of activeTickers) {
@@ -252,10 +251,6 @@ async function run() {
         if (detail.screenshotBuffer) {
           const caption = `<b>#${ticker}</b>\nAlis: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nKaynak: turkishbulls.com`;
           await sendTelegramPhoto(detail.screenshotBuffer, caption);
-
-          console.log(`${ticker} Telegrama gonderildi.`);
-        } else {
-          console.log(`${ticker} icin screenshot yok.`);
         }
 
         if (!isNaN(alisNum) && !isNaN(stopNum) && alisNum > 0) {
