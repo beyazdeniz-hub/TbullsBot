@@ -1,4 +1,3 @@
-Dosyanın en başına açıklama metnim yapışmış. bot.js dosyasını tamamen sil, sonra sadece aşağıdaki kodu yapıştır — başında hiçbir açıklama satırı olmadan:
 const puppeteer = require("puppeteer");
 const { getInstalledBrowsers } = require("@puppeteer/browsers");
 const axios = require("axios");
