@@ -1,33 +1,11 @@
-name: Tbulls Mini Chart Bot
-
-on:
-  workflow_dispatch:
-
-concurrency:
-  group: tbulls-mini-chart-bot
-  cancel-in-progress: true
-
-jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Repo indir
-        uses: actions/checkout@v4
-
-      - name: Node kur
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Paketleri kur
-        run: npm install
-
-      - name: Botu çalıştır
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_BRANCH: main
-        run: node bot.js
+{
+  "updatedAt": "14.04.2026 01:25:07",
+  "signals": [
+    {
+      "ticker": "THYAO",
+      "alis": "317.87",
+      "stop": "325.25",
+      "risk": "-2.32"
+    }
+  ]
+}
