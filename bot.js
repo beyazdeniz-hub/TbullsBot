@@ -1,3 +1,5 @@
+O zaman grafik muhtemelen <canvas> veya JavaScript ile çiziliyor, normal <img> değil. Bu yüzden selector çalışmıyor.
+En güvenilir çözüm — grafiği değil, sayfanın tamamının ekran görüntüsünü almak. Şu bot.js'i kullan:
 const puppeteer = require("puppeteer");
 const { getInstalledBrowsers } = require("@puppeteer/browsers");
 const axios = require("axios");
@@ -111,68 +113,20 @@ async function collectTickers(page) {
 
 async function extractDetailAndChart(detailPage, ticker) {
   await safeGoto(detailPage, `${DETAIL_URL}${ticker}`, "networkidle0");
-  await sleep(3000);
-
-  const elements = await detailPage.evaluate(() => {
-    const imgs = Array.from(document.querySelectorAll("img")).map(el => ({
-      tag: "img",
-      id: el.id,
-      className: el.className,
-      src: el.src?.substring(0, 100),
-      width: el.offsetWidth,
-      height: el.offsetHeight,
-    }));
-    const canvases = Array.from(document.querySelectorAll("canvas")).map(el => ({
-      tag: "canvas",
-      id: el.id,
-      className: el.className,
-      width: el.offsetWidth,
-      height: el.offsetHeight,
-    }));
-    return [...imgs, ...canvases];
-  });
-
-  console.log(`\n=== ${ticker} SAYFA ELEMENTLERİ ===`);
-  elements.forEach(el => console.log(JSON.stringify(el)));
-  console.log("================================\n");
+  await sleep(4000);
 
   let screenshotBuffer = null;
 
-  const selectors = [
-    "#ChartImage",
-    "img[src*='chart']",
-    "img[src*='Chart']",
-    "img[id*='Chart']",
-    "img[id*='chart']",
-    "img[src*='aspx']",
-    "img[src*='Stock']",
-    "img[src*='stock']",
-    "img[src*='Graph']",
-    "img[src*='graph']",
-    "canvas",
-  ];
-
-  for (const selector of selectors) {
-    try {
-      const el = await detailPage.$(selector);
-      if (el) {
-        const box = await el.boundingBox();
-        if (box && box.width > 100 && box.height > 100) {
-          await sleep(500);
-          screenshotBuffer = await el.screenshot({ type: "png" });
-          console.log(`${ticker} grafiği yakalandı → selector: ${selector} (${box.width}x${box.height})`);
-          break;
-        } else {
-          console.log(`${ticker} selector bulundu ama küçük/görünmez: ${selector}`);
-        }
-      }
-    } catch (e) {
-      // Bu selector çalışmadı, devam et
-    }
-  }
-
-  if (!screenshotBuffer) {
-    console.log(`${ticker} için grafik bulunamadı, tüm selector'ler denendi.`);
+  try {
+    // Sayfanın tamamının ekran görüntüsünü al
+    screenshotBuffer = await detailPage.screenshot({
+      type: "png",
+      fullPage: false, // sadece görünen kısım
+      clip: { x: 0, y: 0, width: 1200, height: 800 },
+    });
+    console.log(`${ticker} sayfa ekran görüntüsü alındı.`);
+  } catch (e) {
+    console.log(`${ticker} ekran görüntüsü alınamadı: ${e.message}`);
   }
 
   const levels = await detailPage.evaluate(() => {
@@ -244,7 +198,7 @@ async function run() {
   const browser = await puppeteer.launch({
     headless: true,
     executablePath: chromePath,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--window-size=1200,1000"],
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--window-size=1200,800"],
   });
 
   try {
@@ -261,7 +215,7 @@ async function run() {
     console.log(`Toplam ${tickers.length} hisse bulundu.`);
 
     const detailPage = await browser.newPage();
-    await detailPage.setViewport({ width: 1200, height: 1000 });
+    await detailPage.setViewport({ width: 1200, height: 800 });
 
     const results = [];
 
@@ -274,18 +228,30 @@ async function run() {
         const alisNum = toNumber(detail.alSeviyesi);
         const stopNum = toNumber(detail.stoploss);
 
+        console.log(`${ticker} → Alış: ${detail.alSeviyesi}, Stop: ${detail.stoploss}`);
+
         if (!isNaN(alisNum) && !isNaN(stopNum) && alisNum > 0) {
           const risk = ((alisNum - stopNum) / alisNum) * 100;
+          console.log(`${ticker} → Risk: %${risk.toFixed(2)}`);
 
-          if (risk <= RISK_LIMIT) {
-            results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
+          // DEBUG: Risk limitini geç, her zaman gönder
+          results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
 
-            if (detail.screenshotBuffer) {
-              const caption = `<b>#${ticker}</b>\nAlış: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nRisk: %${risk.toFixed(2)}`;
-              await sendTelegramPhoto(detail.screenshotBuffer, caption);
-              console.log(`${ticker} Telegram'a gönderildi.`);
-              await sleep(1500);
-            }
+          if (detail.screenshotBuffer) {
+            const caption = `<b>#${ticker}</b>\nAlış: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nRisk: %${risk.toFixed(2)}`;
+            await sendTelegramPhoto(detail.screenshotBuffer, caption);
+            console.log(`${ticker} Telegram'a gönderildi.`);
+            await sleep(1500);
+          } else {
+            console.log(`${ticker} için screenshot yok, Telegram'a gönderilmedi.`);
+          }
+        } else {
+          console.log(`${ticker} → Sayısal değer alınamadı, atlandı.`);
+          // DEBUG: Yine de screenshot varsa gönder
+          if (detail.screenshotBuffer) {
+            const caption = `<b>#${ticker}</b> (debug - değer alınamadı)`;
+            await sendTelegramPhoto(detail.screenshotBuffer, caption);
+            console.log(`${ticker} debug screenshot Telegram'a gönderildi.`);
           }
         }
       } catch (e) {
