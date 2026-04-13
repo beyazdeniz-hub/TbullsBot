@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const { getInstalledBrowsers } = require("@puppeteer/browsers");
 const axios = require("axios");
+const FormData = require("form-data");
 const os = require("os");
 const path = require("path");
 
@@ -52,12 +53,15 @@ function getTimeCategory() {
 
 async function sendTelegram(text, html = false) {
   if (!TOKEN || !CHAT_ID) return;
-  const payload = { chat_id: CHAT_ID, text: text, disable_web_page_preview: true };
-  if (html) payload.parse_mode = "HTML";
-  await axios.post(`https://api.telegram.org/bot${TOKEN}/sendMessage`, payload, { timeout: 30000 });
+  try {
+    const payload = { chat_id: CHAT_ID, text, disable_web_page_preview: true };
+    if (html) payload.parse_mode = "HTML";
+    await axios.post(`https://api.telegram.org/bot${TOKEN}/sendMessage`, payload, { timeout: 30000 });
+  } catch (e) {
+    console.log("Telegram mesaj hatası:", e.response?.data || e.message);
+  }
 }
 
-// Telegram'a fotoğraf gönderen en kararlı fonksiyon (Buffer bazlı)
 async function sendTelegramPhoto(photoBuffer, caption) {
   if (!TOKEN || !CHAT_ID) return;
   try {
@@ -65,20 +69,18 @@ async function sendTelegramPhoto(photoBuffer, caption) {
     formData.append("chat_id", CHAT_ID);
     formData.append("caption", caption);
     formData.append("parse_mode", "HTML");
-    
-    // Buffer'ı Blob'a çevirerek ekliyoruz
-    const blob = new Blob([photoBuffer], { type: 'image/png' });
-    formData.append("photo", blob, "chart.png");
-
-    await axios({
-      method: 'post',
-      url: `https://api.telegram.org/bot${TOKEN}/sendPhoto`,
-      data: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 60000
+    formData.append("photo", photoBuffer, {
+      filename: "chart.png",
+      contentType: "image/png",
     });
+
+    await axios.post(
+      `https://api.telegram.org/bot${TOKEN}/sendPhoto`,
+      formData,
+      { headers: formData.getHeaders(), timeout: 60000 }
+    );
   } catch (e) {
-    console.log("Telegram resim gönderim hatası:", e.response?.data || e.message);
+    console.log("Telegram resim hatası:", e.response?.data || e.message);
   }
 }
 
@@ -108,19 +110,17 @@ async function collectTickers(page) {
 }
 
 async function extractDetailAndChart(detailPage, ticker) {
-  // Grafiklerin yüklenmesi için networkidle0 modunu kullanıyoruz
   await safeGoto(detailPage, `${DETAIL_URL}${ticker}`, "networkidle0");
-  
+
   let screenshotBuffer = null;
   const chartSelector = "#ChartImage";
-  
+
   try {
     await detailPage.waitForSelector(chartSelector, { timeout: 10000 });
     const chartElement = await detailPage.$(chartSelector);
     if (chartElement) {
-      // Görselin tam çizilmesi için ek bekleme
       await sleep(1500);
-      screenshotBuffer = await chartElement.screenshot({ type: 'png' });
+      screenshotBuffer = await chartElement.screenshot({ type: "png" });
       console.log(`${ticker} grafiği başarıyla yakalandı.`);
     }
   } catch (e) {
@@ -129,50 +129,84 @@ async function extractDetailAndChart(detailPage, ticker) {
 
   const levels = await detailPage.evaluate(() => {
     const bodyText = (document.body.innerText || "").replace(/\s+/g, " ");
-    const pick = (re) => { const m = bodyText.match(re); return m ? m[1].trim() : "-"; };
+    const pick = (patterns) => {
+      for (const re of patterns) {
+        const m = bodyText.match(re);
+        if (m?.[1]) return m[1].trim();
+      }
+      return "-";
+    };
     return {
-      alSeviyesi: pick(/Alış\s*Seviyesi[:\s]*([0-9.,]+)/i) || pick(/Al[:\s]*([0-9.,]+)/i),
-      stoploss: pick(/Stoploss[:\s]*([0-9.,]+)/i) || pick(/Stop[:\s]*([0-9.,]+)/i)
+      alSeviyesi: pick([
+        /Alış\s*Seviyesi[:\s]*([0-9.,]+)/i,
+        /Alı[şs]\s*Fiyat[ıi][:\s]*([0-9.,]+)/i,
+        /Buy\s*Price[:\s]*([0-9.,]+)/i,
+        /Al[:\s]*([0-9.,]+)/i,
+      ]),
+      stoploss: pick([
+        /Stoploss[:\s]*([0-9.,]+)/i,
+        /Stop\s*Loss[:\s]*([0-9.,]+)/i,
+        /Stop[:\s]*([0-9.,]+)/i,
+      ]),
     };
   });
 
   return { ...levels, screenshotBuffer };
 }
 
-async function uploadJsonToGithub(remotePath, data, message) {
+async function uploadJsonToGithub(remotePath, data, message, retries = 2) {
   if (!GITHUB_TOKEN || !GITHUB_REPOSITORY) return;
-  const content = Buffer.from(JSON.stringify(data, null, 2), "utf8").toString("base64");
-  let sha = null;
-  try {
-    const res = await axios.get(`https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}?ref=${GITHUB_BRANCH}`, {
-      headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
-    });
-    sha = res.data.sha;
-  } catch (e) {}
 
-  await axios.put(`https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}`, 
-    { message, content, branch: GITHUB_BRANCH, ...(sha ? { sha } : {}) },
-    { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
-  );
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const content = Buffer.from(JSON.stringify(data, null, 2), "utf8").toString("base64");
+      let sha = null;
+
+      try {
+        const res = await axios.get(
+          `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}?ref=${GITHUB_BRANCH}`,
+          { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
+        );
+        sha = res.data.sha;
+      } catch (e) {
+        // Dosya henüz yok, sha gerekmez
+      }
+
+      await axios.put(
+        `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}`,
+        { message, content, branch: GITHUB_BRANCH, ...(sha ? { sha } : {}) },
+        { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
+      );
+
+      console.log(`GitHub yükleme başarılı: ${remotePath}`);
+      return;
+    } catch (e) {
+      if (i === retries) {
+        console.log(`GitHub yükleme hatası (${remotePath}):`, e.response?.data || e.message);
+      } else {
+        console.log(`GitHub yükleme yeniden deneniyor (${i + 1}/${retries})...`);
+        await sleep(3000);
+      }
+    }
+  }
 }
 
 async function run() {
   const chromePath = await resolveChromePath();
-  const browser = await puppeteer.launch({ 
-    headless: true, 
-    executablePath: chromePath, 
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--window-size=1200,1000"] 
+  const browser = await puppeteer.launch({
+    headless: true,
+    executablePath: chromePath,
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--window-size=1200,1000"],
   });
 
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1400, height: 2000 });
     await safeGoto(page, URL, "networkidle2");
-    
-    // Sayfa kaydırma
+
     await page.evaluate(async () => {
       window.scrollTo(0, document.body.scrollHeight);
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise((r) => setTimeout(r, 2000));
     });
 
     const tickers = await collectTickers(page);
@@ -180,7 +214,7 @@ async function run() {
 
     const detailPage = await browser.newPage();
     await detailPage.setViewport({ width: 1200, height: 1000 });
-    
+
     const results = [];
 
     for (const ticker of tickers) {
@@ -191,36 +225,47 @@ async function run() {
 
         if (!isNaN(alisNum) && !isNaN(stopNum) && alisNum > 0) {
           const risk = ((alisNum - stopNum) / alisNum) * 100;
-          
+
           if (risk <= RISK_LIMIT) {
             results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
-            
+
             if (detail.screenshotBuffer) {
               const caption = `<b>#${ticker}</b>\nAlış: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nRisk: %${risk.toFixed(2)}`;
               await sendTelegramPhoto(detail.screenshotBuffer, caption);
               console.log(`${ticker} Telegram'a gönderildi.`);
-              await sleep(1500); 
+              await sleep(1500);
             }
           }
         }
-      } catch (e) { console.log(`${ticker} işlenirken hata: ${e.message}`); }
+      } catch (e) {
+        console.log(`${ticker} işlenirken hata: ${e.message}`);
+      }
+
       await sleep(DETAIL_DELAY_MS);
     }
 
     results.sort((a, b) => a.risk - b.risk);
+
     const category = getTimeCategory();
     const updatedAt = formatTurkeyDateTime();
+    const payload = {
+      updatedAt,
+      signals: results.map((r) => ({ ...r, risk: r.risk.toFixed(2) })),
+    };
 
-    const payload = { updatedAt, signals: results.map(r => ({ ...r, risk: r.risk.toFixed(2) })) };
     await uploadJsonToGithub("signals.json", payload, `Update ${updatedAt}`);
-    
     if (category === "seans") await uploadJsonToGithub("seans.json", payload, `Update ${updatedAt}`);
     if (category === "onay") await uploadJsonToGithub("onay.json", payload, `Update ${updatedAt}`);
 
-    await sendTelegram(`<b>NeuroTrade İşlemi Tamamlandı</b>\nKategori: ${category}\nBulunan Sinyal: ${results.length}`, true);
+    await sendTelegram(
+      `<b>NeuroTrade İşlemi Tamamlandı</b>\nKategori: ${category}\nBulunan Sinyal: ${results.length}`,
+      true
+    );
+
+    console.log(`İşlem tamamlandı. Kategori: ${category}, Sinyal: ${results.length}`);
   } finally {
     await browser.close();
   }
 }
 
-run().catch(err => console.log("ANA BOT HATASI:", err.message));
+run().catch((err) => console.log("ANA BOT HATASI:", err.message));
