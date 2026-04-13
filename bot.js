@@ -1,5 +1,4 @@
-O zaman grafik muhtemelen <canvas> veya JavaScript ile çiziliyor, normal <img> değil. Bu yüzden selector çalışmıyor.
-En güvenilir çözüm — grafiği değil, sayfanın tamamının ekran görüntüsünü almak. Şu bot.js'i kullan:
+Dosyanın en başına açıklama metnim yapışmış. bot.js dosyasını tamamen sil, sonra sadece aşağıdaki kodu yapıştır — başında hiçbir açıklama satırı olmadan:
 const puppeteer = require("puppeteer");
 const { getInstalledBrowsers } = require("@puppeteer/browsers");
 const axios = require("axios");
@@ -60,7 +59,7 @@ async function sendTelegram(text, html = false) {
     if (html) payload.parse_mode = "HTML";
     await axios.post(`https://api.telegram.org/bot${TOKEN}/sendMessage`, payload, { timeout: 30000 });
   } catch (e) {
-    console.log("Telegram mesaj hatası:", e.response?.data || e.message);
+    console.log("Telegram mesaj hatasi:", e.response?.data || e.message);
   }
 }
 
@@ -75,14 +74,13 @@ async function sendTelegramPhoto(photoBuffer, caption) {
       filename: "chart.png",
       contentType: "image/png",
     });
-
     await axios.post(
       `https://api.telegram.org/bot${TOKEN}/sendPhoto`,
       formData,
       { headers: formData.getHeaders(), timeout: 60000 }
     );
   } catch (e) {
-    console.log("Telegram resim hatası:", e.response?.data || e.message);
+    console.log("Telegram resim hatasi:", e.response?.data || e.message);
   }
 }
 
@@ -90,7 +88,7 @@ async function resolveChromePath() {
   const cacheDir = process.env.PUPPETEER_CACHE_DIR || path.join(os.homedir(), ".cache", "puppeteer");
   const installed = await getInstalledBrowsers({ cacheDir });
   const selected = installed.filter((b) => String(b.browser).toLowerCase().includes("chrome")).pop() || installed.pop();
-  if (!selected || !selected.executablePath) throw new Error("Chrome bulunamadı.");
+  if (!selected || !selected.executablePath) throw new Error("Chrome bulunamadi.");
   return selected.executablePath;
 }
 
@@ -118,15 +116,13 @@ async function extractDetailAndChart(detailPage, ticker) {
   let screenshotBuffer = null;
 
   try {
-    // Sayfanın tamamının ekran görüntüsünü al
     screenshotBuffer = await detailPage.screenshot({
       type: "png",
-      fullPage: false, // sadece görünen kısım
       clip: { x: 0, y: 0, width: 1200, height: 800 },
     });
-    console.log(`${ticker} sayfa ekran görüntüsü alındı.`);
+    console.log(`${ticker} ekran goruntusu alindi.`);
   } catch (e) {
-    console.log(`${ticker} ekran görüntüsü alınamadı: ${e.message}`);
+    console.log(`${ticker} ekran goruntusu alinamadi: ${e.message}`);
   }
 
   const levels = await detailPage.evaluate(() => {
@@ -140,10 +136,9 @@ async function extractDetailAndChart(detailPage, ticker) {
     };
     return {
       alSeviyesi: pick([
-        /Alış\s*Seviyesi[:\s]*([0-9.,]+)/i,
-        /Alı[şs]\s*Fiyat[ıi][:\s]*([0-9.,]+)/i,
-        /Buy\s*Price[:\s]*([0-9.,]+)/i,
+        /Alis\s*Seviyesi[:\s]*([0-9.,]+)/i,
         /Al[:\s]*([0-9.,]+)/i,
+        /Buy\s*Price[:\s]*([0-9.,]+)/i,
       ]),
       stoploss: pick([
         /Stoploss[:\s]*([0-9.,]+)/i,
@@ -163,30 +158,26 @@ async function uploadJsonToGithub(remotePath, data, message, retries = 2) {
     try {
       const content = Buffer.from(JSON.stringify(data, null, 2), "utf8").toString("base64");
       let sha = null;
-
       try {
         const res = await axios.get(
           `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}?ref=${GITHUB_BRANCH}`,
           { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
         );
         sha = res.data.sha;
-      } catch (e) {
-        // Dosya henüz yok
-      }
+      } catch (e) {}
 
       await axios.put(
         `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${remotePath}`,
         { message, content, branch: GITHUB_BRANCH, ...(sha ? { sha } : {}) },
         { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
       );
-
-      console.log(`GitHub yükleme başarılı: ${remotePath}`);
+      console.log(`GitHub yukleme basarili: ${remotePath}`);
       return;
     } catch (e) {
       if (i === retries) {
-        console.log(`GitHub yükleme hatası (${remotePath}):`, e.response?.data || e.message);
+        console.log(`GitHub yukleme hatasi (${remotePath}):`, e.response?.data || e.message);
       } else {
-        console.log(`GitHub yükleme yeniden deneniyor (${i + 1}/${retries})...`);
+        console.log(`GitHub yeniden deneniyor (${i + 1}/${retries})...`);
         await sleep(3000);
       }
     }
@@ -218,8 +209,6 @@ async function run() {
     await detailPage.setViewport({ width: 1200, height: 800 });
 
     const results = [];
-
-    // DEBUG: Sadece THYAO ile test et
     const testTickers = ["THYAO"];
 
     for (const ticker of testTickers) {
@@ -228,36 +217,25 @@ async function run() {
         const alisNum = toNumber(detail.alSeviyesi);
         const stopNum = toNumber(detail.stoploss);
 
-        console.log(`${ticker} → Alış: ${detail.alSeviyesi}, Stop: ${detail.stoploss}`);
+        console.log(`${ticker} -> Alis: ${detail.alSeviyesi}, Stop: ${detail.stoploss}`);
+
+        if (detail.screenshotBuffer) {
+          const caption = `<b>#${ticker}</b>\nAlis: ${detail.alSeviyesi}\nStop: ${detail.stoploss}`;
+          await sendTelegramPhoto(detail.screenshotBuffer, caption);
+          console.log(`${ticker} Telegrama gonderildi.`);
+        } else {
+          console.log(`${ticker} icin screenshot yok.`);
+        }
 
         if (!isNaN(alisNum) && !isNaN(stopNum) && alisNum > 0) {
           const risk = ((alisNum - stopNum) / alisNum) * 100;
-          console.log(`${ticker} → Risk: %${risk.toFixed(2)}`);
-
-          // DEBUG: Risk limitini geç, her zaman gönder
-          results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
-
-          if (detail.screenshotBuffer) {
-            const caption = `<b>#${ticker}</b>\nAlış: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nRisk: %${risk.toFixed(2)}`;
-            await sendTelegramPhoto(detail.screenshotBuffer, caption);
-            console.log(`${ticker} Telegram'a gönderildi.`);
-            await sleep(1500);
-          } else {
-            console.log(`${ticker} için screenshot yok, Telegram'a gönderilmedi.`);
-          }
-        } else {
-          console.log(`${ticker} → Sayısal değer alınamadı, atlandı.`);
-          // DEBUG: Yine de screenshot varsa gönder
-          if (detail.screenshotBuffer) {
-            const caption = `<b>#${ticker}</b> (debug - değer alınamadı)`;
-            await sendTelegramPhoto(detail.screenshotBuffer, caption);
-            console.log(`${ticker} debug screenshot Telegram'a gönderildi.`);
+          if (risk <= RISK_LIMIT) {
+            results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
           }
         }
       } catch (e) {
-        console.log(`${ticker} işlenirken hata: ${e.message}`);
+        console.log(`${ticker} islenirken hata: ${e.message}`);
       }
-
       await sleep(DETAIL_DELAY_MS);
     }
 
@@ -275,11 +253,11 @@ async function run() {
     if (category === "onay") await uploadJsonToGithub("onay.json", payload, `Update ${updatedAt}`);
 
     await sendTelegram(
-      `<b>NeuroTrade İşlemi Tamamlandı</b>\nKategori: ${category}\nBulunan Sinyal: ${results.length}`,
+      `<b>NeuroTrade Islemi Tamamlandi</b>\nKategori: ${category}\nBulunan Sinyal: ${results.length}`,
       true
     );
 
-    console.log(`İşlem tamamlandı. Kategori: ${category}, Sinyal: ${results.length}`);
+    console.log(`Islem tamamlandi. Kategori: ${category}, Sinyal: ${results.length}`);
   } finally {
     await browser.close();
   }
