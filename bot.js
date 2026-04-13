@@ -15,7 +15,7 @@ const URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=I
 const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=";
 
 const RISK_LIMIT = 5;
-const DETAIL_DELAY_MS = 2500; // Resimlerin yüklenmesi için süreyi artırdık
+const DETAIL_DELAY_MS = 2000;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -57,6 +57,7 @@ async function sendTelegram(text, html = false) {
   await axios.post(`https://api.telegram.org/bot${TOKEN}/sendMessage`, payload, { timeout: 30000 });
 }
 
+// Telegram'a fotoğraf gönderen en kararlı fonksiyon (Buffer bazlı)
 async function sendTelegramPhoto(photoBuffer, caption) {
   if (!TOKEN || !CHAT_ID) return;
   try {
@@ -65,10 +66,17 @@ async function sendTelegramPhoto(photoBuffer, caption) {
     formData.append("caption", caption);
     formData.append("parse_mode", "HTML");
     
+    // Buffer'ı Blob'a çevirerek ekliyoruz
     const blob = new Blob([photoBuffer], { type: 'image/png' });
     formData.append("photo", blob, "chart.png");
 
-    await axios.post(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, formData, { timeout: 60000 });
+    await axios({
+      method: 'post',
+      url: `https://api.telegram.org/bot${TOKEN}/sendPhoto`,
+      data: formData,
+      headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: 60000
+    });
   } catch (e) {
     console.log("Telegram resim gönderim hatası:", e.response?.data || e.message);
   }
@@ -82,9 +90,9 @@ async function resolveChromePath() {
   return selected.executablePath;
 }
 
-async function safeGoto(page, url) {
-  await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
-  await sleep(2000);
+async function safeGoto(page, url, waitMode = "networkidle2") {
+  await page.goto(url, { waitUntil: waitMode, timeout: 60000 });
+  await sleep(1500);
 }
 
 async function collectTickers(page) {
@@ -100,22 +108,23 @@ async function collectTickers(page) {
 }
 
 async function extractDetailAndChart(detailPage, ticker) {
-  await safeGoto(detailPage, `${DETAIL_URL}${ticker}`);
+  // Grafiklerin yüklenmesi için networkidle0 modunu kullanıyoruz
+  await safeGoto(detailPage, `${DETAIL_URL}${ticker}`, "networkidle0");
   
   let screenshotBuffer = null;
   const chartSelector = "#ChartImage";
   
   try {
-    // Görselin yüklenmesini bekle ve görünür yap
-    await detailPage.waitForSelector(chartSelector, { timeout: 8000 });
+    await detailPage.waitForSelector(chartSelector, { timeout: 10000 });
     const chartElement = await detailPage.$(chartSelector);
     if (chartElement) {
-      // Görselin tam yüklenmesi için kısa bir ek süre
-      await sleep(1000);
-      screenshotBuffer = await chartElement.screenshot();
+      // Görselin tam çizilmesi için ek bekleme
+      await sleep(1500);
+      screenshotBuffer = await chartElement.screenshot({ type: 'png' });
+      console.log(`${ticker} grafiği başarıyla yakalandı.`);
     }
   } catch (e) {
-    console.log(`${ticker} için grafik seçilemedi veya bulunamadı.`);
+    console.log(`${ticker} grafiği yakalanamadı: ${e.message}`);
   }
 
   const levels = await detailPage.evaluate(() => {
@@ -152,15 +161,15 @@ async function run() {
   const browser = await puppeteer.launch({ 
     headless: true, 
     executablePath: chromePath, 
-    args: ["--no-sandbox", "--disable-setuid-sandbox"] 
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--window-size=1200,1000"] 
   });
 
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1400, height: 2000 });
-    await safeGoto(page, URL);
+    await safeGoto(page, URL, "networkidle2");
     
-    // Sayfanın altına inip tüm hisseleri yükletiyoruz
+    // Sayfa kaydırma
     await page.evaluate(async () => {
       window.scrollTo(0, document.body.scrollHeight);
       await new Promise(r => setTimeout(r, 2000));
@@ -170,7 +179,7 @@ async function run() {
     console.log(`Toplam ${tickers.length} hisse bulundu.`);
 
     const detailPage = await browser.newPage();
-    await detailPage.setViewport({ width: 1200, height: 1000 }); // Grafik odaklı viewport
+    await detailPage.setViewport({ width: 1200, height: 1000 });
     
     const results = [];
 
@@ -184,18 +193,18 @@ async function run() {
           const risk = ((alisNum - stopNum) / alisNum) * 100;
           
           if (risk <= RISK_LIMIT) {
-            console.log(`UYGUN: ${ticker} Risk: %${risk.toFixed(2)}`);
             results.push({ ticker, alis: detail.alSeviyesi, stop: detail.stoploss, risk });
             
             if (detail.screenshotBuffer) {
               const caption = `<b>#${ticker}</b>\nAlış: ${detail.alSeviyesi}\nStop: ${detail.stoploss}\nRisk: %${risk.toFixed(2)}`;
               await sendTelegramPhoto(detail.screenshotBuffer, caption);
-              await sleep(1500); // Telegram flood koruması
+              console.log(`${ticker} Telegram'a gönderildi.`);
+              await sleep(1500); 
             }
           }
         }
       } catch (e) { console.log(`${ticker} işlenirken hata: ${e.message}`); }
-      await sleep(500);
+      await sleep(DETAIL_DELAY_MS);
     }
 
     results.sort((a, b) => a.risk - b.risk);
