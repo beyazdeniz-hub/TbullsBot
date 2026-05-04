@@ -1,54 +1,48 @@
-import os
-import asyncio
-from playwright.async_api import async_playwright
 import requests
+from bs4 import BeautifulSoup
+import json
 
-# Ayarlar
-bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-chat_id = os.getenv("TELEGRAM_CHAT_ID")
-URL = "https://www.turkishbulls.com/SignalList.aspx?lang=tr&MarketSymbol=IMKB"
-
-async def hisseleri_topla():
-    async with async_playwright() as p:
-        # Tarayıcıyı başlat (iPhone simülasyonu ile)
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1")
-        page = await context.new_page()
-        
-        print("Sayfaya gidiliyor...")
-        await page.goto(URL, wait_until="networkidle")
-        await asyncio.sleep(3) # İlk yükleme için bekle
-
-        # Gerçek kişi gibi aşağı kaydırma döngüsü
-        print("Sayfa aşağı kaydırılıyor...")
-        for i in range(15): # 15 kez aşağı kaydır (Tüm listeyi kapsar)
-            await page.mouse.wheel(0, 2000)
-            await asyncio.sleep(1) # Verilerin gelmesini bekle
-
-        # Tüm hisse kartlarını bul
-        # Kart yapısındaki isimleri ve sinyalleri çek
-        kartlar = await page.query_selector_all(".tdName")
-        al_listesi = []
-
-        for kart in kartlar:
-            text = await kart.inner_text()
-            # Örn: "ADESE\nSon Sinyal\nAL" şeklinde bir metin gelir
-            if "AL" in text.upper():
-                hisse_adi = text.split('\n')[0].strip()
-                al_listesi.append(hisse_adi)
-
-        await browser.close()
-        return list(set(al_listesi)) # Tekrar edenleri temizle
-
-def mesaj_gonder(liste):
-    if liste:
-        son_mesaj = f"📈 **AL Veren Hisseler ({len(liste)} Adet):**\n\n" + ", ".join(sorted(liste))
-    else:
-        son_mesaj = "❌ Sayfa kaydırıldı ama 'AL' veren hisse bulunamadı."
+def akademi_fihrist_olustur():
+    # Hedef: Candlesticker Boğa Formasyonları
+    url = "https://www.candlesticker.com/m/BullishPatterns.aspx?lang=tr"
+    headers = {'User-Agent': 'Mozilla/5.0'}
     
-    requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", 
-                  data={"chat_id": chat_id, "text": son_mesaj, "parse_mode": "Markdown"})
+    print("NeuroTrade Akademi için veri toplama başladı...")
+    
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            print(f"Hata! Siteye ulaşılamadı. Kod: {response.status_code}")
+            return
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+        fihrist_verisi = []
+
+        # Sayfadaki formasyon linklerini tek tek buluyoruz
+        for link in soup.find_all('a', href=True):
+            if 'Pattern.aspx' in link['href']:
+                isim = link.text.strip()
+                tam_link = "https://www.candlesticker.com/m/" + link['href']
+                
+                if isim and len(isim) > 2:
+                    fihrist_verisi.append({
+                        "harf": isim[0].upper(), # A'dan Z'ye sıralama için baş harf
+                        "baslik": isim,
+                        "detay_url": tam_link,
+                        "kategori": "Boğa (Yükseliş)"
+                    })
+
+        # Matematikçi titizliğiyle alfabetik sıralama yapıyoruz
+        fihrist_verisi = sorted(fihrist_verisi, key=lambda x: x['baslik'])
+
+        # Mevcut signals.json dosyasının üzerine yazarak fihristi kaydediyoruz
+        with open('signals.json', 'w', encoding='utf-8') as f:
+            json.dump(fihrist_verisi, f, ensure_ascii=False, indent=4)
+            
+        print(f"İşlem Tamam! {len(fihrist_verisi)} adet formasyon 'signals.json' içine kaydedildi.")
+
+    except Exception as e:
+        print(f"Bir aksilik oldu: {e}")
 
 if __name__ == "__main__":
-    hisseler = asyncio.run(hisseleri_topla())
-    mesaj_gonder(hisseler)
+    akademi_fihrist_olustur()
