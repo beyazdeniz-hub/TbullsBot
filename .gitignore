@@ -1,0 +1,13 @@
+# Python geçici dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal Ortam (Virtual Environment)
+venv/
+.venv/
+env/
+
+# Loglar ve Geçici Dosyalar
+*.log
+chromedriver
