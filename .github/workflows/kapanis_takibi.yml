@@ -1,0 +1,36 @@
+name: Bistbot Akşam Kapanış Performans Motoru
+
+on:
+  schedule:
+    # GitHub Actions UTC (Evrensel Saat) kullanır. 
+    # Türkiye saati (UTC+3) ile 18:30, UTC saatine göre tam 15:30'dur.
+    - cron: '30 15 * * *'
+  workflow_dispatch: # İstediğimiz zaman GitHub panelinden elle de tetikleyebilmek için
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Depoyu Kopyala
+      uses: actions/checkout@v3
+
+    - name: Python Kurulumu
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Gerekli Kütüphaneleri Yükle
+      run: |
+        python -m pip install --upgrade pip
+        pip install yfinance requests
+
+    - name: Kapanış Motorunu Çalıştır
+      run: python kapanis_motoru.py
+
+    - name: Güncellenmiş JSON'ı Repoya Push Et
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add history.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Akşam seans kapanış marjları güncellendi [Automated]" && git push)
