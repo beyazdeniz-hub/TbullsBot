@@ -1,0 +1,50 @@
+name: NeuroTrade Signal Bot
+
+on:
+  schedule:
+    # Borsa İstanbul Hafta İçi (Pazartesi - Cuma) Zamanlaması
+    # GitHub UTC saatine göre çalışır (Türkiye Saati - 3 Saat)
+    
+    # 1. GÜN İÇİ SEANS TARAMASI: Türkiye saatiyle 09:00 ile 18:00 arası
+    # (UTC karşılığı: 06:00 - 15:00) - Her 30 dakikada bir çalışır
+    - cron: '*/30 6-15 * * 1-5'
+    
+    # 2. AKŞAM ONAY TARAMASI: Türkiye saatiyle 21:00 ile 23:59 arası
+    # (UTC karşılığı: 18:00 - 20:00) - Her saat başı çalışır
+    - cron: '0 18-20 * * 1-5'
+
+  # İstenildiğinde GitHub üzerinden manuel çalıştırabilmek için buton ekler
+  workflow_dispatch: 
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    # Botun JSON dosyalarını (seans.json, onay.json) GitHub'a kaydedebilmesi için gerekli yetki
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Repoyu Klonla
+        uses: actions/checkout@v4
+        
+      - name: Node.js Kurulumu (V20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Bağımlılıkları Yükle
+        run: |
+          npm install puppeteer @puppeteer/browsers axios
+          
+      - name: Tarama Motorunu Çalıştır
+        env:
+          # GitHub Secrets üzerinden alınacak güvenlik anahtarları
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          
+          # GitHub'ın bu işlem için anlık ürettiği otomatik yetki tokeni
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_BRANCH: main # Kodların yazılacağı ana dal
+        run: node bot.js
