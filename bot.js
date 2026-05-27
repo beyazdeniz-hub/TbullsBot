@@ -255,7 +255,7 @@ async function collectTickers(page) {
   });
 }
 
-// --- GÜNCEL 1: FORMASYON OKUMA EKLENDİ ---
+// --- GÜNCEL 1: FORMASYON OKUMA (TÜRKÇE KARAKTER DUYARLI) ---
 async function extractDetailLevels(detailPage, ticker) {
   await safeGoto(detailPage, `${DETAIL_URL}${ticker}`);
 
@@ -294,10 +294,33 @@ async function extractDetailLevels(detailPage, ticker) {
       /Stop[:\s]*([0-9.,]+)/i,
     ]);
 
-    // METNİN İÇİNDEKİ FORMASYONU BUL
-    const formasyonRegex = /(Yutan Boğa|Çekiç|Sabah Yıldızı|Doji|Delen Mumlar|Harami|Asılı Adam|Kayan Yıldız|Mezar Taşı|Yusufçuk)/i;
+    // METNİN İÇİNDEKİ FORMASYONU BUL (Tüm karakter ihtimalleriyle)
+    const formasyonRegex = /(Yutan\s+Bo[ğgĞG]a|Yutan\s+Ay[ıiIİ]|Çeki[çcÇC]|Ceki[çcÇC]|Ters\s+Çeki[çcÇC]|Sabah\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Ak[şsŞS]am\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Doji|Delen\s+Mum|Harami|As[ıiIİ]l[ıiIİ]\s+Adam|Kayan\s+Y[ıiIİ]ld[ıiIİ]z|Mezar\s+Ta[şsŞS][ıiIİ]|Yusuf[çcÇC]uk|Hamile)/i;
+    
     const formasyonMatch = bodyText.match(formasyonRegex);
-    const formasyon = formasyonMatch ? formasyonMatch[1] : "Doji";
+    let formasyon = "Doji"; // Varsayılan değer
+
+    if (formasyonMatch && formasyonMatch[1]) {
+       // Bulunan kelimenin Türkçe karakterlerini İngilizceye çevirip standartlaştırıyoruz (Karşılaştırma kolaylığı için)
+       let raw = formasyonMatch[1].toLowerCase()
+                    .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+                    .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c');
+       
+       // Sitede bulunan bozuk metni, uygulamadaki standart isme dönüştürüyoruz
+       if (raw.includes("yutan") && raw.includes("bo")) formasyon = "Yutan Boğa";
+       else if (raw.includes("yutan") && raw.includes("ay")) formasyon = "Yutan Ayı";
+       else if (raw.includes("sabah")) formasyon = "Sabah Yıldızı";
+       else if (raw.includes("aksam") || raw.includes("akşam")) formasyon = "Akşam Yıldızı";
+       else if (raw.includes("delen")) formasyon = "Delen Mumlar";
+       else if (raw.includes("asili") || raw.includes("asılı")) formasyon = "Asılı Adam";
+       else if (raw.includes("kayan")) formasyon = "Kayan Yıldız";
+       else if (raw.includes("mezar")) formasyon = "Mezar Taşı";
+       else if (raw.includes("yusuf")) formasyon = "Yusufçuk";
+       else if (raw.includes("harami") || raw.includes("hamile")) formasyon = "Harami";
+       else if (raw.includes("ters") && (raw.includes("cekic") || raw.includes("çekiç"))) formasyon = "Ters Çekiç";
+       else if (raw.includes("cekic") || raw.includes("çekiç")) formasyon = "Çekiç";
+       else formasyon = "Doji"; 
+    }
 
     return {
       alSeviyesi,
@@ -418,7 +441,7 @@ function buildAppPayload(results, updatedAt) {
       alis: row.alis,
       stop: row.stop,
       risk: row.risk.toFixed(2),
-      formation: row.formation, // YENİ: JSON dosyasına formasyon eklendi
+      formation: row.formation, 
       current: null,
       change: null,
       grafikUrl: null,
