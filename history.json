@@ -1,0 +1,68 @@
+{
+  "27.05.2026": {
+    "date": "27.05.2026",
+    "updatedAt": "27.05.2026 21:08:27",
+    "signals": [
+      {
+        "ticker": "DITAS",
+        "alis": "34.60",
+        "stop": "33.64",
+        "risk": "2.77",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CMENT",
+        "alis": "304.75",
+        "stop": "294.75",
+        "risk": "3.28",
+        "formation": "YUTAN BOĞA",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EGGUB",
+        "alis": "103.50",
+        "stop": "99.50",
+        "risk": "3.86",
+        "formation": "DELEN MUMLAR",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DIRIT",
+        "alis": "25.60",
+        "stop": "24.52",
+        "risk": "4.22",
+        "formation": "DELEN MUMLAR",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "NUGYO",
+        "alis": "8.9400",
+        "stop": "8.5500",
+        "risk": "4.36",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "OSTIM",
+        "alis": "2.6400",
+        "stop": "2.5100",
+        "risk": "4.92",
+        "formation": "DELEN MUMLAR",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
+  }
+}
