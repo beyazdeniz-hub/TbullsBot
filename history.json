@@ -1,7 +1,7 @@
 {
   "27.05.2026": {
     "date": "27.05.2026",
-    "updatedAt": "27.05.2026 21:08:27",
+    "updatedAt": "27.05.2026 21:22:06",
     "signals": [
       {
         "ticker": "DITAS",
@@ -18,7 +18,7 @@
         "alis": "304.75",
         "stop": "294.75",
         "risk": "3.28",
-        "formation": "YUTAN BOĞA",
+        "formation": "Yutan Boğa",
         "current": null,
         "change": null,
         "grafikUrl": null
@@ -28,7 +28,7 @@
         "alis": "103.50",
         "stop": "99.50",
         "risk": "3.86",
-        "formation": "DELEN MUMLAR",
+        "formation": "Delen Mumlar",
         "current": null,
         "change": null,
         "grafikUrl": null
@@ -38,7 +38,7 @@
         "alis": "25.60",
         "stop": "24.52",
         "risk": "4.22",
-        "formation": "DELEN MUMLAR",
+        "formation": "Delen Mumlar",
         "current": null,
         "change": null,
         "grafikUrl": null
@@ -58,7 +58,7 @@
         "alis": "2.6400",
         "stop": "2.5100",
         "risk": "4.92",
-        "formation": "DELEN MUMLAR",
+        "formation": "Delen Mumlar",
         "current": null,
         "change": null,
         "grafikUrl": null
