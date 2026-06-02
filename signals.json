@@ -1,5 +1,5 @@
 {
-  "updatedAt": "02.06.2026 13:30:25",
+  "updatedAt": "02.06.2026 17:47:33",
   "signals": [
     {
       "ticker": "TUKAS",
@@ -42,31 +42,11 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SEKFK",
-      "alis": "10.30",
-      "stop": "10.21",
-      "risk": "0.87",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ANSGR",
       "alis": "27.40",
       "stop": "27.16",
       "risk": "0.88",
       "formation": "Delen Mumlar",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EKIZ",
-      "alis": "85.80",
-      "stop": "85.00",
-      "risk": "0.93",
-      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -172,6 +152,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "PAPIL",
+      "alis": "16.28",
+      "stop": "16.05",
+      "risk": "1.41",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "GWIND",
       "alis": "27.09",
       "stop": "26.70",
@@ -222,6 +212,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "YYLGD",
+      "alis": "11.99",
+      "stop": "11.80",
+      "risk": "1.58",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "SOKM",
       "alis": "48.53",
       "stop": "47.76",
@@ -237,6 +237,16 @@
       "stop": "14.24",
       "risk": "1.66",
       "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ZPBDLF",
+      "alis": "252.50",
+      "stop": "248.25",
+      "risk": "1.68",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -267,6 +277,16 @@
       "stop": "8.2300",
       "risk": "1.79",
       "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "EPLAS",
+      "alis": "6.1150",
+      "stop": "6.0000",
+      "risk": "1.88",
+      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -387,16 +407,6 @@
       "stop": "106.90",
       "risk": "2.37",
       "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "TMPOL",
-      "alis": "305.00",
-      "stop": "297.75",
-      "risk": "2.38",
-      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
