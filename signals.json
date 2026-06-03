@@ -1,21 +1,11 @@
 {
-  "updatedAt": "03.06.2026 14:03:23",
+  "updatedAt": "03.06.2026 18:33:44",
   "signals": [
     {
       "ticker": "TUREX",
       "alis": "8.2500",
       "stop": "8.1900",
       "risk": "0.73",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BAGFS",
-      "alis": "28.22",
-      "stop": "27.98",
-      "risk": "0.85",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -32,70 +22,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GOLTS",
-      "alis": "344.00",
-      "stop": "340.75",
-      "risk": "0.94",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GLDTRF",
-      "alis": "560.63",
-      "stop": "554.50",
-      "risk": "1.09",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PETUN",
-      "alis": "13.16",
-      "stop": "13.01",
-      "risk": "1.14",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SELVA",
-      "alis": "2.2000",
-      "stop": "2.1700",
-      "risk": "1.36",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PAPIL",
-      "alis": "16.28",
-      "stop": "16.05",
-      "risk": "1.41",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ADEL",
-      "alis": "33.12",
-      "stop": "32.60",
-      "risk": "1.57",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "YYLGD",
-      "alis": "11.99",
-      "stop": "11.80",
-      "risk": "1.58",
+      "ticker": "EKIZ",
+      "alis": "85.80",
+      "stop": "85.00",
+      "risk": "0.93",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -106,16 +36,6 @@
       "alis": "128.35",
       "stop": "126.30",
       "risk": "1.60",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GSDDE",
-      "alis": "12.47",
-      "stop": "12.26",
-      "risk": "1.68",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -152,36 +72,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GOODY",
-      "alis": "16.75",
-      "stop": "16.40",
-      "risk": "2.09",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "APMDLF",
-      "alis": "26.12",
-      "stop": "25.55",
-      "risk": "2.18",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SAHOL",
-      "alis": "93.30",
-      "stop": "91.25",
-      "risk": "2.20",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "AKBNK",
       "alis": "65.95",
       "stop": "64.50",
@@ -212,11 +102,11 @@
       "grafikUrl": null
     },
     {
-      "ticker": "EUHOL",
-      "alis": "12.31",
-      "stop": "12.00",
-      "risk": "2.52",
-      "formation": "Harami",
+      "ticker": "TMPOL",
+      "alis": "305.00",
+      "stop": "297.75",
+      "risk": "2.38",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -256,16 +146,6 @@
       "alis": "13.39",
       "stop": "13.00",
       "risk": "2.91",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PAHOL",
-      "alis": "1.7100",
-      "stop": "1.6600",
-      "risk": "2.92",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -332,6 +212,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ICBCT",
+      "alis": "23.19",
+      "stop": "22.38",
+      "risk": "3.49",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "SKBNK",
       "alis": "13.27",
       "stop": "12.80",
@@ -346,16 +236,6 @@
       "alis": "110.50",
       "stop": "106.50",
       "risk": "3.62",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ONCSM",
-      "alis": "299.13",
-      "stop": "288.25",
-      "risk": "3.64",
       "formation": "Harami",
       "current": null,
       "change": null,
