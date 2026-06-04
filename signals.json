@@ -1,6 +1,16 @@
 {
-  "updatedAt": "04.06.2026 12:59:38",
+  "updatedAt": "04.06.2026 15:48:23",
   "signals": [
+    {
+      "ticker": "GLDTRF",
+      "alis": "560.63",
+      "stop": "554.50",
+      "risk": "1.09",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
     {
       "ticker": "ZERGY",
       "alis": "14.48",
@@ -47,6 +57,16 @@
       "stop": "16.40",
       "risk": "2.09",
       "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SAHOL",
+      "alis": "93.30",
+      "stop": "91.25",
+      "risk": "2.20",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -102,16 +122,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "OYYAT",
-      "alis": "49.50",
-      "stop": "48.04",
-      "risk": "2.95",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "CMENT",
       "alis": "304.00",
       "stop": "295.00",
@@ -146,16 +156,6 @@
       "alis": "13.27",
       "stop": "12.80",
       "risk": "3.54",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MHRGY",
-      "alis": "4.9250",
-      "stop": "4.7500",
-      "risk": "3.55",
       "formation": "Harami",
       "current": null,
       "change": null,
