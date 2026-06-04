@@ -1,5 +1,5 @@
 {
-  "updatedAt": "04.06.2026 19:24:14",
+  "updatedAt": "04.06.2026 23:02:18",
   "signals": [
     {
       "ticker": "OZKGY",
@@ -7,26 +7,6 @@
       "stop": "13.54",
       "risk": "0.81",
       "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GOODY",
-      "alis": "16.47",
-      "stop": "16.26",
-      "risk": "1.28",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KCHOL",
-      "alis": "191.20",
-      "stop": "188.50",
-      "risk": "1.41",
-      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -52,41 +32,11 @@
       "grafikUrl": null
     },
     {
-      "ticker": "OYAKC",
-      "alis": "21.02",
-      "stop": "20.64",
-      "risk": "1.81",
+      "ticker": "AKBNK",
+      "alis": "65.95",
+      "stop": "64.50",
+      "risk": "2.20",
       "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PAHOL",
-      "alis": "1.6750",
-      "stop": "1.6400",
-      "risk": "2.09",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SAHOL",
-      "alis": "92.00",
-      "stop": "89.90",
-      "risk": "2.28",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "HURGZ",
-      "alis": "7.9950",
-      "stop": "7.7900",
-      "risk": "2.56",
-      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -122,16 +72,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SKBNK",
-      "alis": "13.27",
-      "stop": "12.80",
-      "risk": "3.54",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "SURGY",
       "alis": "68.65",
       "stop": "66.00",
@@ -142,10 +82,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LIDFA",
-      "alis": "2.9950",
-      "stop": "2.8700",
-      "risk": "4.17",
+      "ticker": "BURCE",
+      "alis": "47.48",
+      "stop": "45.62",
+      "risk": "3.92",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -156,16 +96,6 @@
       "alis": "3.1700",
       "stop": "3.0300",
       "risk": "4.42",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "IZENR",
-      "alis": "11.21",
-      "stop": "10.65",
-      "risk": "5.00",
       "formation": "Harami",
       "current": null,
       "change": null,
