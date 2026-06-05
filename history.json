@@ -984,5 +984,141 @@
         "grafikUrl": null
       }
     ]
+  },
+  "05.06.2026": {
+    "date": "05.06.2026",
+    "updatedAt": "05.06.2026 22:51:56",
+    "signals": [
+      {
+        "ticker": "USDTRF",
+        "alis": "4308",
+        "stop": "4295",
+        "risk": "0.30",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AVOD",
+        "alis": "4.5300",
+        "stop": "4.4900",
+        "risk": "0.88",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CRFSA",
+        "alis": "128.00",
+        "stop": "126.30",
+        "risk": "1.33",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SELVA",
+        "alis": "2.2000",
+        "stop": "2.1700",
+        "risk": "1.36",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GOZDE",
+        "alis": "19.77",
+        "stop": "19.48",
+        "risk": "1.47",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EMNIS",
+        "alis": "168.25",
+        "stop": "165.70",
+        "risk": "1.52",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KOTON",
+        "alis": "15.08",
+        "stop": "14.80",
+        "risk": "1.86",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GARFA",
+        "alis": "30.73",
+        "stop": "30.12",
+        "risk": "1.99",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BIOEN",
+        "alis": "17.14",
+        "stop": "16.77",
+        "risk": "2.16",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ARSAN",
+        "alis": "3.4550",
+        "stop": "3.3700",
+        "risk": "2.46",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "LXGYO",
+        "alis": "17.15",
+        "stop": "16.69",
+        "risk": "2.68",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MAALT",
+        "alis": "1221",
+        "stop": "1181",
+        "risk": "3.28",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CEOEM",
+        "alis": "27.78",
+        "stop": "26.52",
+        "risk": "4.54",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
