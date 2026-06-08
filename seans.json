@@ -1,121 +1,51 @@
 {
-  "updatedAt": "05.06.2026 18:58:57",
+  "updatedAt": "08.06.2026 13:59:16",
   "signals": [
     {
-      "ticker": "USDTRF",
-      "alis": "4308",
-      "stop": "4295",
-      "risk": "0.30",
+      "ticker": "BAGFS",
+      "alis": "28.22",
+      "stop": "27.98",
+      "risk": "0.85",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "CRFSA",
-      "alis": "128.00",
-      "stop": "126.30",
-      "risk": "1.33",
+      "ticker": "ALKIM",
+      "alis": "17.21",
+      "stop": "16.95",
+      "risk": "1.51",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "SELVA",
-      "alis": "2.2000",
-      "stop": "2.1700",
-      "risk": "1.36",
+      "ticker": "MEDTR",
+      "alis": "30.32",
+      "stop": "29.84",
+      "risk": "1.58",
+      "formation": "Ters Çekiç",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RGYAS",
+      "alis": "196.25",
+      "stop": "193.10",
+      "risk": "1.61",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "KCHOL",
-      "alis": "191.20",
-      "stop": "188.50",
-      "risk": "1.41",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GOZDE",
-      "alis": "19.77",
-      "stop": "19.48",
-      "risk": "1.47",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EMNIS",
-      "alis": "168.25",
-      "stop": "165.70",
-      "risk": "1.52",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DOCO",
-      "alis": "9888",
-      "stop": "9725",
-      "risk": "1.65",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GSDDE",
-      "alis": "12.47",
-      "stop": "12.26",
-      "risk": "1.68",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OYAKC",
-      "alis": "21.02",
-      "stop": "20.64",
-      "risk": "1.81",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KOTON",
-      "alis": "15.08",
-      "stop": "14.80",
-      "risk": "1.86",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EPLAS",
-      "alis": "6.1150",
-      "stop": "6.0000",
-      "risk": "1.88",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GARFA",
-      "alis": "30.73",
-      "stop": "30.12",
-      "risk": "1.99",
+      "ticker": "AYDEM",
+      "alis": "25.92",
+      "stop": "25.46",
+      "risk": "1.77",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -123,19 +53,109 @@
     },
     {
       "ticker": "PAHOL",
-      "alis": "1.6750",
+      "alis": "1.6700",
       "stop": "1.6400",
-      "risk": "2.09",
+      "risk": "1.80",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "BIOEN",
-      "alis": "17.14",
-      "stop": "16.77",
-      "risk": "2.16",
+      "ticker": "ALVES",
+      "alis": "2.7600",
+      "stop": "2.7100",
+      "risk": "1.81",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ANGEN",
+      "alis": "11.23",
+      "stop": "11.02",
+      "risk": "1.87",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "GRTHO",
+      "alis": "209.45",
+      "stop": "205.50",
+      "risk": "1.89",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "APMDLF",
+      "alis": "25.36",
+      "stop": "24.87",
+      "risk": "1.93",
+      "formation": "Çekiç",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BIMAS",
+      "alis": "377.75",
+      "stop": "370.00",
+      "risk": "2.05",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ZOREN",
+      "alis": "3.0650",
+      "stop": "3.0000",
+      "risk": "2.12",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KGYO",
+      "alis": "12.26",
+      "stop": "11.99",
+      "risk": "2.20",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "LRSHO",
+      "alis": "3.3950",
+      "stop": "3.3200",
+      "risk": "2.21",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ADEL",
+      "alis": "32.58",
+      "stop": "31.86",
+      "risk": "2.21",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SEKFK",
+      "alis": "10.28",
+      "stop": "10.05",
+      "risk": "2.24",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -162,10 +182,20 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ARSAN",
-      "alis": "3.4550",
-      "stop": "3.3700",
-      "risk": "2.46",
+      "ticker": "AHGAZ",
+      "alis": "31.58",
+      "stop": "30.84",
+      "risk": "2.34",
+      "formation": "Ters Çekiç",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ULUUN",
+      "alis": "8.4600",
+      "stop": "8.2500",
+      "risk": "2.48",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -182,9 +212,19 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SNICA",
-      "alis": "4.2200",
-      "stop": "4.1100",
+      "ticker": "RTALB",
+      "alis": "3.4800",
+      "stop": "3.3900",
+      "risk": "2.59",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "CWENE",
+      "alis": "40.54",
+      "stop": "39.48",
       "risk": "2.61",
       "formation": "Harami",
       "current": null,
@@ -192,11 +232,81 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LXGYO",
-      "alis": "17.15",
-      "stop": "16.69",
+      "ticker": "KIMMR",
+      "alis": "16.76",
+      "stop": "16.32",
+      "risk": "2.63",
+      "formation": "Delen Mumlar",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TERA",
+      "alis": "201.80",
+      "stop": "196.50",
+      "risk": "2.63",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ZPLIBF",
+      "alis": "191.90",
+      "stop": "186.75",
       "risk": "2.68",
       "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BAKAB",
+      "alis": "47.56",
+      "stop": "46.28",
+      "risk": "2.69",
+      "formation": "Delen Mumlar",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "DERHL",
+      "alis": "13.74",
+      "stop": "13.37",
+      "risk": "2.69",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "YEOTK",
+      "alis": "115.65",
+      "stop": "112.40",
+      "risk": "2.81",
+      "formation": "Ters Çekiç",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BANVT",
+      "alis": "156.00",
+      "stop": "151.50",
+      "risk": "2.88",
+      "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BARMA",
+      "alis": "60.65",
+      "stop": "58.90",
+      "risk": "2.89",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -206,6 +316,26 @@
       "alis": "16.98",
       "stop": "16.49",
       "risk": "2.89",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KRONT",
+      "alis": "20.00",
+      "stop": "19.42",
+      "risk": "2.90",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "INTEM",
+      "alis": "275.25",
+      "stop": "267.25",
+      "risk": "2.91",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -222,21 +352,21 @@
       "grafikUrl": null
     },
     {
-      "ticker": "CEMAS",
-      "alis": "4.9450",
-      "stop": "4.8000",
-      "risk": "2.93",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ARMGD",
       "alis": "125.70",
       "stop": "122.00",
       "risk": "2.94",
       "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ODAS",
+      "alis": "7.2950",
+      "stop": "7.0800",
+      "risk": "2.95",
+      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -252,10 +382,70 @@
       "grafikUrl": null
     },
     {
+      "ticker": "YYAPI",
+      "alis": "1.0100",
+      "stop": "0.9800",
+      "risk": "2.97",
+      "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "DCTTR",
+      "alis": "12.37",
+      "stop": "12.00",
+      "risk": "2.99",
+      "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MZHLD",
+      "alis": "6.1550",
+      "stop": "5.9700",
+      "risk": "3.01",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KRPLS",
       "alis": "9.4900",
       "stop": "9.2000",
       "risk": "3.06",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BINBN",
+      "alis": "177.50",
+      "stop": "172.00",
+      "risk": "3.10",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ALCAR",
+      "alis": "770.00",
+      "stop": "746.00",
+      "risk": "3.12",
+      "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ATEKS",
+      "alis": "94.00",
+      "stop": "91.00",
+      "risk": "3.19",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -272,30 +462,50 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MAALT",
-      "alis": "1221",
-      "stop": "1181",
-      "risk": "3.28",
+      "ticker": "TUPRS",
+      "alis": "240.80",
+      "stop": "233.00",
+      "risk": "3.24",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "HUBVC",
-      "alis": "3.5200",
-      "stop": "3.4000",
-      "risk": "3.41",
-      "formation": "Ters Çekiç",
+      "ticker": "GSDDE",
+      "alis": "12.41",
+      "stop": "12.00",
+      "risk": "3.30",
+      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "EGSER",
-      "alis": "3.5000",
-      "stop": "3.3800",
+      "ticker": "MTRKS",
+      "alis": "27.98",
+      "stop": "27.02",
       "risk": "3.43",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "CATES",
+      "alis": "40.86",
+      "stop": "39.42",
+      "risk": "3.52",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SKBNK",
+      "alis": "13.27",
+      "stop": "12.80",
+      "risk": "3.54",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -312,6 +522,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "SNPAM",
+      "alis": "21.88",
+      "stop": "21.06",
+      "risk": "3.75",
+      "formation": "Çekiç",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "YGGYO",
       "alis": "219.10",
       "stop": "210.50",
@@ -322,21 +542,31 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LIDFA",
-      "alis": "2.9950",
-      "stop": "2.8700",
-      "risk": "4.17",
+      "ticker": "KTSKR",
+      "alis": "99.95",
+      "stop": "95.95",
+      "risk": "4.00",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IZFAS",
+      "alis": "66.60",
+      "stop": "63.85",
+      "risk": "4.13",
       "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "ETILR",
-      "alis": "5.8350",
-      "stop": "5.5900",
-      "risk": "4.20",
-      "formation": "Harami",
+      "ticker": "EPLAS",
+      "alis": "6.0300",
+      "stop": "5.7800",
+      "risk": "4.15",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -352,6 +582,46 @@
       "grafikUrl": null
     },
     {
+      "ticker": "UCAYM",
+      "alis": "35.52",
+      "stop": "34.00",
+      "risk": "4.28",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SEYKM",
+      "alis": "5.0500",
+      "stop": "4.8300",
+      "risk": "4.36",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KFEIN",
+      "alis": "11.47",
+      "stop": "10.97",
+      "risk": "4.36",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "CCOLA",
+      "alis": "78.80",
+      "stop": "75.35",
+      "risk": "4.38",
+      "formation": "Delen Mumlar",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DZGYO",
       "alis": "8.6400",
       "stop": "8.2600",
@@ -362,11 +632,11 @@
       "grafikUrl": null
     },
     {
-      "ticker": "CEOEM",
-      "alis": "27.78",
-      "stop": "26.52",
-      "risk": "4.54",
-      "formation": "Harami",
+      "ticker": "AVPGY",
+      "alis": "60.90",
+      "stop": "58.22",
+      "risk": "4.40",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -386,6 +656,16 @@
       "alis": "10.99",
       "stop": "10.47",
       "risk": "4.73",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TRCAS",
+      "alis": "44.72",
+      "stop": "42.56",
+      "risk": "4.83",
       "formation": "Harami",
       "current": null,
       "change": null,
