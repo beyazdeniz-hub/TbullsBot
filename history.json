@@ -1582,5 +1582,151 @@
         "grafikUrl": null
       }
     ]
+  },
+  "10.06.2026": {
+    "date": "10.06.2026",
+    "updatedAt": "10.06.2026 23:27:18",
+    "signals": [
+      {
+        "ticker": "APBDLF",
+        "alis": "36.16",
+        "stop": "35.79",
+        "risk": "1.02",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MEDTR",
+        "alis": "30.32",
+        "stop": "29.84",
+        "risk": "1.58",
+        "formation": "Ters Çekiç",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DOCO",
+        "alis": "9888",
+        "stop": "9725",
+        "risk": "1.65",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GRTHO",
+        "alis": "209.45",
+        "stop": "205.50",
+        "risk": "1.89",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BRKO",
+        "alis": "11.25",
+        "stop": "11.00",
+        "risk": "2.22",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "IEYHO",
+        "alis": "122.40",
+        "stop": "119.60",
+        "risk": "2.29",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AKCNS",
+        "alis": "208.00",
+        "stop": "203.20",
+        "risk": "2.31",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "NIBAS",
+        "alis": "4.6100",
+        "stop": "4.5000",
+        "risk": "2.39",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RTALB",
+        "alis": "3.4800",
+        "stop": "3.3900",
+        "risk": "2.59",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KORDS",
+        "alis": "76.80",
+        "stop": "74.30",
+        "risk": "3.26",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RAYSG",
+        "alis": "198.22",
+        "stop": "189.70",
+        "risk": "4.30",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BLUME",
+        "alis": "32.16",
+        "stop": "30.66",
+        "risk": "4.66",
+        "formation": "Çekiç",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EUPWR",
+        "alis": "87.85",
+        "stop": "83.65",
+        "risk": "4.78",
+        "formation": "Harami",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ERSU",
+        "alis": "27.00",
+        "stop": "25.66",
+        "risk": "4.96",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
