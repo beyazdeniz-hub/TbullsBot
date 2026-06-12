@@ -1,5 +1,5 @@
 {
-  "updatedAt": "12.06.2026 13:31:00",
+  "updatedAt": "12.06.2026 17:06:34",
   "signals": [
     {
       "ticker": "NPTLRF",
@@ -77,16 +77,6 @@
       "stop": "11.35",
       "risk": "1.13",
       "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "FORTE",
-      "alis": "92.70",
-      "stop": "91.60",
-      "risk": "1.19",
-      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -177,16 +167,6 @@
       "stop": "11.22",
       "risk": "1.41",
       "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "LYDHO",
-      "alis": "184.45",
-      "stop": "181.80",
-      "risk": "1.44",
-      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -422,16 +402,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ALVES",
-      "alis": "2.7600",
-      "stop": "2.7100",
-      "risk": "1.81",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EUHOL",
       "alis": "11.00",
       "stop": "10.80",
@@ -572,16 +542,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "OBAMS",
-      "alis": "7.0650",
-      "stop": "6.9200",
-      "risk": "2.05",
-      "formation": "Ters Çekiç",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "TOASO",
       "alis": "298.63",
       "stop": "292.50",
@@ -687,6 +647,16 @@
       "stop": "15.85",
       "risk": "2.16",
       "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TATGD",
+      "alis": "19.72",
+      "stop": "19.29",
+      "risk": "2.18",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -812,16 +782,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ADGYO",
-      "alis": "53.90",
-      "stop": "52.65",
-      "risk": "2.32",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ACSEL",
       "alis": "143.55",
       "stop": "140.20",
@@ -876,6 +836,16 @@
       "alis": "61.95",
       "stop": "60.45",
       "risk": "2.42",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ULUUN",
+      "alis": "8.4600",
+      "stop": "8.2500",
+      "risk": "2.48",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -1002,16 +972,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SNICA",
-      "alis": "4.1000",
-      "stop": "3.9900",
-      "risk": "2.68",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "LXGYO",
       "alis": "17.47",
       "stop": "17.00",
@@ -1056,16 +1016,6 @@
       "alis": "22.86",
       "stop": "22.22",
       "risk": "2.80",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PATEK",
-      "alis": "23.92",
-      "stop": "23.24",
-      "risk": "2.84",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -1362,6 +1312,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "SKTAS",
+      "alis": "3.3400",
+      "stop": "3.2200",
+      "risk": "3.59",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "BINHO",
       "alis": "8.9950",
       "stop": "8.6700",
@@ -1582,6 +1542,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "KFEIN",
+      "alis": "11.47",
+      "stop": "10.97",
+      "risk": "4.36",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "PCILT",
       "alis": "34.41",
       "stop": "32.90",
@@ -1616,16 +1586,6 @@
       "alis": "47.14",
       "stop": "45.06",
       "risk": "4.41",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OYAYO",
-      "alis": "48.66",
-      "stop": "46.50",
-      "risk": "4.44",
       "formation": "Harami",
       "current": null,
       "change": null,
