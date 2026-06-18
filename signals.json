@@ -1,5 +1,5 @@
 {
-  "updatedAt": "18.06.2026 13:30:15",
+  "updatedAt": "18.06.2026 16:59:35",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -42,6 +42,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "FORTE",
+      "alis": "92.70",
+      "stop": "91.60",
+      "risk": "1.19",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "MIATK",
       "alis": "46.84",
       "stop": "46.28",
@@ -66,6 +76,16 @@
       "alis": "14.30",
       "stop": "14.11",
       "risk": "1.33",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TEZOL",
+      "alis": "17.49",
+      "stop": "17.25",
+      "risk": "1.37",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -106,6 +126,16 @@
       "alis": "3.5200",
       "stop": "3.4700",
       "risk": "1.42",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "LYDHO",
+      "alis": "184.45",
+      "stop": "181.80",
+      "risk": "1.44",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -522,11 +552,11 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MZHLD",
-      "alis": "6.1550",
-      "stop": "5.9700",
-      "risk": "3.01",
-      "formation": "Doji",
+      "ticker": "INTEM",
+      "alis": "275.25",
+      "stop": "267.25",
+      "risk": "2.91",
+      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
