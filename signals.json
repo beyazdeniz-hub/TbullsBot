@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.06.2026 16:59:35",
+  "updatedAt": "18.06.2026 20:08:43",
   "signals": [
+    {
+      "ticker": "QNBFK",
+      "alis": "38.60",
+      "stop": "38.40",
+      "risk": "0.52",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
     {
       "ticker": "DMLKT",
       "alis": "6.1200",
@@ -132,16 +142,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LYDHO",
-      "alis": "184.45",
-      "stop": "181.80",
-      "risk": "1.44",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ERCB",
       "alis": "58.23",
       "stop": "57.35",
@@ -156,6 +156,16 @@
       "alis": "8.4300",
       "stop": "8.3000",
       "risk": "1.54",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PENGD",
+      "alis": "12.28",
+      "stop": "12.08",
+      "risk": "1.63",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -217,6 +227,16 @@
       "stop": "2.7500",
       "risk": "1.79",
       "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ALVES",
+      "alis": "2.7600",
+      "stop": "2.7100",
+      "risk": "1.81",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -512,6 +532,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "KRDMB",
+      "alis": "111.85",
+      "stop": "108.90",
+      "risk": "2.64",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DESPC",
       "alis": "44.02",
       "stop": "42.84",
@@ -562,6 +592,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MZHLD",
+      "alis": "6.1550",
+      "stop": "5.9700",
+      "risk": "3.01",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KTSKR",
       "alis": "99.75",
       "stop": "96.75",
@@ -586,6 +626,16 @@
       "alis": "265.00",
       "stop": "257.00",
       "risk": "3.02",
+      "formation": "Harami",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "HUBVC",
+      "alis": "3.0150",
+      "stop": "2.9200",
+      "risk": "3.15",
       "formation": "Harami",
       "current": null,
       "change": null,
@@ -692,16 +742,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "RNPOL",
-      "alis": "2.6300",
-      "stop": "2.5300",
-      "risk": "3.80",
-      "formation": "Yutan Boğa",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ISDMR",
       "alis": "59.78",
       "stop": "57.50",
@@ -742,16 +782,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "DURDO",
-      "alis": "5.5000",
-      "stop": "5.2800",
-      "risk": "4.00",
-      "formation": "Yutan Boğa",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "HKTM",
       "alis": "13.92",
       "stop": "13.36",
@@ -777,6 +807,16 @@
       "stop": "5.3900",
       "risk": "4.09",
       "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KLRHO",
+      "alis": "98.00",
+      "stop": "93.95",
+      "risk": "4.13",
+      "formation": "Harami",
       "current": null,
       "change": null,
       "grafikUrl": null
