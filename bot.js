@@ -77,9 +77,27 @@ function formatTurkeyDateOnly() {
 function getTimeCategory() {
   const hour = getTurkeyNow().getHours();
   // 21, 22 veya 23 saatlerinden birindeyse "onay" kategorisine girer
-  if (hour >= 21 && hour <= 23) return "onay"; 
+  if (hour >= 21 && hour <= 23) return "onay";
   if (hour >= 9 && hour <= 18) return "seans";
   return "diger";
+}
+
+function resolveCategory() {
+  const forced = String(process.env.BOT_CATEGORY || "").trim().toLowerCase();
+  if (forced === "seans" || forced === "onay") return forced;
+
+  const category = getTimeCategory();
+  // Manuel GitHub Actions (workflow_dispatch) seans saati dışında: uygulama seans.json okur
+  if (
+    category === "diger" &&
+    process.env.GITHUB_EVENT_NAME === "workflow_dispatch"
+  ) {
+    console.log(
+      "Manuel calistirma + seans saati disi → seans.json guncellenecek (BOT_CATEGORY=onay ile degistirilebilir)"
+    );
+    return "seans";
+  }
+  return category;
 }
 
 async function sendTelegram(text, html = false) {
@@ -520,7 +538,7 @@ async function run() {
       await sleep(1200);
     }
 
-    const category = getTimeCategory();
+    const category = resolveCategory();
     await updateAppJsons(results, category);
 
     const summary =
