@@ -1,12 +1,12 @@
 {
-  "updatedAt": "22.06.2026 19:43:41",
+  "updatedAt": "22.06.2026 19:56:39",
   "signals": [
     {
       "ticker": "FMIZP",
       "alis": "300.25",
       "stop": "297.00",
       "risk": "1.08",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -26,7 +26,7 @@
       "alis": "2.7200",
       "stop": "2.6800",
       "risk": "1.47",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -36,7 +36,7 @@
       "alis": "4.9100",
       "stop": "4.8300",
       "risk": "1.63",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -56,7 +56,7 @@
       "alis": "84.00",
       "stop": "82.55",
       "risk": "1.73",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -66,7 +66,7 @@
       "alis": "28.81",
       "stop": "28.30",
       "risk": "1.77",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -76,7 +76,7 @@
       "alis": "1.3750",
       "stop": "1.3500",
       "risk": "1.82",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -86,7 +86,7 @@
       "alis": "1.8650",
       "stop": "1.8300",
       "risk": "1.88",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -96,7 +96,7 @@
       "alis": "7.2900",
       "stop": "7.1500",
       "risk": "1.92",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -106,7 +106,7 @@
       "alis": "583.50",
       "stop": "572.00",
       "risk": "1.97",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -156,7 +156,7 @@
       "alis": "1.5200",
       "stop": "1.4800",
       "risk": "2.63",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -166,7 +166,7 @@
       "alis": "6.1550",
       "stop": "5.9900",
       "risk": "2.68",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -206,16 +206,6 @@
       "alis": "120.90",
       "stop": "117.30",
       "risk": "2.98",
-      "formation": "Harami",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ECOGR",
-      "alis": "39.88",
-      "stop": "38.66",
-      "risk": "3.06",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -226,7 +216,7 @@
       "alis": "3.0150",
       "stop": "2.9200",
       "risk": "3.15",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -236,7 +226,7 @@
       "alis": "179.90",
       "stop": "174.10",
       "risk": "3.22",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -246,7 +236,7 @@
       "alis": "9.3700",
       "stop": "9.0500",
       "risk": "3.42",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -256,7 +246,7 @@
       "alis": "84.50",
       "stop": "81.45",
       "risk": "3.61",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -276,7 +266,7 @@
       "alis": "1.2300",
       "stop": "1.1800",
       "risk": "4.07",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -286,7 +276,7 @@
       "alis": "17.05",
       "stop": "16.27",
       "risk": "4.57",
-      "formation": "Harami",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -296,7 +286,7 @@
       "alis": "13.62",
       "stop": "12.96",
       "risk": "4.85",
-      "formation": "Çekiç",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
