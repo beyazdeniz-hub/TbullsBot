@@ -1,5 +1,5 @@
 {
-  "updatedAt": "22.06.2026 20:19:16",
+  "updatedAt": "22.06.2026 20:29:20",
   "signals": [
     {
       "ticker": "FMIZP",
@@ -16,6 +16,16 @@
       "alis": "7.3000",
       "stop": "7.2200",
       "risk": "1.10",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ALVES",
+      "alis": "2.7200",
+      "stop": "2.6800",
+      "risk": "1.47",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -192,6 +202,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "PSDTC",
+      "alis": "120.90",
+      "stop": "117.30",
+      "risk": "2.98",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "HUBVC",
       "alis": "3.0150",
       "stop": "2.9200",
@@ -256,16 +276,6 @@
       "alis": "17.05",
       "stop": "16.27",
       "risk": "4.57",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ZERGY",
-      "alis": "13.62",
-      "stop": "12.96",
-      "risk": "4.85",
       "formation": "Doji",
       "current": null,
       "change": null,
