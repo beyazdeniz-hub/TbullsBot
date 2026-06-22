@@ -3,6 +3,7 @@ const { getInstalledBrowsers } = require("@puppeteer/browsers");
 const axios = require("axios");
 const os = require("os");
 const path = require("path");
+const { extractDetailLevels: extractDetailLevelsImpl } = require("./formationExtract");
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -255,88 +256,18 @@ async function collectTickers(page) {
   });
 }
 
-// --- GÜNCEL 1: FORMASYON OKUMA (TÜRKÇE KARAKTER DUYARLI) ---
+// Formasyon okuma: bot/formationExtract.js (Al Seviyesi satırı + DOM)
 async function extractDetailLevels(detailPage, ticker) {
-  await safeGoto(detailPage, `${DETAIL_URL}${ticker}`);
-
-  return await detailPage.evaluate(() => {
-    function clean(text) {
-      return String(text || "").replace(/\s+/g, " ").trim();
-    }
-
-    const bodyText = clean(document.body.innerText || "");
-
-    function pick(regexList) {
-      for (const regex of regexList) {
-        const m = bodyText.match(regex);
-        if (m && m[1]) {
-          return m[1].trim();
-        }
-      }
-      return "-";
-    }
-
-    const alSeviyesi = pick([
-      /Alış\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Aliş\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Al\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /AL\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Alış[:\s]*([0-9.,]+)/i,
-      /Al[:\s]*([0-9.,]+)/i,
-    ]);
-
-    const stoploss = pick([
-      /Stoploss[:\s]*([0-9.,]+)/i,
-      /Stop\s*Loss[:\s]*([0-9.,]+)/i,
-      /Stoploss\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Stop\s*Loss\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Stop\s*Seviyesi[:\s]*([0-9.,]+)/i,
-      /Stop[:\s]*([0-9.,]+)/i,
-    ]);
-
-    // METNİN İÇİNDEKİ FORMASYONU BUL (Tüm karakter ihtimalleriyle)
-    const formasyonRegex = /(Yutan\s+Bo[ğgĞG]a|Yutan\s+Ay[ıiIİ]|Çeki[çcÇC]|Ceki[çcÇC]|Ters\s+Çeki[çcÇC]|Sabah\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Ak[şsŞS]am\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Doji|Delen\s+Mum|Harami|As[ıiIİ]l[ıiIİ]\s+Adam|Kayan\s+Y[ıiIİ]ld[ıiIİ]z|Mezar\s+Ta[şsŞS][ıiIİ]|Yusuf[çcÇC]uk|Hamile)/i;
-    
-    const formasyonMatch = bodyText.match(formasyonRegex);
-    let formasyon = "Doji"; // Varsayılan değer
-
-    if (formasyonMatch && formasyonMatch[1]) {
-       // Bulunan kelimenin Türkçe karakterlerini İngilizceye çevirip standartlaştırıyoruz (Karşılaştırma kolaylığı için)
-       let raw = formasyonMatch[1].toLowerCase()
-                    .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-                    .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c');
-       
-       // Sitede bulunan bozuk metni, uygulamadaki standart isme dönüştürüyoruz
-       if (raw.includes("yutan") && raw.includes("bo")) formasyon = "Yutan Boğa";
-       else if (raw.includes("yutan") && raw.includes("ay")) formasyon = "Yutan Ayı";
-       else if (raw.includes("sabah")) formasyon = "Sabah Yıldızı";
-       else if (raw.includes("aksam") || raw.includes("akşam")) formasyon = "Akşam Yıldızı";
-       else if (raw.includes("delen")) formasyon = "Delen Mumlar";
-       else if (raw.includes("asili") || raw.includes("asılı")) formasyon = "Asılı Adam";
-       else if (raw.includes("kayan")) formasyon = "Kayan Yıldız";
-       else if (raw.includes("mezar")) formasyon = "Mezar Taşı";
-       else if (raw.includes("yusuf")) formasyon = "Yusufçuk";
-       else if (raw.includes("harami") || raw.includes("hamile")) formasyon = "Harami";
-       else if (raw.includes("ters") && (raw.includes("cekic") || raw.includes("çekiç"))) formasyon = "Ters Çekiç";
-       else if (raw.includes("cekic") || raw.includes("çekiç")) formasyon = "Çekiç";
-       else formasyon = "Doji"; 
-    }
-
-    return {
-      alSeviyesi,
-      stoploss,
-      formasyon
-    };
-  });
+  return extractDetailLevelsImpl(detailPage, DETAIL_URL, ticker, safeGoto);
 }
 
 function buildTable(title, rows) {
   let text = `${title}\n\n`;
-  text += `${pad("No", 3, true)} ${pad("Hisse", 6)} ${pad("Alis", 9, true)} ${pad("STOP", 9, true)} ${pad("Risk%", 6, true)}\n`;
-  text += `${pad("---", 3)} ${pad("------", 6)} ${pad("---------", 9)} ${pad("---------", 9)} ${pad("------", 6)}\n`;
+  text += `${pad("No", 3, true)} ${pad("Hisse", 6)} ${pad("Alis", 9, true)} ${pad("STOP", 9, true)} ${pad("Risk%", 6, true)} ${pad("Formasyon", 14)}\n`;
+  text += `${pad("---", 3)} ${pad("------", 6)} ${pad("---------", 9)} ${pad("---------", 9)} ${pad("------", 6)} ${pad("--------------", 14)}\n`;
 
   rows.forEach((row, i) => {
-    text += `${pad(i + 1, 3, true)} ${pad(row.ticker, 6)} ${pad(row.alis, 9, true)} ${pad(row.stop, 9, true)} ${pad(row.risk.toFixed(2), 6, true)}\n`;
+    text += `${pad(i + 1, 3, true)} ${pad(row.ticker, 6)} ${pad(row.alis, 9, true)} ${pad(row.stop, 9, true)} ${pad(row.risk.toFixed(2), 6, true)} ${pad(row.formation || "-", 14)}\n`;
   });
 
   text += `\nToplam: ${rows.length}`;
