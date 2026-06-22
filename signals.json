@@ -1,5 +1,5 @@
 {
-  "updatedAt": "22.06.2026 19:56:46",
+  "updatedAt": "22.06.2026 20:19:16",
   "signals": [
     {
       "ticker": "FMIZP",
@@ -16,16 +16,6 @@
       "alis": "7.3000",
       "stop": "7.2200",
       "risk": "1.10",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ALVES",
-      "alis": "2.7200",
-      "stop": "2.6800",
-      "risk": "1.47",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -196,16 +186,6 @@
       "alis": "6.0950",
       "stop": "5.9200",
       "risk": "2.87",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PSDTC",
-      "alis": "120.90",
-      "stop": "117.30",
-      "risk": "2.98",
       "formation": "Doji",
       "current": null,
       "change": null,
