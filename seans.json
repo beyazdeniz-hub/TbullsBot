@@ -1,5 +1,5 @@
 {
-  "updatedAt": "23.06.2026 12:58:04",
+  "updatedAt": "23.06.2026 13:00:11",
   "signals": [
     {
       "ticker": "ANGEN",
@@ -596,16 +596,6 @@
       "alis": "340.50",
       "stop": "330.25",
       "risk": "3.01",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SILVR",
-      "alis": "2.6400",
-      "stop": "2.5600",
-      "risk": "3.03",
       "formation": "Doji",
       "current": null,
       "change": null,
