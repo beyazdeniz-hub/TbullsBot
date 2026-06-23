@@ -1,6 +1,16 @@
 {
-  "updatedAt": "23.06.2026 15:41:40",
+  "updatedAt": "23.06.2026 17:36:33",
   "signals": [
+    {
+      "ticker": "ANGEN",
+      "alis": "10.58",
+      "stop": "10.51",
+      "risk": "0.66",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
     {
       "ticker": "DMLKT",
       "alis": "6.1200",
@@ -102,10 +112,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "YESIL",
-      "alis": "1.4300",
-      "stop": "1.4100",
-      "risk": "1.40",
+      "ticker": "PENTA",
+      "alis": "14.61",
+      "stop": "14.40",
+      "risk": "1.44",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -142,16 +152,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MZHLD",
-      "alis": "6.0300",
-      "stop": "5.9400",
-      "risk": "1.49",
-      "formation": "Yutan Boğa",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "CMBTN",
       "alis": "1533",
       "stop": "1510",
@@ -182,6 +182,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "RYGYO",
+      "alis": "32.02",
+      "stop": "31.50",
+      "risk": "1.62",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KZGYO",
       "alis": "23.22",
       "stop": "22.84",
@@ -195,16 +205,6 @@
       "ticker": "VKING",
       "alis": "25.50",
       "stop": "25.08",
-      "risk": "1.65",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SRVGY",
-      "alis": "3.0300",
-      "stop": "2.9800",
       "risk": "1.65",
       "formation": "Doji",
       "current": null,
@@ -282,10 +282,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KRDMA",
-      "alis": "41.18",
-      "stop": "40.32",
-      "risk": "2.09",
+      "ticker": "GLDTRF",
+      "alis": "529.25",
+      "stop": "519.00",
+      "risk": "1.94",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -367,16 +367,6 @@
       "stop": "14.49",
       "risk": "2.29",
       "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KMPUR",
-      "alis": "21.16",
-      "stop": "20.66",
-      "risk": "2.36",
-      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -672,6 +662,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EGGUB",
+      "alis": "107.60",
+      "stop": "103.60",
+      "risk": "3.72",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "VESTL",
       "alis": "25.24",
       "stop": "24.30",
@@ -706,6 +706,16 @@
       "alis": "54.70",
       "stop": "52.55",
       "risk": "3.93",
+      "formation": "Beyaz Asker Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "VAKKO",
+      "alis": "81.25",
+      "stop": "78.05",
+      "risk": "3.94",
       "formation": "Beyaz Asker Boğa",
       "current": null,
       "change": null,
