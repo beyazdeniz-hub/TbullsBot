@@ -40,8 +40,46 @@ function isJunkFormationCandidate(raw) {
   }
   if (/^tanimi$/i.test(trLower(text))) return true;
   if (/^[0-9.,+%\-]+$/.test(text)) return true;
+  // Sinyal durumu başlıkları formasyon değil (ör. NAKİTTE KAL)
+  if (/^(nakitte kal|alim|satim|tetikte bekle)/i.test(text)) return true;
 
   return false;
+}
+
+/** Turkish Bulls sayfasında görülen bilinen formasyon ifadeleri (uzun eşleşme önce) */
+const KNOWN_FORMATION_PHRASES = [
+  ["degen mumlar boga", "Değen Mumlar Boğa"],
+  ["guvercin yuvasi boga", "Güvercin Yuvası Boğa"],
+  ["dusen blok boga", "Düşen Blok Boğa"],
+  ["cakisan dip boga", "Çakışan Dip Boğa"],
+  ["beyaz asker boga", "Beyaz Asker Boğa"],
+  ["kros hamile boga", "Kros Hamile Boğa"],
+  ["hamile boga", "Hamile Boğa"],
+  ["cekic boga", "Çekiç Boğa"],
+  ["yutan boga", "Yutan Boğa"],
+  ["yutan ayi", "Yutan Ayı"],
+  ["omuz bas omuz", "Omuz Baş Omuz"],
+  ["sabah yildizi", "Sabah Yıldızı"],
+  ["aksam yildizi", "Akşam Yıldızı"],
+  ["ters cekic", "Ters Çekiç"],
+  ["delen mumlar", "Delen Mumlar"],
+  ["asili adam", "Asılı Adam"],
+  ["kayan yildiz", "Kayan Yıldız"],
+  ["mezar tasi", "Mezar Taşı"],
+  ["mizrak", "Mızrak"],
+  ["harami", "Harami"],
+  ["hamile", "Hamile"],
+  ["doji", "Doji"],
+  ["cekic", "Çekiç"],
+  ["obo", "OBO"],
+];
+
+function matchKnownFormationPhrase(text) {
+  const lower = trLower(text);
+  for (const [needle, canonical] of KNOWN_FORMATION_PHRASES) {
+    if (lower.includes(needle)) return canonical;
+  }
+  return null;
 }
 
 function normalizeFormation(raw) {
@@ -49,7 +87,14 @@ function normalizeFormation(raw) {
     .replace(/\s+/g, " ")
     .trim();
 
-  if (!text || isJunkFormationCandidate(text)) return "Doji";
+  if (!text || isJunkFormationCandidate(text)) {
+    const fromPhrase = matchKnownFormationPhrase(text);
+    if (fromPhrase) return fromPhrase;
+    return "Doji";
+  }
+
+  const phraseHit = matchKnownFormationPhrase(text);
+  if (phraseHit) return phraseHit;
 
   const lower = trLower(text);
 
@@ -65,6 +110,7 @@ function normalizeFormation(raw) {
   if (lower.includes("aksam") || lower.includes("akşam")) return "Akşam Yıldızı";
   if (lower.includes("ters") && lower.includes("cekic")) return "Ters Çekiç";
   if (lower.includes("delen")) return "Delen Mumlar";
+  if (lower.includes("degen")) return "Değen Mumlar Boğa";
   if (lower.includes("asili") || lower.includes("asılı")) return "Asılı Adam";
   if (lower.includes("kayan") && lower.includes("yildiz")) return "Kayan Yıldız";
   if (lower.includes("mezar")) return "Mezar Taşı";
@@ -221,10 +267,40 @@ async function extractDetailLevels(detailPage, detailUrl, ticker, safeGoto) {
       if (nameMatch) formasyonRaw = nameMatch[1];
     }
 
-    // 5) Header — uzun eşleşmeler önce
+    // 5) Header / grafik etiketi — bilinen çok kelimeli formasyonlar (NAKİTTE KAL olsa bile)
+    if (!formasyonRaw) {
+      const phrasePatterns = [
+        /De[ğgGĞ]en\s+Mumlar?\s+Bo[ğgGĞ]a/i,
+        /G[üuÜU]vercin\s+Yuvas[ıiİI]\s+Bo[ğgGĞ]a/i,
+        /D[üuÜU]şen\s+Blok\s+Bo[ğgGĞ]a/i,
+        /[ÇC]ak[ıiİI][şsŞS]an\s+Dip\s+Bo[ğgGĞ]a/i,
+        /Beyaz\s+Asker\s+Bo[ğgGĞ]a/i,
+        /Kros\s+Hamile\s+Bo[ğgGĞ]a/i,
+        /[ÇC]eki[çcÇC]\s+Bo[ğgGĞ]a/i,
+        /Yutan\s+Bo[ğgGĞ]a/i,
+        /Yutan\s+Ay[ıiİI]/i,
+        /Omuz\s+Ba[şsŞS]\s+Omuz/i,
+        /Sabah\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]/i,
+        /Ak[şsŞS]am\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]/i,
+        /Delen\s+Mumlar?/i,
+        /Hamile/i,
+        /Harami/i,
+        /Doji/i,
+        /OBO/i,
+      ];
+      for (const pattern of phrasePatterns) {
+        const m = headerText.match(pattern);
+        if (m && m[0]) {
+          formasyonRaw = clean(m[0]);
+          break;
+        }
+      }
+    }
+
+    // 6) Header — kısa tek kelimelik eşleşmeler
     if (!formasyonRaw) {
       const known = headerText.match(
-        /(Çeki[çcÇC]\s+Bo[ğgĞG]a|Yutan\s+Bo[ğgĞG]a|Yutan\s+Ay[ıiIİ]|Omuz\s+Ba[şsŞS]\s+Omuz|Ters\s+Çeki[çcÇC]|Sabah\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Ak[şsŞS]am\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Delen\s+Mum|As[ıiIİ]l[ıiIİ]\s+Adam|Kayan\s+Y[ıiIİ]ld[ıiIİ]z|Mezar\s+Ta[şsŞS][ıiIİ]|Yusuf[çcÇC]uk|Hamile|Harami|OBO|Doji|M[ıiIİ]zra[kğg]|Çeki[çcÇC])/i
+        /(Çeki[çcÇC]\s+Bo[ğgĞG]a|Yutan\s+Bo[ğgĞG]a|Yutan\s+Ay[ıiIİ]|Omuz\s+Ba[şsŞS]\s+Omuz|Ters\s+Çeki[çcÇC]|Sabah\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Ak[şsŞS]am\s+Y[ıiIİ]ld[ıiIİ]z[ıiIİ]|Delen\s+Mum|De[ğgGĞ]en\s+Mum|As[ıiIİ]l[ıiIİ]\s+Adam|Kayan\s+Y[ıiIİ]ld[ıiIİ]z|Mezar\s+Ta[şsŞS][ıiIİ]|Yusuf[çcÇC]uk|Hamile|Harami|OBO|Doji|M[ıiIİ]zra[kğg]|Çeki[çcÇC])/i
       );
       if (known && known[1]) formasyonRaw = known[1];
     }
@@ -239,4 +315,10 @@ async function extractDetailLevels(detailPage, detailUrl, ticker, safeGoto) {
   };
 }
 
-module.exports = { normalizeFormation, extractDetailLevels, isJunkFormationCandidate };
+module.exports = {
+  normalizeFormation,
+  extractDetailLevels,
+  isJunkFormationCandidate,
+  matchKnownFormationPhrase,
+  KNOWN_FORMATION_PHRASES,
+};
