@@ -1,5 +1,5 @@
 {
-  "updatedAt": "23.06.2026 13:00:11",
+  "updatedAt": "23.06.2026 13:45:49",
   "signals": [
     {
       "ticker": "ANGEN",
@@ -32,10 +32,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "DUNYH",
-      "alis": "112.40",
-      "stop": "111.40",
-      "risk": "0.89",
+      "ticker": "ASUZU",
+      "alis": "60.68",
+      "stop": "60.15",
+      "risk": "0.87",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -62,6 +62,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "BFREN",
+      "alis": "140.20",
+      "stop": "138.80",
+      "risk": "1.00",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "TATGD",
       "alis": "18.94",
       "stop": "18.75",
@@ -76,6 +86,26 @@
       "alis": "41.74",
       "stop": "41.32",
       "risk": "1.01",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TUREX",
+      "alis": "8.1350",
+      "stop": "8.0500",
+      "risk": "1.04",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PRKAB",
+      "alis": "38.81",
+      "stop": "38.36",
+      "risk": "1.16",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -152,10 +182,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ACSEL",
-      "alis": "148.15",
-      "stop": "146.00",
-      "risk": "1.45",
+      "ticker": "NIBAS",
+      "alis": "4.4650",
+      "stop": "4.4000",
+      "risk": "1.46",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -207,6 +237,16 @@
       "stop": "2.5100",
       "risk": "1.57",
       "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RYGYO",
+      "alis": "32.02",
+      "stop": "31.50",
+      "risk": "1.62",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -322,10 +362,30 @@
       "grafikUrl": null
     },
     {
+      "ticker": "GLDTRF",
+      "alis": "529.25",
+      "stop": "519.00",
+      "risk": "1.94",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KRDMA",
       "alis": "41.18",
       "stop": "40.32",
       "risk": "2.09",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RUZYE",
+      "alis": "10.44",
+      "stop": "10.22",
+      "risk": "2.11",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -402,6 +462,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "GENTS",
+      "alis": "7.0000",
+      "stop": "6.8400",
+      "risk": "2.29",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KOTON",
       "alis": "14.83",
       "stop": "14.49",
@@ -446,16 +516,6 @@
       "alis": "81.95",
       "stop": "80.00",
       "risk": "2.38",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "RAYSG",
-      "alis": "200.80",
-      "stop": "196.00",
-      "risk": "2.39",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -602,6 +662,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "SILVR",
+      "alis": "2.6400",
+      "stop": "2.5600",
+      "risk": "3.03",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ALCTL",
       "alis": "158.75",
       "stop": "153.90",
@@ -707,6 +777,16 @@
       "stop": "1.8200",
       "risk": "3.70",
       "formation": "Yutan Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "EGGUB",
+      "alis": "107.60",
+      "stop": "103.60",
+      "risk": "3.72",
+      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
