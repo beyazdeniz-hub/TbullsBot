@@ -1,16 +1,6 @@
 {
-  "updatedAt": "23.06.2026 17:36:33",
+  "updatedAt": "23.06.2026 18:56:47",
   "signals": [
-    {
-      "ticker": "ANGEN",
-      "alis": "10.58",
-      "stop": "10.51",
-      "risk": "0.66",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
     {
       "ticker": "DMLKT",
       "alis": "6.1200",
@@ -22,20 +12,20 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SOKM",
-      "alis": "48.52",
-      "stop": "48.12",
-      "risk": "0.82",
+      "ticker": "FORMT",
+      "alis": "2.2200",
+      "stop": "2.2000",
+      "risk": "0.90",
       "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "FORMT",
-      "alis": "2.2200",
-      "stop": "2.2000",
-      "risk": "0.90",
+      "ticker": "DESA",
+      "alis": "12.14",
+      "stop": "12.03",
+      "risk": "0.91",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -72,16 +62,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MAKTK",
-      "alis": "12.70",
-      "stop": "12.56",
-      "risk": "1.10",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "PRKAB",
       "alis": "38.81",
       "stop": "38.36",
@@ -112,10 +92,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "PENTA",
-      "alis": "14.61",
-      "stop": "14.40",
-      "risk": "1.44",
+      "ticker": "YESIL",
+      "alis": "1.4300",
+      "stop": "1.4100",
+      "risk": "1.40",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -202,16 +182,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "VKING",
-      "alis": "25.50",
-      "stop": "25.08",
-      "risk": "1.65",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "SEKFK",
       "alis": "10.29",
       "stop": "10.12",
@@ -282,16 +252,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GLDTRF",
-      "alis": "529.25",
-      "stop": "519.00",
-      "risk": "1.94",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "RUZYE",
       "alis": "10.44",
       "stop": "10.22",
@@ -306,16 +266,6 @@
       "alis": "2.8300",
       "stop": "2.7700",
       "risk": "2.12",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MANAS",
-      "alis": "29.02",
-      "stop": "28.40",
-      "risk": "2.14",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -532,6 +482,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ARDYZ",
+      "alis": "58.28",
+      "stop": "56.55",
+      "risk": "2.97",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ALKLC",
       "alis": "340.50",
       "stop": "330.25",
@@ -576,16 +536,6 @@
       "alis": "56.25",
       "stop": "54.50",
       "risk": "3.11",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "AKFYE",
-      "alis": "24.16",
-      "stop": "23.40",
-      "risk": "3.15",
       "formation": "Doji",
       "current": null,
       "change": null,
@@ -657,16 +607,6 @@
       "stop": "1.8200",
       "risk": "3.70",
       "formation": "Yutan Boğa",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EGGUB",
-      "alis": "107.60",
-      "stop": "103.60",
-      "risk": "3.72",
-      "formation": "Doji",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -836,16 +776,6 @@
       "alis": "131.10",
       "stop": "124.60",
       "risk": "4.96",
-      "formation": "Yutan Boğa",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MARBL",
-      "alis": "14.23",
-      "stop": "13.52",
-      "risk": "4.99",
       "formation": "Yutan Boğa",
       "current": null,
       "change": null,
