@@ -4446,5 +4446,111 @@
         "grafikUrl": null
       }
     ]
+  },
+  "24.06.2026": {
+    "date": "24.06.2026",
+    "updatedAt": "24.06.2026 22:43:54",
+    "signals": [
+      {
+        "ticker": "ANGEN",
+        "alis": "10.58",
+        "stop": "10.51",
+        "risk": "0.66",
+        "formation": "Çakışan Dip Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DUNYH",
+        "alis": "112.40",
+        "stop": "111.40",
+        "risk": "0.89",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "HATEK",
+        "alis": "15.70",
+        "stop": "15.54",
+        "risk": "1.02",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KARSN",
+        "alis": "13.12",
+        "stop": "12.95",
+        "risk": "1.30",
+        "formation": "Doji",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RTALB",
+        "alis": "3.5200",
+        "stop": "3.4700",
+        "risk": "1.42",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PRKME",
+        "alis": "18.21",
+        "stop": "17.83",
+        "risk": "2.09",
+        "formation": "Değen Mumlar Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GEDIK",
+        "alis": "6.7850",
+        "stop": "6.6300",
+        "risk": "2.28",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MGROS",
+        "alis": "696.50",
+        "stop": "677.50",
+        "risk": "2.73",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EGPRO",
+        "alis": "39.86",
+        "stop": "38.70",
+        "risk": "2.91",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VERUS",
+        "alis": "596.50",
+        "stop": "570.50",
+        "risk": "4.36",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
