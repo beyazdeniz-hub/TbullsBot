@@ -4552,5 +4552,141 @@
         "grafikUrl": null
       }
     ]
+  },
+  "25.06.2026": {
+    "date": "25.06.2026",
+    "updatedAt": "25.06.2026 22:55:54",
+    "signals": [
+      {
+        "ticker": "ISYAT",
+        "alis": "8.0800",
+        "stop": "7.9800",
+        "risk": "1.24",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MANAS",
+        "alis": "29.02",
+        "stop": "28.40",
+        "risk": "2.14",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SELVA",
+        "alis": "2.1100",
+        "stop": "2.0600",
+        "risk": "2.37",
+        "formation": "Çakışan Dip Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EKIZ",
+        "alis": "81.95",
+        "stop": "80.00",
+        "risk": "2.38",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CCOLA",
+        "alis": "78.68",
+        "stop": "76.75",
+        "risk": "2.45",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AVTUR",
+        "alis": "17.46",
+        "stop": "17.00",
+        "risk": "2.63",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MAGEN",
+        "alis": "35.89",
+        "stop": "34.90",
+        "risk": "2.76",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PAPIL",
+        "alis": "15.05",
+        "stop": "14.61",
+        "risk": "2.92",
+        "formation": "Delen Mumlar",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DGATE",
+        "alis": "115.95",
+        "stop": "112.50",
+        "risk": "2.98",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EDATA",
+        "alis": "18.51",
+        "stop": "17.83",
+        "risk": "3.67",
+        "formation": "İki Tavşan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PKART",
+        "alis": "132.10",
+        "stop": "127.20",
+        "risk": "3.71",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PRZMA",
+        "alis": "43.87",
+        "stop": "42.24",
+        "risk": "3.72",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SNICA",
+        "alis": "4.3100",
+        "stop": "4.1400",
+        "risk": "3.94",
+        "formation": "Beyaz Asker Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
