@@ -1,5 +1,5 @@
 {
-  "updatedAt": "25.06.2026 11:37:07",
+  "updatedAt": "25.06.2026 12:09:08",
   "signals": [
     {
       "ticker": "DURDO",
@@ -25,6 +25,16 @@
       "ticker": "DMLKT",
       "alis": "6.1200",
       "stop": "6.0700",
+      "risk": "0.82",
+      "formation": "Doji",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SOKM",
+      "alis": "48.52",
+      "stop": "48.12",
       "risk": "0.82",
       "formation": "Doji",
       "current": null,
@@ -392,16 +402,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TRGYO",
-      "alis": "99.95",
-      "stop": "97.70",
-      "risk": "2.25",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "GRNYO",
       "alis": "18.16",
       "stop": "17.75",
@@ -495,16 +495,6 @@
       "ticker": "KIMMR",
       "alis": "16.82",
       "stop": "16.40",
-      "risk": "2.50",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "VESBE",
-      "alis": "6.3900",
-      "stop": "6.2300",
       "risk": "2.50",
       "formation": "Doji",
       "current": null,
@@ -686,16 +676,6 @@
       "alis": "986.50",
       "stop": "951.50",
       "risk": "3.55",
-      "formation": "Doji",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GRTHO",
-      "alis": "256.75",
-      "stop": "247.60",
-      "risk": "3.56",
       "formation": "Doji",
       "current": null,
       "change": null,
