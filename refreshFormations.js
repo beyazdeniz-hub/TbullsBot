@@ -1,5 +1,5 @@
 /**
- * seans.json içindeki formasyon adlarını Turkish Bulls detay sayfasından yeniden okur.
+ * seans.json / onay.json içindeki formasyon adlarını Turkish Bulls detay sayfasından yeniden okur.
  */
 const fs = require("fs");
 const path = require("path");
