@@ -1,31 +1,11 @@
 {
-  "updatedAt": "25.06.2026 14:53:44",
+  "updatedAt": "25.06.2026 17:36:29",
   "signals": [
     {
       "ticker": "DURDO",
       "alis": "5.1950",
       "stop": "5.1800",
       "risk": "0.29",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DMLKT",
-      "alis": "6.1200",
-      "stop": "6.0700",
-      "risk": "0.82",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MAKTK",
-      "alis": "12.70",
-      "stop": "12.56",
-      "risk": "1.10",
       "formation": "",
       "current": null,
       "change": null,
@@ -56,16 +36,6 @@
       "alis": "193.55",
       "stop": "190.90",
       "risk": "1.37",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GARAN",
-      "alis": "140.90",
-      "stop": "138.90",
-      "risk": "1.42",
       "formation": "",
       "current": null,
       "change": null,
@@ -135,16 +105,6 @@
       "ticker": "AGROT",
       "alis": "2.8000",
       "stop": "2.7500",
-      "risk": "1.79",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MEDTR",
-      "alis": "30.24",
-      "stop": "29.70",
       "risk": "1.79",
       "formation": "",
       "current": null,
@@ -222,20 +182,20 @@
       "grafikUrl": null
     },
     {
-      "ticker": "CONSE",
-      "alis": "2.8300",
-      "stop": "2.7700",
-      "risk": "2.12",
+      "ticker": "MANAS",
+      "alis": "29.02",
+      "stop": "28.40",
+      "risk": "2.14",
       "formation": "",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "MANAS",
-      "alis": "29.02",
-      "stop": "28.40",
-      "risk": "2.14",
+      "ticker": "ALTNY",
+      "alis": "16.20",
+      "stop": "15.85",
+      "risk": "2.16",
       "formation": "",
       "current": null,
       "change": null,
@@ -252,10 +212,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ISCTR",
-      "alis": "15.20",
-      "stop": "14.87",
-      "risk": "2.17",
+      "ticker": "TRGYO",
+      "alis": "99.95",
+      "stop": "97.70",
+      "risk": "2.25",
       "formation": "",
       "current": null,
       "change": null,
@@ -266,16 +226,6 @@
       "alis": "18.16",
       "stop": "17.75",
       "risk": "2.26",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KOTON",
-      "alis": "14.83",
-      "stop": "14.49",
-      "risk": "2.29",
       "formation": "",
       "current": null,
       "change": null,
@@ -306,16 +256,6 @@
       "alis": "2.1100",
       "stop": "2.0600",
       "risk": "2.37",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BLUME",
-      "alis": "31.55",
-      "stop": "30.80",
-      "risk": "2.38",
       "formation": "",
       "current": null,
       "change": null,
@@ -412,16 +352,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "IMASM",
-      "alis": "3.1600",
-      "stop": "3.0700",
-      "risk": "2.85",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "PAPIL",
       "alis": "15.05",
       "stop": "14.61",
@@ -446,16 +376,6 @@
       "alis": "290.25",
       "stop": "281.50",
       "risk": "3.01",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "AYGAZ",
-      "alis": "214.60",
-      "stop": "208.00",
-      "risk": "3.08",
       "formation": "",
       "current": null,
       "change": null,
@@ -506,16 +426,6 @@
       "alis": "14.50",
       "stop": "13.98",
       "risk": "3.59",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "TEZOL",
-      "alis": "17.92",
-      "stop": "17.27",
-      "risk": "3.63",
       "formation": "",
       "current": null,
       "change": null,
@@ -586,16 +496,6 @@
       "alis": "175.15",
       "stop": "167.90",
       "risk": "4.14",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SURGY",
-      "alis": "73.75",
-      "stop": "70.65",
-      "risk": "4.20",
       "formation": "",
       "current": null,
       "change": null,
