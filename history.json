@@ -4688,5 +4688,361 @@
         "grafikUrl": null
       }
     ]
+  },
+  "26.06.2026": {
+    "date": "26.06.2026",
+    "updatedAt": "26.06.2026 22:46:45",
+    "signals": [
+      {
+        "ticker": "DURDO",
+        "alis": "5.1950",
+        "stop": "5.1800",
+        "risk": "0.29",
+        "formation": "Doji Yıldız Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RNPOL",
+        "alis": "2.3600",
+        "stop": "2.3500",
+        "risk": "0.42",
+        "formation": "Üç Aşağı Boşluk Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ASUZU",
+        "alis": "58.80",
+        "stop": "58.40",
+        "risk": "0.68",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ZEDUR",
+        "alis": "9.7600",
+        "stop": "9.6900",
+        "risk": "0.72",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BASCM",
+        "alis": "14.35",
+        "stop": "14.20",
+        "risk": "1.05",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BOBET",
+        "alis": "19.01",
+        "stop": "18.78",
+        "risk": "1.21",
+        "formation": "Düşen Blok Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "LKMNH",
+        "alis": "15.50",
+        "stop": "15.30",
+        "risk": "1.29",
+        "formation": "",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DOHOL",
+        "alis": "20.87",
+        "stop": "20.60",
+        "risk": "1.29",
+        "formation": "Doji Yıldız Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ENKAI",
+        "alis": "89.88",
+        "stop": "88.65",
+        "risk": "1.37",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KCHOL",
+        "alis": "193.55",
+        "stop": "190.90",
+        "risk": "1.37",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CMBTN",
+        "alis": "1533",
+        "stop": "1510",
+        "risk": "1.50",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BARMA",
+        "alis": "73.15",
+        "stop": "71.95",
+        "risk": "1.64",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SEKFK",
+        "alis": "10.29",
+        "stop": "10.12",
+        "risk": "1.65",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "QUAGR",
+        "alis": "3.8850",
+        "stop": "3.8200",
+        "risk": "1.67",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GLDTRF",
+        "alis": "506.50",
+        "stop": "498.00",
+        "risk": "1.68",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "POLHO",
+        "alis": "20.64",
+        "stop": "20.28",
+        "risk": "1.74",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BJKAS",
+        "alis": "1.6100",
+        "stop": "1.5800",
+        "risk": "1.86",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ALARK",
+        "alis": "102.00",
+        "stop": "99.95",
+        "risk": "2.01",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MARMR",
+        "alis": "2.4300",
+        "stop": "2.3800",
+        "risk": "2.06",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KRDMA",
+        "alis": "39.68",
+        "stop": "38.86",
+        "risk": "2.07",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "TRMET",
+        "alis": "109.00",
+        "stop": "106.70",
+        "risk": "2.11",
+        "formation": "Düşen Blok Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AGESA",
+        "alis": "252.50",
+        "stop": "246.80",
+        "risk": "2.26",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VBTYZ",
+        "alis": "28.30",
+        "stop": "27.62",
+        "risk": "2.40",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VESBE",
+        "alis": "6.3900",
+        "stop": "6.2300",
+        "risk": "2.50",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BLUME",
+        "alis": "31.32",
+        "stop": "30.48",
+        "risk": "2.68",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GUBRF",
+        "alis": "477.50",
+        "stop": "464.00",
+        "risk": "2.83",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EGEPO",
+        "alis": "18.58",
+        "stop": "17.99",
+        "risk": "3.18",
+        "formation": "Düşen Blok Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AZTEK",
+        "alis": "4.8450",
+        "stop": "4.6800",
+        "risk": "3.41",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "NTGAZ",
+        "alis": "11.34",
+        "stop": "10.95",
+        "risk": "3.44",
+        "formation": "Güvercin Yuvası Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "YEOTK",
+        "alis": "106.50",
+        "stop": "102.80",
+        "risk": "3.47",
+        "formation": "Kros Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "LILAK",
+        "alis": "36.41",
+        "stop": "35.12",
+        "risk": "3.54",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VESTL",
+        "alis": "25.24",
+        "stop": "24.30",
+        "risk": "3.72",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "IHAAS",
+        "alis": "61.85",
+        "stop": "59.45",
+        "risk": "3.88",
+        "formation": "Hamile Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EKSUN",
+        "alis": "6.7500",
+        "stop": "6.4700",
+        "risk": "4.15",
+        "formation": "Yutan Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "TKFEN",
+        "alis": "132.80",
+        "stop": "127.20",
+        "risk": "4.22",
+        "formation": "Beyaz Asker Boğa",
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
