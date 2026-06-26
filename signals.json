@@ -1,5 +1,5 @@
 {
-  "updatedAt": "26.06.2026 12:34:03",
+  "updatedAt": "26.06.2026 15:15:48",
   "signals": [
     {
       "ticker": "DURDO",
@@ -12,20 +12,20 @@
       "grafikUrl": null
     },
     {
-      "ticker": "PAHOL",
-      "alis": "1.5100",
-      "stop": "1.5000",
-      "risk": "0.66",
+      "ticker": "RNPOL",
+      "alis": "2.3600",
+      "stop": "2.3500",
+      "risk": "0.42",
       "formation": "",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "QNBTR",
-      "alis": "209.40",
-      "stop": "208.00",
-      "risk": "0.67",
+      "ticker": "PAHOL",
+      "alis": "1.5100",
+      "stop": "1.5000",
+      "risk": "0.66",
       "formation": "",
       "current": null,
       "change": null,
@@ -202,10 +202,30 @@
       "grafikUrl": null
     },
     {
+      "ticker": "KIMMR",
+      "alis": "16.64",
+      "stop": "16.40",
+      "risk": "1.44",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DARDL",
       "alis": "2.0300",
       "stop": "2.0000",
       "risk": "1.48",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MZHLD",
+      "alis": "6.0300",
+      "stop": "5.9400",
+      "risk": "1.49",
       "formation": "",
       "current": null,
       "change": null,
@@ -312,19 +332,19 @@
       "grafikUrl": null
     },
     {
-      "ticker": "FORMT",
-      "alis": "2.2100",
-      "stop": "2.1700",
-      "risk": "1.81",
+      "ticker": "AGROT",
+      "alis": "2.8000",
+      "stop": "2.7500",
+      "risk": "1.79",
       "formation": "",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "IZINV",
-      "alis": "67.83",
-      "stop": "66.60",
+      "ticker": "FORMT",
+      "alis": "2.2100",
+      "stop": "2.1700",
       "risk": "1.81",
       "formation": "",
       "current": null,
@@ -372,16 +392,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MEKAG",
-      "alis": "3.6100",
-      "stop": "3.5400",
-      "risk": "1.94",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "BERA",
       "alis": "16.45",
       "stop": "16.13",
@@ -396,16 +406,6 @@
       "alis": "142.90",
       "stop": "140.10",
       "risk": "1.96",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PNSUT",
-      "alis": "12.14",
-      "stop": "11.90",
-      "risk": "1.98",
       "formation": "",
       "current": null,
       "change": null,
@@ -446,6 +446,16 @@
       "alis": "3.4300",
       "stop": "3.3600",
       "risk": "2.04",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ATAGY",
+      "alis": "12.15",
+      "stop": "11.90",
+      "risk": "2.06",
       "formation": "",
       "current": null,
       "change": null,
@@ -572,10 +582,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BASGZ",
-      "alis": "49.83",
-      "stop": "48.70",
-      "risk": "2.27",
+      "ticker": "GRNYO",
+      "alis": "18.16",
+      "stop": "17.75",
+      "risk": "2.26",
       "formation": "",
       "current": null,
       "change": null,
@@ -632,19 +642,19 @@
       "grafikUrl": null
     },
     {
-      "ticker": "AVGYO",
-      "alis": "15.73",
-      "stop": "15.34",
-      "risk": "2.48",
+      "ticker": "CVKMD",
+      "alis": "40.86",
+      "stop": "39.84",
+      "risk": "2.50",
       "formation": "",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "CVKMD",
-      "alis": "40.86",
-      "stop": "39.84",
+      "ticker": "VESBE",
+      "alis": "6.3900",
+      "stop": "6.2300",
       "risk": "2.50",
       "formation": "",
       "current": null,
@@ -692,16 +702,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SMRVA",
-      "alis": "15.72",
-      "stop": "15.30",
-      "risk": "2.67",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "TSPOR",
       "alis": "0.9350",
       "stop": "0.9100",
@@ -722,6 +722,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "HTTBT",
+      "alis": "41.02",
+      "stop": "39.90",
+      "risk": "2.73",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "GUBRF",
       "alis": "477.50",
       "stop": "464.00",
@@ -736,6 +746,16 @@
       "alis": "96.73",
       "stop": "93.95",
       "risk": "2.87",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ARENA",
+      "alis": "28.38",
+      "stop": "27.56",
+      "risk": "2.89",
       "formation": "",
       "current": null,
       "change": null,
@@ -772,30 +792,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "CRDFA",
-      "alis": "39.89",
-      "stop": "38.64",
-      "risk": "3.13",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "PATEK",
       "alis": "22.59",
       "stop": "21.88",
       "risk": "3.14",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EGEPO",
-      "alis": "18.58",
-      "stop": "17.99",
-      "risk": "3.18",
       "formation": "",
       "current": null,
       "change": null,
@@ -872,16 +872,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BRKO",
-      "alis": "14.50",
-      "stop": "13.98",
-      "risk": "3.59",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "VKFYO",
       "alis": "28.12",
       "stop": "27.10",
@@ -892,10 +882,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "AVHOL",
-      "alis": "41.60",
-      "stop": "40.06",
-      "risk": "3.70",
+      "ticker": "VESTL",
+      "alis": "25.24",
+      "stop": "24.30",
+      "risk": "3.72",
       "formation": "",
       "current": null,
       "change": null,
@@ -916,6 +906,16 @@
       "alis": "61.85",
       "stop": "59.45",
       "risk": "3.88",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SEGMN",
+      "alis": "54.70",
+      "stop": "52.55",
+      "risk": "3.93",
       "formation": "",
       "current": null,
       "change": null,
