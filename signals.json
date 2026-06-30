@@ -1,5 +1,5 @@
 {
-  "updatedAt": "30.06.2026 17:53:13",
+  "updatedAt": "30.06.2026 20:21:38",
   "signals": [
     {
       "ticker": "ESCAR",
@@ -66,6 +66,16 @@
       "alis": "291.75",
       "stop": "289.25",
       "risk": "0.86",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ANHYT",
+      "alis": "103.00",
+      "stop": "102.10",
+      "risk": "0.87",
       "formation": "",
       "current": null,
       "change": null,
@@ -202,16 +212,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GARFA",
-      "alis": "29.45",
-      "stop": "29.00",
-      "risk": "1.53",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "BEYAZ",
       "alis": "25.88",
       "stop": "25.48",
@@ -252,10 +252,30 @@
       "grafikUrl": null
     },
     {
+      "ticker": "AKMGY",
+      "alis": "246.00",
+      "stop": "242.00",
+      "risk": "1.63",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "USAK",
       "alis": "1.5250",
       "stop": "1.5000",
       "risk": "1.64",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "NUHCM",
+      "alis": "222.90",
+      "stop": "219.20",
+      "risk": "1.66",
       "formation": "",
       "current": null,
       "change": null,
@@ -312,10 +332,40 @@
       "grafikUrl": null
     },
     {
+      "ticker": "GATEG",
+      "alis": "285.00",
+      "stop": "280.00",
+      "risk": "1.75",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "VAKFN",
+      "alis": "1.6600",
+      "stop": "1.6300",
+      "risk": "1.81",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "FORMT",
       "alis": "2.2100",
       "stop": "2.1700",
       "risk": "1.81",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BOSSA",
+      "alis": "6.5400",
+      "stop": "6.4200",
+      "risk": "1.83",
       "formation": "",
       "current": null,
       "change": null,
@@ -333,16 +383,6 @@
     },
     {
       "ticker": "MEGAP",
-      "alis": "2.1300",
-      "stop": "2.0900",
-      "risk": "1.88",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "VRGYO",
       "alis": "2.1300",
       "stop": "2.0900",
       "risk": "1.88",
@@ -452,16 +492,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ATAGY",
-      "alis": "12.15",
-      "stop": "11.90",
-      "risk": "2.06",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ENERY",
       "alis": "9.8150",
       "stop": "9.6100",
@@ -522,16 +552,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MEDTR",
-      "alis": "29.08",
-      "stop": "28.44",
-      "risk": "2.20",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "MERIT",
       "alis": "17.25",
       "stop": "16.87",
@@ -566,6 +586,16 @@
       "alis": "900.50",
       "stop": "880.00",
       "risk": "2.28",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "YATAS",
+      "alis": "40.63",
+      "stop": "39.70",
+      "risk": "2.29",
       "formation": "",
       "current": null,
       "change": null,
@@ -702,16 +732,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "OZRDN",
-      "alis": "28.96",
-      "stop": "28.24",
-      "risk": "2.49",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "HALKB",
       "alis": "44.04",
       "stop": "42.94",
@@ -816,6 +836,26 @@
       "alis": "7.6550",
       "stop": "7.4500",
       "risk": "2.68",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "EUHOL",
+      "alis": "10.90",
+      "stop": "10.60",
+      "risk": "2.75",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PETKM",
+      "alis": "19.58",
+      "stop": "19.04",
+      "risk": "2.76",
       "formation": "",
       "current": null,
       "change": null,
@@ -1052,16 +1092,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "NUGYO",
-      "alis": "9.8650",
-      "stop": "9.5100",
-      "risk": "3.60",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "KLYPV",
       "alis": "62.10",
       "stop": "59.80",
@@ -1246,6 +1276,16 @@
       "alis": "21.17",
       "stop": "20.24",
       "risk": "4.39",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "YKBNK",
+      "alis": "41.98",
+      "stop": "40.12",
+      "risk": "4.43",
       "formation": "",
       "current": null,
       "change": null,
