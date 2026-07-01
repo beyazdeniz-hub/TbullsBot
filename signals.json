@@ -1,5 +1,5 @@
 {
-  "updatedAt": "01.07.2026 22:55:26",
+  "updatedAt": "02.07.2026 00:32:52",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -217,6 +217,16 @@
       "stop": "406.25",
       "risk": "1.72",
       "formation": "Hamile Boğa",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ISGLKF",
+      "alis": "633.00",
+      "stop": "621.75",
+      "risk": "1.78",
+      "formation": "Delen Mumlar",
       "current": null,
       "change": null,
       "grafikUrl": null
