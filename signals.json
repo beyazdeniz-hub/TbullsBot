@@ -1,5 +1,5 @@
 {
-  "updatedAt": "02.07.2026 12:16:12",
+  "updatedAt": "02.07.2026 14:53:22",
   "signals": [
     {
       "ticker": "RNPOL",
@@ -32,29 +32,9 @@
       "grafikUrl": null
     },
     {
-      "ticker": "AKENR",
-      "alis": "11.76",
-      "stop": "11.68",
-      "risk": "0.68",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ZELOTF",
       "alis": "116.05",
       "stop": "115.20",
-      "risk": "0.73",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OPTGYF",
-      "alis": "167.68",
-      "stop": "166.45",
       "risk": "0.73",
       "formation": "",
       "current": null,
@@ -152,16 +132,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "YIGIT",
-      "alis": "24.17",
-      "stop": "23.92",
-      "risk": "1.03",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ETILR",
       "alis": "5.1550",
       "stop": "5.1000",
@@ -212,16 +182,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BIMAS",
-      "alis": "365.13",
-      "stop": "361.00",
-      "risk": "1.13",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "IZMDC",
       "alis": "8.6700",
       "stop": "8.5700",
@@ -236,26 +196,6 @@
       "alis": "12.88",
       "stop": "12.73",
       "risk": "1.16",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PETUN",
-      "alis": "12.01",
-      "stop": "11.87",
-      "risk": "1.17",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PNLSN",
-      "alis": "43.27",
-      "stop": "42.76",
-      "risk": "1.18",
       "formation": "",
       "current": null,
       "change": null,
@@ -286,16 +226,6 @@
       "alis": "17.94",
       "stop": "17.72",
       "risk": "1.23",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "RGYAS",
-      "alis": "193.40",
-      "stop": "191.00",
-      "risk": "1.24",
       "formation": "",
       "current": null,
       "change": null,
@@ -432,6 +362,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MZHLD",
+      "alis": "5.8450",
+      "stop": "5.7600",
+      "risk": "1.45",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ELITE",
       "alis": "34.06",
       "stop": "33.56",
@@ -486,16 +426,6 @@
       "alis": "147.70",
       "stop": "145.50",
       "risk": "1.49",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GARFA",
-      "alis": "29.45",
-      "stop": "29.00",
-      "risk": "1.53",
       "formation": "",
       "current": null,
       "change": null,
@@ -722,6 +652,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ORMA",
+      "alis": "181.30",
+      "stop": "178.00",
+      "risk": "1.82",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ARCLK",
       "alis": "100.38",
       "stop": "98.55",
@@ -745,16 +685,6 @@
       "ticker": "RUZYE",
       "alis": "9.8500",
       "stop": "9.6700",
-      "risk": "1.83",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BOSSA",
-      "alis": "6.5400",
-      "stop": "6.4200",
       "risk": "1.83",
       "formation": "",
       "current": null,
@@ -972,6 +902,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ERSU",
+      "alis": "23.96",
+      "stop": "23.48",
+      "risk": "2.00",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "INDES",
       "alis": "11.37",
       "stop": "11.14",
@@ -1016,16 +956,6 @@
       "alis": "9.6500",
       "stop": "9.4500",
       "risk": "2.07",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "TURSG",
-      "alis": "6.2400",
-      "stop": "6.1100",
-      "risk": "2.08",
       "formation": "",
       "current": null,
       "change": null,
@@ -1112,16 +1042,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KMPUR",
-      "alis": "19.05",
-      "stop": "18.62",
-      "risk": "2.26",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ULKER",
       "alis": "100.80",
       "stop": "98.50",
@@ -1165,16 +1085,6 @@
       "ticker": "GSDDE",
       "alis": "12.27",
       "stop": "11.98",
-      "risk": "2.36",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ENSRI",
-      "alis": "5.9200",
-      "stop": "5.7800",
       "risk": "2.36",
       "formation": "",
       "current": null,
@@ -1332,16 +1242,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "EGPRO",
-      "alis": "39.16",
-      "stop": "38.16",
-      "risk": "2.55",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EMNIS",
       "alis": "155.00",
       "stop": "151.00",
@@ -1356,16 +1256,6 @@
       "alis": "7.3050",
       "stop": "7.1100",
       "risk": "2.67",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ISSEN",
-      "alis": "7.6550",
-      "stop": "7.4500",
-      "risk": "2.68",
       "formation": "",
       "current": null,
       "change": null,
@@ -1426,16 +1316,6 @@
       "alis": "23.63",
       "stop": "22.98",
       "risk": "2.75",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PETKM",
-      "alis": "19.58",
-      "stop": "19.04",
-      "risk": "2.76",
       "formation": "",
       "current": null,
       "change": null,
@@ -1536,16 +1416,6 @@
       "alis": "4.6700",
       "stop": "4.5300",
       "risk": "3.00",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MMCAS",
-      "alis": "61.08",
-      "stop": "59.20",
-      "risk": "3.08",
       "formation": "",
       "current": null,
       "change": null,
@@ -1676,16 +1546,6 @@
       "alis": "15.67",
       "stop": "15.15",
       "risk": "3.32",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "FONET",
-      "alis": "5.4850",
-      "stop": "5.3000",
-      "risk": "3.37",
       "formation": "",
       "current": null,
       "change": null,
@@ -1856,16 +1716,6 @@
       "alis": "2.5000",
       "stop": "2.4000",
       "risk": "4.00",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "RYSAS",
-      "alis": "22.38",
-      "stop": "21.48",
-      "risk": "4.02",
       "formation": "",
       "current": null,
       "change": null,
