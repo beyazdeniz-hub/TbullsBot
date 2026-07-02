@@ -1,5 +1,5 @@
 {
-  "updatedAt": "02.07.2026 17:14:14",
+  "updatedAt": "02.07.2026 19:24:35",
   "signals": [
     {
       "ticker": "RNPOL",
@@ -142,6 +142,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "APMDLF",
+      "alis": "25.70",
+      "stop": "25.42",
+      "risk": "1.09",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "TBORG",
       "alis": "131.95",
       "stop": "130.50",
@@ -176,6 +186,16 @@
       "alis": "12.88",
       "stop": "12.73",
       "risk": "1.16",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PNLSN",
+      "alis": "43.27",
+      "stop": "42.76",
+      "risk": "1.18",
       "formation": "",
       "current": null,
       "change": null,
@@ -256,16 +276,6 @@
       "alis": "1.9050",
       "stop": "1.8800",
       "risk": "1.31",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BIZIM",
-      "alis": "25.84",
-      "stop": "25.50",
-      "risk": "1.32",
       "formation": "",
       "current": null,
       "change": null,
@@ -482,16 +492,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BRISA",
-      "alis": "87.00",
-      "stop": "85.55",
-      "risk": "1.67",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "THYAO",
       "alis": "328.50",
       "stop": "323.00",
@@ -516,16 +516,6 @@
       "alis": "20.68",
       "stop": "20.32",
       "risk": "1.74",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GATEG",
-      "alis": "285.00",
-      "stop": "280.00",
-      "risk": "1.75",
       "formation": "",
       "current": null,
       "change": null,
@@ -566,16 +556,6 @@
       "alis": "1.6600",
       "stop": "1.6300",
       "risk": "1.81",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "FROTO",
-      "alis": "85.20",
-      "stop": "83.65",
-      "risk": "1.82",
       "formation": "",
       "current": null,
       "change": null,
@@ -705,6 +685,16 @@
       "ticker": "DERIM",
       "alis": "37.08",
       "stop": "36.38",
+      "risk": "1.89",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "FZLGY",
+      "alis": "13.76",
+      "stop": "13.50",
       "risk": "1.89",
       "formation": "",
       "current": null,
@@ -1002,16 +992,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ALFAS",
-      "alis": "48.79",
-      "stop": "47.62",
-      "risk": "2.40",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "MEDTR",
       "alis": "28.92",
       "stop": "28.22",
@@ -1106,6 +1086,16 @@
       "alis": "49.76",
       "stop": "48.50",
       "risk": "2.53",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MEPET",
+      "alis": "23.25",
+      "stop": "22.66",
+      "risk": "2.54",
       "formation": "",
       "current": null,
       "change": null,
@@ -1226,16 +1216,6 @@
       "alis": "12.88",
       "stop": "12.51",
       "risk": "2.87",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "AVTUR",
-      "alis": "16.80",
-      "stop": "16.31",
-      "risk": "2.92",
       "formation": "",
       "current": null,
       "change": null,
@@ -1606,6 +1586,16 @@
       "alis": "88.50",
       "stop": "84.80",
       "risk": "4.18",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "HEKTS",
+      "alis": "3.3550",
+      "stop": "3.2100",
+      "risk": "4.32",
       "formation": "",
       "current": null,
       "change": null,
