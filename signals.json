@@ -1,5 +1,5 @@
 {
-  "updatedAt": "02.07.2026 14:53:22",
+  "updatedAt": "02.07.2026 15:30:28",
   "signals": [
     {
       "ticker": "RNPOL",
@@ -92,16 +92,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ANHYT",
-      "alis": "103.00",
-      "stop": "102.10",
-      "risk": "0.87",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "DYOBY",
       "alis": "14.14",
       "stop": "14.01",
@@ -116,16 +106,6 @@
       "alis": "10.45",
       "stop": "10.35",
       "risk": "0.96",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "TURGG",
-      "alis": "28.00",
-      "stop": "27.72",
-      "risk": "1.00",
       "formation": "",
       "current": null,
       "change": null,
@@ -196,6 +176,16 @@
       "alis": "12.88",
       "stop": "12.73",
       "risk": "1.16",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PNLSN",
+      "alis": "43.27",
+      "stop": "42.76",
+      "risk": "1.18",
       "formation": "",
       "current": null,
       "change": null,
@@ -326,16 +316,6 @@
       "alis": "58.15",
       "stop": "57.35",
       "risk": "1.38",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GENIL",
-      "alis": "9.3000",
-      "stop": "9.1700",
-      "risk": "1.40",
       "formation": "",
       "current": null,
       "change": null,
@@ -516,16 +496,6 @@
       "alis": "246.00",
       "stop": "242.00",
       "risk": "1.63",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "IHLGM",
-      "alis": "1.8300",
-      "stop": "1.8000",
-      "risk": "1.64",
       "formation": "",
       "current": null,
       "change": null,
@@ -912,16 +882,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "INDES",
-      "alis": "11.37",
-      "stop": "11.14",
-      "risk": "2.02",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "APLIBF",
       "alis": "50.17",
       "stop": "49.15",
@@ -1036,16 +996,6 @@
       "alis": "44.86",
       "stop": "43.86",
       "risk": "2.23",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ULKER",
-      "alis": "100.80",
-      "stop": "98.50",
-      "risk": "2.28",
       "formation": "",
       "current": null,
       "change": null,
@@ -1192,16 +1142,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MEYSU",
-      "alis": "14.13",
-      "stop": "13.78",
-      "risk": "2.48",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "GENTS",
       "alis": "6.1950",
       "stop": "6.0400",
@@ -1296,16 +1236,6 @@
       "alis": "56.80",
       "stop": "55.25",
       "risk": "2.73",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SOKM",
-      "alis": "47.03",
-      "stop": "45.74",
-      "risk": "2.74",
       "formation": "",
       "current": null,
       "change": null,
@@ -1756,16 +1686,6 @@
       "alis": "88.50",
       "stop": "84.80",
       "risk": "4.18",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "HEKTS",
-      "alis": "3.3550",
-      "stop": "3.2100",
-      "risk": "4.32",
       "formation": "",
       "current": null,
       "change": null,
