@@ -74,30 +74,50 @@ function formatTurkeyDateOnly() {
   });
 }
 
+function parseTrDateTime(value) {
+  const s = String(value ?? "").trim();
+  const m = s.match(/^(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})(?::(\d{2}))?$/);
+  if (!m) return null;
+  return new Date(
+    Number(m[3]),
+    Number(m[2]) - 1,
+    Number(m[1]),
+    Number(m[4]),
+    Number(m[5]),
+    Number(m[6] ?? 0)
+  );
+}
+
+/**
+ * Seans: 10:00–18:59 TR (gün içi taramalar seans.json)
+ * Onay: 20:00–23:59 TR (akşam taraması onay.json; ertesi gün 20:00'a kadar donuk)
+ * Diger: diğer saatler — yalnızca signals.json (+ seans formasyon yaması)
+ */
 function getTimeCategory() {
   const hour = getTurkeyNow().getHours();
-  // 21, 22 veya 23 saatlerinden birindeyse "onay" kategorisine girer
-  if (hour >= 21 && hour <= 23) return "onay";
-  if (hour >= 9 && hour <= 18) return "seans";
+  if (hour >= 20) return "onay";
+  if (hour >= 10 && hour <= 18) return "seans";
   return "diger";
+}
+
+/** onay.json akşam yazıldıysa ertesi gün 20:00'a kadar yeniden yazılmaz */
+function isOnayFrozen(existingUpdatedAt) {
+  const written = parseTrDateTime(existingUpdatedAt);
+  if (!written) return false;
+  if (written.getHours() < 20) return false;
+
+  const now = getTurkeyNow();
+  const unlockAt = new Date(written);
+  unlockAt.setDate(unlockAt.getDate() + 1);
+  unlockAt.setHours(20, 0, 0, 0);
+  return now < unlockAt;
 }
 
 function resolveCategory() {
   const forced = String(process.env.BOT_CATEGORY || "").trim().toLowerCase();
-  if (forced === "seans" || forced === "onay") return forced;
+  if (forced === "seans" || forced === "onay" || forced === "diger") return forced;
 
-  const category = getTimeCategory();
-  // Manuel GitHub Actions (workflow_dispatch) seans saati dışında: uygulama seans.json okur
-  if (
-    category === "diger" &&
-    process.env.GITHUB_EVENT_NAME === "workflow_dispatch"
-  ) {
-    console.log(
-      "Manuel calistirma + seans saati disi → seans.json guncellenecek (BOT_CATEGORY=onay ile degistirilebilir)"
-    );
-    return "seans";
-  }
-  return category;
+  return getTimeCategory();
 }
 
 async function sendTelegram(text, html = false) {
@@ -390,12 +410,43 @@ function buildAppPayload(results, updatedAt) {
       alis: row.alis,
       stop: row.stop,
       risk: row.risk.toFixed(2),
-      formation: row.formation, 
+      formation: row.formation,
       current: null,
       change: null,
       grafikUrl: null,
     })),
   };
+}
+
+/** seans.json seans dışı saatte güncellenmez; formasyonları signals taramasından tamamla */
+async function patchSeansFormationsFromMaster(payload, updatedAt) {
+  const existing = (await getGitHubJson("seans.json", null)) || null;
+  if (!existing?.signals?.length) return;
+
+  const byTicker = new Map(
+    payload.signals
+      .filter((s) => s.formation && String(s.formation).trim())
+      .map((s) => [s.ticker, s.formation])
+  );
+  if (!byTicker.size) return;
+
+  let changed = false;
+  for (const row of existing.signals) {
+    const next = byTicker.get(row.ticker);
+    if (next && !String(row.formation || "").trim()) {
+      row.formation = next;
+      changed = true;
+    }
+  }
+
+  if (!changed) return;
+
+  existing.updatedAt = updatedAt;
+  await uploadJsonToGithub(
+    "seans.json",
+    existing,
+    `patch seans formations ${updatedAt}`
+  );
 }
 
 async function updateAppJsons(results, category) {
@@ -408,6 +459,8 @@ async function updateAppJsons(results, category) {
     `update signals.json ${updatedAt}`
   );
 
+  await patchSeansFormationsFromMaster(payload, updatedAt);
+
   if (category === "seans") {
     await uploadJsonToGithub(
       "seans.json",
@@ -417,26 +470,33 @@ async function updateAppJsons(results, category) {
   }
 
   if (category === "onay") {
-    await uploadJsonToGithub(
-      "onay.json",
-      payload,
-      `update onay.json ${updatedAt}`
-    );
+    const existingOnay = (await getGitHubJson("onay.json", null)) || null;
+    if (isOnayFrozen(existingOnay?.updatedAt)) {
+      console.log(
+        `onay.json donuk (son: ${existingOnay.updatedAt}) — ertesi gun 20:00'a kadar yazilmiyor`
+      );
+    } else {
+      await uploadJsonToGithub(
+        "onay.json",
+        payload,
+        `update onay.json ${updatedAt}`
+      );
 
-    const history = (await getGitHubJson("history.json", {})) || {};
-    const today = formatTurkeyDateOnly();
+      const history = (await getGitHubJson("history.json", {})) || {};
+      const today = formatTurkeyDateOnly();
 
-    history[today] = {
-      date: today,
-      updatedAt,
-      signals: payload.signals,
-    };
+      history[today] = {
+        date: today,
+        updatedAt,
+        signals: payload.signals,
+      };
 
-    await uploadJsonToGithub(
-      "history.json",
-      history,
-      `update history.json ${updatedAt}`
-    );
+      await uploadJsonToGithub(
+        "history.json",
+        history,
+        `update history.json ${updatedAt}`
+      );
+    }
   }
 }
 
