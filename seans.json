@@ -1,5 +1,5 @@
 {
-  "updatedAt": "03.07.2026 15:24:52",
+  "updatedAt": "03.07.2026 17:57:24",
   "signals": [
     {
       "ticker": "LUKSK",
@@ -202,29 +202,9 @@
       "grafikUrl": null
     },
     {
-      "ticker": "HOROZ",
-      "alis": "64.98",
-      "stop": "64.15",
-      "risk": "1.28",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "SEGYO",
       "alis": "4.6400",
       "stop": "4.5800",
-      "risk": "1.29",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DOHOL",
-      "alis": "20.87",
-      "stop": "20.60",
       "risk": "1.29",
       "formation": "",
       "current": null,
@@ -276,16 +256,6 @@
       "alis": "6.6100",
       "stop": "6.5200",
       "risk": "1.36",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ASUZU",
-      "alis": "58.15",
-      "stop": "57.35",
-      "risk": "1.38",
       "formation": "",
       "current": null,
       "change": null,
@@ -366,16 +336,6 @@
       "alis": "147.70",
       "stop": "145.50",
       "risk": "1.49",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SILVR",
-      "alis": "2.6200",
-      "stop": "2.5800",
-      "risk": "1.53",
       "formation": "",
       "current": null,
       "change": null,
@@ -502,6 +462,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "VAKFN",
+      "alis": "1.6600",
+      "stop": "1.6300",
+      "risk": "1.81",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "EGEPO",
       "alis": "18.24",
       "stop": "17.91",
@@ -552,16 +522,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TUREX",
-      "alis": "7.4900",
-      "stop": "7.3500",
-      "risk": "1.87",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "MEGAP",
       "alis": "2.1300",
       "stop": "2.0900",
@@ -595,6 +555,16 @@
       "ticker": "DERIM",
       "alis": "37.08",
       "stop": "36.38",
+      "risk": "1.89",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "FZLGY",
+      "alis": "13.76",
+      "stop": "13.50",
       "risk": "1.89",
       "formation": "",
       "current": null,
@@ -892,30 +862,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MEYSU",
-      "alis": "14.13",
-      "stop": "13.78",
-      "risk": "2.48",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "GENTS",
       "alis": "6.1950",
       "stop": "6.0400",
       "risk": "2.50",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "YEOTK",
-      "alis": "98.58",
-      "stop": "96.10",
-      "risk": "2.52",
       "formation": "",
       "current": null,
       "change": null,
@@ -1306,16 +1256,6 @@
       "alis": "41.19",
       "stop": "39.60",
       "risk": "3.86",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "HATSN",
-      "alis": "56.18",
-      "stop": "53.95",
-      "risk": "3.97",
       "formation": "",
       "current": null,
       "change": null,
