@@ -1,12 +1,12 @@
 {
-  "updatedAt": "03.07.2026 17:57:24",
+  "updatedAt": "03.07.2026 21:22:55",
   "signals": [
     {
       "ticker": "LUKSK",
       "alis": "105.30",
       "stop": "104.80",
       "risk": "0.47",
-      "formation": "",
+      "formation": "Üçlü Dıştan Yukarı Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -26,7 +26,7 @@
       "alis": "7.3700",
       "stop": "7.3200",
       "risk": "0.68",
-      "formation": "",
+      "formation": "Düşen Blok Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -66,7 +66,7 @@
       "alis": "28.00",
       "stop": "27.72",
       "risk": "1.00",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -106,7 +106,7 @@
       "alis": "108.90",
       "stop": "107.70",
       "risk": "1.10",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -116,7 +116,7 @@
       "alis": "12.88",
       "stop": "12.73",
       "risk": "1.16",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -146,7 +146,7 @@
       "alis": "43.27",
       "stop": "42.76",
       "risk": "1.18",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -156,7 +156,7 @@
       "alis": "5.9000",
       "stop": "5.8300",
       "risk": "1.19",
-      "formation": "",
+      "formation": "Çekiç Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -216,7 +216,7 @@
       "alis": "1.9050",
       "stop": "1.8800",
       "risk": "1.31",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -246,7 +246,7 @@
       "alis": "3.7000",
       "stop": "3.6500",
       "risk": "1.35",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -256,7 +256,7 @@
       "alis": "6.6100",
       "stop": "6.5200",
       "risk": "1.36",
-      "formation": "",
+      "formation": "Düşen Blok Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -316,7 +316,7 @@
       "alis": "342.15",
       "stop": "337.10",
       "risk": "1.48",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -356,7 +356,7 @@
       "alis": "25.88",
       "stop": "25.48",
       "risk": "1.55",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -386,7 +386,7 @@
       "alis": "340.75",
       "stop": "335.25",
       "risk": "1.61",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -416,7 +416,7 @@
       "alis": "138.10",
       "stop": "135.70",
       "risk": "1.74",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -426,7 +426,7 @@
       "alis": "43.08",
       "stop": "42.32",
       "risk": "1.76",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -436,7 +436,7 @@
       "alis": "23.19",
       "stop": "22.78",
       "risk": "1.77",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -506,7 +506,7 @@
       "alis": "9.1800",
       "stop": "9.0100",
       "risk": "1.85",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -526,7 +526,7 @@
       "alis": "2.1300",
       "stop": "2.0900",
       "risk": "1.88",
-      "formation": "",
+      "formation": "Üç Aşağı Boşluk Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -546,7 +546,7 @@
       "alis": "47.70",
       "stop": "46.80",
       "risk": "1.89",
-      "formation": "",
+      "formation": "Delen Mumlar",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -556,7 +556,7 @@
       "alis": "37.08",
       "stop": "36.38",
       "risk": "1.89",
-      "formation": "",
+      "formation": "İki Tavşan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -566,7 +566,7 @@
       "alis": "13.76",
       "stop": "13.50",
       "risk": "1.89",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -576,7 +576,7 @@
       "alis": "11.08",
       "stop": "10.87",
       "risk": "1.90",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -596,7 +596,7 @@
       "alis": "44.81",
       "stop": "43.94",
       "risk": "1.94",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -626,7 +626,7 @@
       "alis": "56.00",
       "stop": "54.90",
       "risk": "1.96",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -656,7 +656,7 @@
       "alis": "42.78",
       "stop": "41.90",
       "risk": "2.06",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -686,7 +686,7 @@
       "alis": "22.08",
       "stop": "21.62",
       "risk": "2.08",
-      "formation": "",
+      "formation": "Beyaz Asker Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -696,7 +696,7 @@
       "alis": "232.05",
       "stop": "227.20",
       "risk": "2.09",
-      "formation": "",
+      "formation": "Güvercin Yuvası Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -706,7 +706,7 @@
       "alis": "513.50",
       "stop": "502.75",
       "risk": "2.09",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -716,7 +716,7 @@
       "alis": "26.56",
       "stop": "26.00",
       "risk": "2.11",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -746,7 +746,7 @@
       "alis": "14.49",
       "stop": "14.17",
       "risk": "2.21",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -826,7 +826,7 @@
       "alis": "33.50",
       "stop": "32.70",
       "risk": "2.39",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -866,7 +866,7 @@
       "alis": "6.1950",
       "stop": "6.0400",
       "risk": "2.50",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -946,7 +946,7 @@
       "alis": "23.63",
       "stop": "22.98",
       "risk": "2.75",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -966,7 +966,7 @@
       "alis": "27.35",
       "stop": "26.58",
       "risk": "2.82",
-      "formation": "",
+      "formation": "Düşen Blok Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -976,7 +976,7 @@
       "alis": "59.50",
       "stop": "57.80",
       "risk": "2.86",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -986,7 +986,7 @@
       "alis": "184.60",
       "stop": "179.30",
       "risk": "2.87",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1026,7 +1026,7 @@
       "alis": "4.6700",
       "stop": "4.5300",
       "risk": "3.00",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1066,7 +1066,7 @@
       "alis": "14.15",
       "stop": "13.71",
       "risk": "3.11",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1086,7 +1086,7 @@
       "alis": "25.32",
       "stop": "24.52",
       "risk": "3.16",
-      "formation": "",
+      "formation": "Güvercin Yuvası Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1096,7 +1096,7 @@
       "alis": "38.38",
       "stop": "37.16",
       "risk": "3.18",
-      "formation": "",
+      "formation": "Üçlü Dıştan Yukarı Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1116,7 +1116,7 @@
       "alis": "1.7250",
       "stop": "1.6700",
       "risk": "3.19",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1126,7 +1126,7 @@
       "alis": "11.28",
       "stop": "10.92",
       "risk": "3.19",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1156,7 +1156,7 @@
       "alis": "90.50",
       "stop": "87.60",
       "risk": "3.20",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1226,7 +1226,7 @@
       "alis": "33.70",
       "stop": "32.50",
       "risk": "3.56",
-      "formation": "",
+      "formation": "Beyaz Asker Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1246,7 +1246,7 @@
       "alis": "3.1700",
       "stop": "3.0500",
       "risk": "3.79",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1276,7 +1276,7 @@
       "alis": "38.45",
       "stop": "36.90",
       "risk": "4.03",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1296,7 +1296,7 @@
       "alis": "15.67",
       "stop": "15.03",
       "risk": "4.08",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1306,7 +1306,7 @@
       "alis": "12.43",
       "stop": "11.92",
       "risk": "4.10",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1316,7 +1316,7 @@
       "alis": "88.50",
       "stop": "84.80",
       "risk": "4.18",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
@@ -1326,7 +1326,7 @@
       "alis": "208.80",
       "stop": "199.90",
       "risk": "4.26",
-      "formation": "",
+      "formation": "Beyaz Asker Boğa",
       "current": null,
       "change": null,
       "grafikUrl": null
