@@ -1,5 +1,5 @@
 {
-  "updatedAt": "03.07.2026 14:55:26",
+  "updatedAt": "03.07.2026 15:24:52",
   "signals": [
     {
       "ticker": "LUKSK",
@@ -22,20 +22,20 @@
       "grafikUrl": null
     },
     {
-      "ticker": "PAHOL",
-      "alis": "1.5100",
-      "stop": "1.5000",
-      "risk": "0.66",
+      "ticker": "ISSEN",
+      "alis": "7.3700",
+      "stop": "7.3200",
+      "risk": "0.68",
       "formation": "",
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "ISSEN",
-      "alis": "7.3700",
-      "stop": "7.3200",
-      "risk": "0.68",
+      "ticker": "ULUFA",
+      "alis": "1.8150",
+      "stop": "1.8000",
+      "risk": "0.83",
       "formation": "",
       "current": null,
       "change": null,
@@ -182,6 +182,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "RGYAS",
+      "alis": "193.40",
+      "stop": "191.00",
+      "risk": "1.24",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DARDL",
       "alis": "1.9850",
       "stop": "1.9600",
@@ -242,6 +252,16 @@
       "grafikUrl": null
     },
     {
+      "ticker": "TUKAS",
+      "alis": "2.2800",
+      "stop": "2.2500",
+      "risk": "1.32",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ESEN",
       "alis": "3.7000",
       "stop": "3.6500",
@@ -256,6 +276,16 @@
       "alis": "6.6100",
       "stop": "6.5200",
       "risk": "1.36",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ASUZU",
+      "alis": "58.15",
+      "stop": "57.35",
+      "risk": "1.38",
       "formation": "",
       "current": null,
       "change": null,
@@ -552,9 +582,9 @@
       "grafikUrl": null
     },
     {
-      "ticker": "DERIM",
-      "alis": "37.08",
-      "stop": "36.38",
+      "ticker": "CIMSA",
+      "alis": "47.70",
+      "stop": "46.80",
       "risk": "1.89",
       "formation": "",
       "current": null,
@@ -562,9 +592,9 @@
       "grafikUrl": null
     },
     {
-      "ticker": "FZLGY",
-      "alis": "13.76",
-      "stop": "13.50",
+      "ticker": "DERIM",
+      "alis": "37.08",
+      "stop": "36.38",
       "risk": "1.89",
       "formation": "",
       "current": null,
@@ -842,16 +872,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ALFAS",
-      "alis": "48.79",
-      "stop": "47.62",
-      "risk": "2.40",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EGSER",
       "alis": "3.2800",
       "stop": "3.2000",
@@ -866,6 +886,16 @@
       "alis": "35.80",
       "stop": "34.92",
       "risk": "2.46",
+      "formation": "",
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MEYSU",
+      "alis": "14.13",
+      "stop": "13.78",
+      "risk": "2.48",
       "formation": "",
       "current": null,
       "change": null,
@@ -992,30 +1022,10 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ODAS",
-      "alis": "8.5200",
-      "stop": "8.2800",
-      "risk": "2.82",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "IHAAS",
       "alis": "59.50",
       "stop": "57.80",
       "risk": "2.86",
-      "formation": "",
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MEGMT",
-      "alis": "77.68",
-      "stop": "75.45",
-      "risk": "2.87",
       "formation": "",
       "current": null,
       "change": null,
