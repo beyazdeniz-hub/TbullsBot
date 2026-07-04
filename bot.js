@@ -20,6 +20,20 @@ const RISK_LIMIT = 5;
 const TELEGRAM_CHUNK_SIZE = 25;
 const DETAIL_DELAY_MS = 700;
 
+const FUND_SUFFIXES = ["ZF", "DF", "OTF", "PKF", "PPF", "YSF"];
+const FUND_BLOCKLIST = new Set(["QTEMZF", "APGLDF", "USDTRF", "TEMZF", "ZELOTF"]);
+
+function isTradeableEquity(ticker) {
+  const t = String(ticker || "").trim().toUpperCase();
+  if (!t || t.length < 2) return false;
+  if (FUND_BLOCKLIST.has(t)) return false;
+  for (const suffix of FUND_SUFFIXES) {
+    if (t.length >= 5 && t.endsWith(suffix)) return false;
+  }
+  if (t.length >= 6 && t.endsWith("TRF")) return false;
+  return true;
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -547,6 +561,10 @@ async function run() {
     const results = [];
 
     for (const ticker of tickers) {
+      if (!isTradeableEquity(ticker)) {
+        console.log(`FON ELENDI ${ticker}`);
+        continue;
+      }
       try {
         const detail = await extractDetailLevels(detailPage, ticker);
 

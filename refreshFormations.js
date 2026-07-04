@@ -10,6 +10,20 @@ const DETAIL_URL = "https://www.turkishbulls.com/SignalPage.aspx?lang=tr&Ticker=
 const DETAIL_DELAY_MS = 700;
 const TARGET_FILES = ["seans.json", "onay.json"];
 
+const FUND_SUFFIXES = ["ZF", "DF", "OTF", "PKF", "PPF", "YSF"];
+const FUND_BLOCKLIST = new Set(["QTEMZF", "APGLDF", "USDTRF", "TEMZF", "ZELOTF"]);
+
+function isTradeableEquity(ticker) {
+  const t = String(ticker || "").trim().toUpperCase();
+  if (!t || t.length < 2) return false;
+  if (FUND_BLOCKLIST.has(t)) return false;
+  for (const suffix of FUND_SUFFIXES) {
+    if (t.length >= 5 && t.endsWith(suffix)) return false;
+  }
+  if (t.length >= 6 && t.endsWith("TRF")) return false;
+  return true;
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -47,6 +61,10 @@ async function refreshFile(detailPage, filePath) {
   for (const signal of signals) {
     const ticker = String(signal.ticker || "").trim().toUpperCase();
     if (!ticker) continue;
+    if (!isTradeableEquity(ticker)) {
+      console.log(`${ticker}: fon/portfoy — atlandi`);
+      continue;
+    }
 
     try {
       const detail = await extractDetailLevels(detailPage, DETAIL_URL, ticker, safeGoto);
