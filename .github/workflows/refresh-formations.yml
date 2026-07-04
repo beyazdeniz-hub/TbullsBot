@@ -22,10 +22,22 @@ jobs:
           node-version: "20"
 
       - name: Bağımlılıkları Yükle
-        run: npm install puppeteer @puppeteer/browsers
+        run: npm install puppeteer @puppeteer/browsers @google-cloud/storage axios
 
       - name: Formasyon ve formationDates Yenile
         run: node refreshFormations.js
+
+      - name: JSON Degisikliklerini GitHub'a Kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seans.json onay.json
+          if git diff --staged --quiet; then
+            echo "JSON degisikligi yok"
+          else
+            git commit -m "refresh formationDates $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
 
       - name: Firebase Storage Sync
         env:
@@ -34,5 +46,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
-          npm install @google-cloud/storage axios
-          node -e "require('./firebaseSync').syncSignalsToFirebase().then(r=>console.log(r)).catch(e=>{console.error(e);process.exit(1)})"
+          node -e "
+          const fs = require('fs');
+          const snaps = {};
+          for (const f of ['seans.json', 'onay.json', 'history.json', 'signals.json']) {
+            if (fs.existsSync(f)) snaps[f] = JSON.parse(fs.readFileSync(f, 'utf8'));
+          }
+          require('./firebaseSync').syncSignalsToFirebase(snaps)
+            .then((r) => { console.log(JSON.stringify(r)); if (!r.ok && !r.skipped) process.exit(1); })
+            .catch((e) => { console.error(e); process.exit(1); });
+          "
