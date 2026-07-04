@@ -52,19 +52,41 @@ async function refreshFile(detailPage, filePath) {
       const detail = await extractDetailLevels(detailPage, DETAIL_URL, ticker, safeGoto);
       const next = detail.formasyon;
       const prev = signal.formation || "-";
+      let rowChanged = false;
 
       if (!next || isJunkFormationCandidate(next)) {
         console.log(`${ticker}: gecersiz/bos cikti, korunuyor "${prev}"`);
-        continue;
+      } else if (next !== signal.formation) {
+        console.log(`${ticker}: formasyon "${prev}" -> "${next}"`);
+        signal.formation = next;
+        rowChanged = true;
+      } else {
+        console.log(`${ticker}: formasyon "${prev}" (degismedi)`);
       }
 
-      if (next !== signal.formation) {
-        console.log(`${ticker}: "${prev}" -> "${next}"`);
-        signal.formation = next;
-        changed += 1;
-      } else {
-        console.log(`${ticker}: "${prev}" (degismedi)`);
+      const nextDates = Array.isArray(detail.formationDates)
+        ? detail.formationDates.filter(Boolean)
+        : [];
+      const prevDates = Array.isArray(signal.formationDates) ? signal.formationDates : [];
+      if (
+        nextDates.length &&
+        JSON.stringify(nextDates) !== JSON.stringify(prevDates)
+      ) {
+        console.log(
+          `${ticker}: formationDates ${prevDates.join(",") || "-"} -> ${nextDates.join(",")}`
+        );
+        signal.formationDates = nextDates;
+        rowChanged = true;
       }
+
+      const nextDate = detail.formationDate || (nextDates.length ? nextDates[nextDates.length - 1] : "");
+      if (nextDate && nextDate !== (signal.formationDate || "")) {
+        console.log(`${ticker}: formationDate ${signal.formationDate || "-"} -> ${nextDate}`);
+        signal.formationDate = nextDate;
+        rowChanged = true;
+      }
+
+      if (rowChanged) changed += 1;
     } catch (err) {
       console.log(`${ticker}: HATA — ${err.message}`);
     }

@@ -3,6 +3,8 @@
  * Site metni: "ÇEKİÇ BOĞA formasyonunun teyidi..." (resmi ad burada).
  */
 
+const { extractFormationCandleDates } = require("./formationChartExtract");
+
 function trLower(text) {
   return String(text || "")
     .normalize("NFD")
@@ -395,13 +397,78 @@ async function extractDetailLevels(detailPage, detailUrl, ticker, safeGoto) {
       if (known && known[1]) acceptFormation(known[1]);
     }
 
-    return { alSeviyesi, stoploss, formasyonRaw };
+    function pickDate(regexList, haystack) {
+      for (const regex of regexList) {
+        const m = haystack.match(regex);
+        if (m && m[1]) return clean(m[1]);
+      }
+      return "";
+    }
+
+    const formationDate = pickDate(
+      [
+        /Formasyon\s*Tarihi\s*[:\s]*(\d{2}[./]\d{2}[./]\d{4})/i,
+        /Formasyon\s*Olu[sş]um\s*[:\s]*(\d{2}[./]\d{2}[./]\d{4})/i,
+        /Formasyon\s*Biti[sş]\s*[:\s]*(\d{2}[./]\d{2}[./]\d{4})/i,
+        /Son\s*Formasyon[\s\S]{0,100}?(\d{2}[./]\d{2}[./]\d{4})/i,
+      ],
+      headerText
+    );
+
+    const signalDate = pickDate(
+      [/Sinyal\s*Tarihi\s*[:\s]*(\d{2}[./]\d{2}[./]\d{4})/i],
+      headerText
+    );
+
+    let formasyonTarihi = formationDate;
+    if (!formasyonTarihi && signalDate) {
+      formasyonTarihi = signalDate;
+    }
+
+    // Grafik alt etiketi / teyit bölgesindeki tarih (TB DD/MM/YYYY)
+    if (!formasyonTarihi) {
+      const chartDates = [];
+      const dateRe = /\b(\d{2})[./](\d{2})[./](\d{4})\b/g;
+      let dm;
+      const teyitBlock = fullText.split(/Teyit\s*Grafi/i)[1]?.slice(0, 2500) || "";
+      const scanBlock = teyitBlock || headerText.slice(0, 4000);
+      while ((dm = dateRe.exec(scanBlock)) !== null) {
+        chartDates.push(`${dm[1]}.${dm[2]}.${dm[3]}`);
+      }
+      if (chartDates.length >= 2) {
+        formasyonTarihi = chartDates[chartDates.length - 2];
+      } else if (chartDates.length === 1) {
+        formasyonTarihi = chartDates[0];
+      }
+    }
+
+    if (formasyonTarihi) {
+      formasyonTarihi = formasyonTarihi.replace(/\//g, ".");
+    }
+
+    return { alSeviyesi, stoploss, formasyonRaw, formasyonTarihi: formasyonTarihi || "" };
   });
+
+  const chartDates = await extractFormationCandleDates(detailPage);
+  const fromChart = chartDates.formationDates || [];
+  const textDate = parsed.formasyonTarihi || "";
+
+  let formationDates = fromChart.length ? fromChart : textDate ? [textDate] : [];
+  let formationDate = formationDates.length
+    ? formationDates[formationDates.length - 1]
+    : textDate;
+
+  if (fromChart.length) {
+    formationDate = fromChart[fromChart.length - 1];
+  }
 
   return {
     alSeviyesi: parsed.alSeviyesi,
     stoploss: parsed.stoploss,
     formasyon: finalizeFormation(parsed.formasyonRaw),
+    formationDate: formationDate || "",
+    formationDates,
+    chartMeta: chartDates.chartMeta,
   };
 }
 

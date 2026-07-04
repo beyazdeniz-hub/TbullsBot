@@ -43,7 +43,7 @@ jobs:
           
       - name: Bağımlılıkları Yükle
         run: |
-          npm install puppeteer @puppeteer/browsers axios
+          npm install puppeteer @puppeteer/browsers axios @google-cloud/storage
           
       - name: Tarama Motorunu Çalıştır
         env:

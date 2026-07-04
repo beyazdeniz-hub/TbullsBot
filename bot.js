@@ -4,6 +4,7 @@ const axios = require("axios");
 const os = require("os");
 const path = require("path");
 const { extractDetailLevels: extractDetailLevelsImpl } = require("./formationExtract");
+const { syncSignalsToFirebase } = require("./firebaseSync");
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -411,6 +412,8 @@ function buildAppPayload(results, updatedAt) {
       stop: row.stop,
       risk: row.risk.toFixed(2),
       formation: row.formation,
+      formationDate: row.formationDate || "",
+      formationDates: Array.isArray(row.formationDates) ? row.formationDates : [],
       current: null,
       change: null,
       grafikUrl: null,
@@ -426,15 +429,28 @@ async function patchSeansFormationsFromMaster(payload, updatedAt) {
   const byTicker = new Map(
     payload.signals
       .filter((s) => s.formation && String(s.formation).trim())
-      .map((s) => [s.ticker, s.formation])
+      .map((s) => [s.ticker, s])
   );
   if (!byTicker.size) return;
 
   let changed = false;
   for (const row of existing.signals) {
-    const next = byTicker.get(row.ticker);
-    if (next && !String(row.formation || "").trim()) {
-      row.formation = next;
+    const scan = byTicker.get(row.ticker);
+    if (!scan) continue;
+    if (scan.formation && !String(row.formation || "").trim()) {
+      row.formation = scan.formation;
+      changed = true;
+    }
+    if (scan.formationDate && !String(row.formationDate || "").trim()) {
+      row.formationDate = scan.formationDate;
+      changed = true;
+    }
+    if (
+      Array.isArray(scan.formationDates) &&
+      scan.formationDates.length &&
+      (!Array.isArray(row.formationDates) || row.formationDates.length === 0)
+    ) {
+      row.formationDates = scan.formationDates;
       changed = true;
     }
   }
@@ -565,12 +581,14 @@ async function run() {
           ticker,
           alis: detail.alSeviyesi,
           stop: detail.stoploss,
-          formation: detail.formasyon, 
+          formation: detail.formasyon,
+          formationDate: detail.formationDate || "",
+          formationDates: detail.formationDates || [],
           risk,
         });
 
         console.log(
-          `EKLENDI ${ticker} | alis=${detail.alSeviyesi} | stop=${detail.stoploss} | formasyon=${detail.formasyon} | risk=${risk.toFixed(2)}`
+          `EKLENDI ${ticker} | alis=${detail.alSeviyesi} | stop=${detail.stoploss} | formasyon=${detail.formasyon} | formasyonMumlari=${(detail.formationDates || []).join(",") || "-"} | risk=${risk.toFixed(2)}`
         );
       } catch (e) {
         console.log(`Detay okunamadi ${ticker} | ${e.message}`);
@@ -601,11 +619,30 @@ async function run() {
     const category = resolveCategory();
     await updateAppJsons(results, category);
 
+    let firebaseNote = "";
+    try {
+      const fb = await syncSignalsToFirebase();
+      if (fb.ok) {
+        firebaseNote = "\nFirebase: guncellendi";
+      } else if (fb.skipped) {
+        firebaseNote = "\nFirebase: atlandi (secret yok)";
+      }
+    } catch (fbErr) {
+      console.log("Firebase sync hata:", fbErr.message);
+      firebaseNote = `\nFirebase: HATA`;
+      try {
+        await sendTelegram(`Firebase sync hatasi:\n${fbErr.message}`);
+      } catch {
+        // ignore
+      }
+    }
+
     const summary =
       `NeuroTrade guncellendi.\n` +
       `Kategori: ${category}\n` +
       `Tarih: ${formatTurkeyDateTime()}\n` +
-      `Toplam: ${results.length}`;
+      `Toplam: ${results.length}` +
+      firebaseNote;
 
     await sendTelegram(summary);
   } finally {
