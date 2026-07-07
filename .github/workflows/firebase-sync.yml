@@ -1,0 +1,35 @@
+# GitHub'daki güncel JSON'ları Firebase Storage'a yükler (bot taraması olmadan).
+# Secret eklendikten sonra veya manuel senkron için: Actions → Firebase Sync → Run workflow
+
+name: Firebase Sync
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Repoyu Klonla
+        uses: actions/checkout@v4
+
+      - name: Node.js Kurulumu
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Bağımlılıklar
+        run: npm install @google-cloud/storage axios
+
+      - name: Firebase'e Yükle
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          FIREBASE_STORAGE_BUCKET: neurotrade-admin.firebasestorage.app
+          FIREBASE_SIGNALS_PREFIX: signals
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_BRANCH: main
+        run: node -e "require('./firebaseSync').syncSignalsToFirebase().then(r=>{console.log(r); if(!r.ok) process.exit(1)}).catch(e=>{console.error(e); process.exit(1)})"

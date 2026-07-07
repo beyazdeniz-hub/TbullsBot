@@ -50,11 +50,16 @@ jobs:
           # GitHub Secrets üzerinden alınacak güvenlik anahtarları
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          
+
+          # Firebase Storage — NeuroTrade uygulaması buradan okur (secret zorunlu)
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          FIREBASE_STORAGE_BUCKET: neurotrade-admin.firebasestorage.app
+          FIREBASE_SIGNALS_PREFIX: signals
+
           # GitHub'ın bu işlem için anlık ürettiği otomatik yetki tokeni
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_BRANCH: main # Kodların yazılacağı ana dal
+          GITHUB_BRANCH: main
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           BOT_CATEGORY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.kategori != 'auto' && github.event.inputs.kategori || '' }}
         run: node bot.js

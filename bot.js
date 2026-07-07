@@ -482,6 +482,7 @@ async function patchSeansFormationsFromMaster(payload, updatedAt) {
 async function updateAppJsons(results, category) {
   const updatedAt = formatTurkeyDateTime();
   const payload = buildAppPayload(results, updatedAt);
+  const snapshots = { "signals.json": payload };
 
   await uploadJsonToGithub(
     "signals.json",
@@ -497,6 +498,7 @@ async function updateAppJsons(results, category) {
       payload,
       `update seans.json ${updatedAt}`
     );
+    snapshots["seans.json"] = payload;
   }
 
   if (category === "onay") {
@@ -511,6 +513,7 @@ async function updateAppJsons(results, category) {
         payload,
         `update onay.json ${updatedAt}`
       );
+      snapshots["onay.json"] = payload;
 
       const history = (await getGitHubJson("history.json", {})) || {};
       const today = formatTurkeyDateOnly();
@@ -526,8 +529,18 @@ async function updateAppJsons(results, category) {
         history,
         `update history.json ${updatedAt}`
       );
+      snapshots["history.json"] = history;
     }
   }
+
+  for (const file of ["seans.json", "onay.json", "history.json"]) {
+    if (snapshots[file] == null) {
+      const remote = await getGitHubJson(file, null);
+      if (remote != null) snapshots[file] = remote;
+    }
+  }
+
+  return snapshots;
 }
 
 async function run() {
@@ -635,11 +648,11 @@ async function run() {
     }
 
     const category = resolveCategory();
-    await updateAppJsons(results, category);
+    const snapshots = await updateAppJsons(results, category);
 
     let firebaseNote = "";
     try {
-      const fb = await syncSignalsToFirebase();
+      const fb = await syncSignalsToFirebase(snapshots);
       if (fb.ok) {
         firebaseNote = "\nFirebase: guncellendi";
       } else if (fb.skipped) {
