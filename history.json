@@ -7756,5 +7756,95 @@
         "grafikUrl": null
       }
     ]
+  },
+  "08.07.2026": {
+    "date": "08.07.2026",
+    "updatedAt": "08.07.2026 21:24:03",
+    "signals": [
+      {
+        "ticker": "TURSG",
+        "alis": "6.0350",
+        "stop": "5.9500",
+        "risk": "1.41",
+        "formation": "Hamile Boğa",
+        "formationDate": "16.06.2026",
+        "formationDates": [
+          "16.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EGEPO",
+        "alis": "18.24",
+        "stop": "17.91",
+        "risk": "1.81",
+        "formation": "Düşen Blok Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ANELE",
+        "alis": "94.05",
+        "stop": "92.00",
+        "risk": "2.18",
+        "formation": "Üç Aşağı Boşluk Boğa",
+        "formationDate": "02.07.2026",
+        "formationDates": [
+          "02.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EYGYO",
+        "alis": "2.3600",
+        "stop": "2.2900",
+        "risk": "2.97",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "03.07.2026",
+        "formationDates": [
+          "03.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GENIL",
+        "alis": "9.1600",
+        "stop": "8.8100",
+        "risk": "3.82",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DOFRB",
+        "alis": "175.95",
+        "stop": "168.60",
+        "risk": "4.18",
+        "formation": "Hamile Boğa",
+        "formationDate": "06.07.2026",
+        "formationDates": [
+          "06.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
