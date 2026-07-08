@@ -1,5 +1,5 @@
 {
-  "updatedAt": "08.07.2026 14:31:59",
+  "updatedAt": "08.07.2026 16:08:25",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -24,20 +24,6 @@
       "formationDate": "04.06.2026",
       "formationDates": [
         "04.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OFSYM",
-      "alis": "57.15",
-      "stop": "56.55",
-      "risk": "1.05",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -128,20 +114,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ASUZU",
-      "alis": "57.00",
-      "stop": "56.00",
-      "risk": "1.75",
-      "formation": "",
-      "formationDate": "30.06.2026",
-      "formationDates": [
-        "30.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "DGATE",
       "alis": "107.80",
       "stop": "105.90",
@@ -150,6 +122,20 @@
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RYSAS",
+      "alis": "20.89",
+      "stop": "20.52",
+      "risk": "1.77",
+      "formation": "",
+      "formationDate": "08.06.2026",
+      "formationDates": [
+        "08.06.2026"
       ],
       "current": null,
       "change": null,
@@ -170,6 +156,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MARTI",
+      "alis": "1.6600",
+      "stop": "1.6300",
+      "risk": "1.81",
+      "formation": "",
+      "formationDate": "25.06.2026",
+      "formationDates": [
+        "25.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "EGEPO",
       "alis": "18.24",
       "stop": "17.91",
@@ -178,6 +178,20 @@
       "formationDate": "01.07.2026",
       "formationDates": [
         "01.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IHEVA",
+      "alis": "2.1000",
+      "stop": "2.0600",
+      "risk": "1.90",
+      "formation": "",
+      "formationDate": "24.06.2026",
+      "formationDates": [
+        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -248,6 +262,34 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "DOKTA",
+      "alis": "24.40",
+      "stop": "23.88",
+      "risk": "2.13",
+      "formation": "",
+      "formationDate": "24.06.2026",
+      "formationDates": [
+        "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BRKSN",
+      "alis": "8.1800",
+      "stop": "8.0000",
+      "risk": "2.20",
+      "formation": "",
+      "formationDate": "05.06.2026",
+      "formationDates": [
+        "05.06.2026"
       ],
       "current": null,
       "change": null,
@@ -422,6 +464,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ENKAI",
+      "alis": "92.68",
+      "stop": "90.10",
+      "risk": "2.78",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "EKGYO",
       "alis": "20.94",
       "stop": "20.34",
@@ -450,6 +506,34 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EYGYO",
+      "alis": "2.3600",
+      "stop": "2.2900",
+      "risk": "2.97",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PENGD",
+      "alis": "11.01",
+      "stop": "10.68",
+      "risk": "3.00",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KFEIN",
       "alis": "9.1900",
       "stop": "8.9100",
@@ -472,6 +556,20 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ONCSM",
+      "alis": "253.50",
+      "stop": "245.40",
+      "risk": "3.20",
+      "formation": "",
+      "formationDate": "25.06.2026",
+      "formationDates": [
+        "25.06.2026"
       ],
       "current": null,
       "change": null,
@@ -576,6 +674,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "HLGYO",
+      "alis": "5.5200",
+      "stop": "5.3100",
+      "risk": "3.80",
+      "formation": "",
+      "formationDate": "25.06.2026",
+      "formationDates": [
+        "25.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "AGESA",
       "alis": "247.00",
       "stop": "237.60",
@@ -632,14 +744,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "IHYAY",
-      "alis": "1.4600",
-      "stop": "1.4000",
-      "risk": "4.11",
+      "ticker": "INDES",
+      "alis": "11.14",
+      "stop": "10.69",
+      "risk": "4.04",
       "formation": "",
-      "formationDate": "05.06.2026",
+      "formationDate": "26.06.2026",
       "formationDates": [
-        "05.06.2026"
+        "26.06.2026"
       ],
       "current": null,
       "change": null,
