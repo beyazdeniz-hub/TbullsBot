@@ -1,5 +1,5 @@
 {
-  "updatedAt": "09.07.2026 16:33:12",
+  "updatedAt": "09.07.2026 21:55:32",
   "signals": [
     {
       "ticker": "MACKO",
@@ -34,7 +34,7 @@
       "alis": "42.30",
       "stop": "41.80",
       "risk": "1.18",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
@@ -48,7 +48,7 @@
       "alis": "10.80",
       "stop": "10.65",
       "risk": "1.39",
-      "formation": "",
+      "formation": "Üç Aşağı Boşluk Boğa",
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
@@ -62,7 +62,7 @@
       "alis": "12.42",
       "stop": "12.24",
       "risk": "1.45",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "formationDate": "26.06.2026",
       "formationDates": [
         "26.06.2026"
@@ -76,7 +76,7 @@
       "alis": "13403",
       "stop": "13198",
       "risk": "1.53",
-      "formation": "",
+      "formation": "Doji Yıldız Boğa",
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
@@ -104,7 +104,7 @@
       "alis": "5.6350",
       "stop": "5.5400",
       "risk": "1.69",
-      "formation": "",
+      "formation": "Doji Yıldız Boğa",
       "formationDate": "25.06.2026",
       "formationDates": [
         "25.06.2026"
@@ -188,7 +188,7 @@
       "alis": "30.68",
       "stop": "30.00",
       "risk": "2.22",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
@@ -216,7 +216,7 @@
       "alis": "40.86",
       "stop": "39.92",
       "risk": "2.30",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
@@ -244,7 +244,7 @@
       "alis": "75.40",
       "stop": "73.55",
       "risk": "2.45",
-      "formation": "",
+      "formation": "Delen Mumlar",
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
@@ -258,7 +258,7 @@
       "alis": "15.69",
       "stop": "15.29",
       "risk": "2.55",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "formationDate": "29.06.2026",
       "formationDates": [
         "29.06.2026"
@@ -356,7 +356,7 @@
       "alis": "430.13",
       "stop": "416.25",
       "risk": "3.23",
-      "formation": "",
+      "formation": "Düşen Blok Boğa",
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
@@ -384,7 +384,7 @@
       "alis": "8.2200",
       "stop": "7.9500",
       "risk": "3.28",
-      "formation": "",
+      "formation": "Güvercin Yuvası Boğa",
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
@@ -412,7 +412,7 @@
       "alis": "9.4100",
       "stop": "9.0900",
       "risk": "3.40",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
@@ -426,7 +426,7 @@
       "alis": "17.61",
       "stop": "17.00",
       "risk": "3.46",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "formationDate": "30.06.2026",
       "formationDates": [
         "30.06.2026"
@@ -496,7 +496,7 @@
       "alis": "89.95",
       "stop": "86.50",
       "risk": "3.84",
-      "formation": "",
+      "formation": "Delen Mumlar",
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
@@ -510,7 +510,7 @@
       "alis": "1630",
       "stop": "1567",
       "risk": "3.87",
-      "formation": "",
+      "formation": "Kros Hamile Boğa",
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
