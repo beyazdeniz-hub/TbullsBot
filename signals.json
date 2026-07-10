@@ -1,5 +1,5 @@
 {
-  "updatedAt": "10.07.2026 15:59:49",
+  "updatedAt": "10.07.2026 18:48:16",
   "signals": [
     {
       "ticker": "ALTIN",
@@ -10,20 +10,6 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DMLKT",
-      "alis": "6.0900",
-      "stop": "6.0500",
-      "risk": "0.66",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -198,6 +184,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "TAVHL",
+      "alis": "272.38",
+      "stop": "269.25",
+      "risk": "1.15",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "PASEU",
       "alis": "88.68",
       "stop": "87.65",
@@ -310,6 +310,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ALKIM",
+      "alis": "17.64",
+      "stop": "17.38",
+      "risk": "1.47",
+      "formation": "",
+      "formationDate": "23.06.2026",
+      "formationDates": [
+        "23.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "AKFGY",
       "alis": "2.6800",
       "stop": "2.6400",
@@ -346,6 +360,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "GLRMK",
+      "alis": "167.20",
+      "stop": "164.60",
+      "risk": "1.56",
+      "formation": "",
+      "formationDate": "22.06.2026",
+      "formationDates": [
+        "22.06.2026"
       ],
       "current": null,
       "change": null,
@@ -416,6 +444,20 @@
       "formationDate": "04.06.2026",
       "formationDates": [
         "04.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ORMA",
+      "alis": "177.15",
+      "stop": "174.30",
+      "risk": "1.61",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1416,14 +1458,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TRCAS",
-      "alis": "42.54",
-      "stop": "41.40",
-      "risk": "2.68",
+      "ticker": "CEMTS",
+      "alis": "9.8650",
+      "stop": "9.6000",
+      "risk": "2.69",
       "formation": "",
-      "formationDate": "08.07.2026",
+      "formationDate": "24.06.2026",
       "formationDates": [
-        "08.07.2026"
+        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1484,6 +1526,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ENKAI",
+      "alis": "92.68",
+      "stop": "90.10",
+      "risk": "2.78",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "EUHOL",
       "alis": "10.39",
       "stop": "10.10",
@@ -1520,20 +1576,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MEGMT",
-      "alis": "71.28",
-      "stop": "69.20",
-      "risk": "2.92",
-      "formation": "",
-      "formationDate": "24.06.2026",
-      "formationDates": [
-        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1590,20 +1632,6 @@
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PENGD",
-      "alis": "11.01",
-      "stop": "10.68",
-      "risk": "3.00",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1940,6 +1968,20 @@
       "formationDate": "11.06.2026",
       "formationDates": [
         "11.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ADGYO",
+      "alis": "52.85",
+      "stop": "51.00",
+      "risk": "3.50",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
