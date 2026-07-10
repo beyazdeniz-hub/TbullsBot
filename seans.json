@@ -1,5 +1,5 @@
 {
-  "updatedAt": "10.07.2026 13:38:48",
+  "updatedAt": "10.07.2026 15:59:49",
   "signals": [
     {
       "ticker": "ALTIN",
@@ -16,6 +16,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "DMLKT",
+      "alis": "6.0900",
+      "stop": "6.0500",
+      "risk": "0.66",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ARCLK",
       "alis": "96.65",
       "stop": "96.00",
@@ -24,6 +38,20 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "DEVA",
+      "alis": "70.73",
+      "stop": "70.25",
+      "risk": "0.68",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -80,6 +108,20 @@
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "CASA",
+      "alis": "71.50",
+      "stop": "70.90",
+      "risk": "0.84",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -380,20 +422,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ORMA",
-      "alis": "177.15",
-      "stop": "174.30",
-      "risk": "1.61",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "SOKM",
       "alis": "44.55",
       "stop": "43.82",
@@ -408,14 +436,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ATAGY",
-      "alis": "12.03",
-      "stop": "11.83",
-      "risk": "1.66",
+      "ticker": "GRSEL",
+      "alis": "305.00",
+      "stop": "300.00",
+      "risk": "1.64",
       "formation": "",
-      "formationDate": "07.07.2026",
+      "formationDate": "19.06.2026",
       "formationDates": [
-        "07.07.2026"
+        "19.06.2026"
       ],
       "current": null,
       "change": null,
@@ -828,6 +856,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "HDFGS",
+      "alis": "2.6450",
+      "stop": "2.5900",
+      "risk": "2.08",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DARDL",
       "alis": "1.9200",
       "stop": "1.8800",
@@ -878,6 +920,20 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TCELL",
+      "alis": "108.60",
+      "stop": "106.30",
+      "risk": "2.12",
+      "formation": "",
+      "formationDate": "22.06.2026",
+      "formationDates": [
+        "22.06.2026"
       ],
       "current": null,
       "change": null,
@@ -962,6 +1018,20 @@
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "AEFES",
+      "alis": "20.52",
+      "stop": "20.06",
+      "risk": "2.24",
+      "formation": "",
+      "formationDate": "01.07.2026",
+      "formationDates": [
+        "01.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1060,6 +1130,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "USAK",
+      "alis": "1.4650",
+      "stop": "1.4300",
+      "risk": "2.39",
+      "formation": "",
+      "formationDate": "25.06.2026",
+      "formationDates": [
+        "25.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1332,6 +1416,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "TRCAS",
+      "alis": "42.54",
+      "stop": "41.40",
+      "risk": "2.68",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ALFAS",
       "alis": "45.53",
       "stop": "44.30",
@@ -1442,6 +1540,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "IZINV",
+      "alis": "64.90",
+      "stop": "63.00",
+      "risk": "2.93",
+      "formation": "",
+      "formationDate": "24.06.2026",
+      "formationDates": [
+        "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ALGYO",
       "alis": "3.5350",
       "stop": "3.4300",
@@ -1478,6 +1590,20 @@
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PENGD",
+      "alis": "11.01",
+      "stop": "10.68",
+      "risk": "3.00",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1792,6 +1918,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MHRGY",
+      "alis": "3.8100",
+      "stop": "3.6800",
+      "risk": "3.41",
+      "formation": "",
+      "formationDate": "02.07.2026",
+      "formationDates": [
+        "02.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DAPGM",
       "alis": "9.1900",
       "stop": "8.8700",
@@ -1810,20 +1950,6 @@
       "alis": "38.84",
       "stop": "37.48",
       "risk": "3.50",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KUYAS",
-      "alis": "73.90",
-      "stop": "71.30",
-      "risk": "3.52",
       "formation": "",
       "formationDate": "07.07.2026",
       "formationDates": [
@@ -1890,6 +2016,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ICUGS",
+      "alis": "5.5650",
+      "stop": "5.3600",
+      "risk": "3.68",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ARFYE",
       "alis": "30.03",
       "stop": "28.92",
@@ -1940,6 +2080,20 @@
       "formationDate": "01.07.2026",
       "formationDates": [
         "01.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PKART",
+      "alis": "130.10",
+      "stop": "125.20",
+      "risk": "3.77",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
