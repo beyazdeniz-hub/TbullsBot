@@ -8090,5 +8090,1033 @@
         "grafikUrl": null
       }
     ]
+  },
+  "10.07.2026": {
+    "date": "10.07.2026",
+    "updatedAt": "10.07.2026 20:28:14",
+    "signals": [
+      {
+        "ticker": "ARCLK",
+        "alis": "96.65",
+        "stop": "96.00",
+        "risk": "0.67",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ADEL",
+        "alis": "30.01",
+        "stop": "29.80",
+        "risk": "0.70",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "24.06.2026",
+        "formationDates": [
+          "24.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KLMSN",
+        "alis": "31.01",
+        "stop": "30.74",
+        "risk": "0.87",
+        "formation": "Üç Aşağı Boşluk Boğa",
+        "formationDate": "07.07.2026",
+        "formationDates": [
+          "07.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GSRAY",
+        "alis": "1.0000",
+        "stop": "0.9900",
+        "risk": "1.00",
+        "formation": "Hamile Boğa",
+        "formationDate": "05.06.2026",
+        "formationDates": [
+          "05.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PASEU",
+        "alis": "88.68",
+        "stop": "87.65",
+        "risk": "1.16",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SEGYO",
+        "alis": "4.4150",
+        "stop": "4.3600",
+        "risk": "1.25",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MNDRS",
+        "alis": "11.00",
+        "stop": "10.86",
+        "risk": "1.27",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "29.06.2026",
+        "formationDates": [
+          "29.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "HOROZ",
+        "alis": "64.98",
+        "stop": "64.15",
+        "risk": "1.28",
+        "formation": "",
+        "formationDate": "09.07.2026",
+        "formationDates": [
+          "09.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BAGFS",
+        "alis": "24.62",
+        "stop": "24.30",
+        "risk": "1.30",
+        "formation": "Üç Aşağı Boşluk Boğa",
+        "formationDate": "06.07.2026",
+        "formationDates": [
+          "06.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PINSU",
+        "alis": "10.36",
+        "stop": "10.21",
+        "risk": "1.45",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AKFGY",
+        "alis": "2.6800",
+        "stop": "2.6400",
+        "risk": "1.49",
+        "formation": "Hamile Boğa",
+        "formationDate": "24.06.2026",
+        "formationDates": [
+          "24.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "TURGG",
+        "alis": "27.12",
+        "stop": "26.70",
+        "risk": "1.55",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GWIND",
+        "alis": "24.22",
+        "stop": "23.84",
+        "risk": "1.57",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "24.06.2026",
+        "formationDates": [
+          "24.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CANTE",
+        "alis": "1.2700",
+        "stop": "1.2500",
+        "risk": "1.57",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "FROTO",
+        "alis": "81.65",
+        "stop": "80.35",
+        "risk": "1.59",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "22.06.2026",
+        "formationDates": [
+          "22.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MACKO",
+        "alis": "33.05",
+        "stop": "32.52",
+        "risk": "1.60",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "04.06.2026",
+        "formationDates": [
+          "04.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SOKM",
+        "alis": "44.55",
+        "stop": "43.82",
+        "risk": "1.64",
+        "formation": "Hamile Boğa",
+        "formationDate": "17.06.2026",
+        "formationDates": [
+          "17.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ECILC",
+        "alis": "75.50",
+        "stop": "74.25",
+        "risk": "1.66",
+        "formation": "",
+        "formationDate": "09.07.2026",
+        "formationDates": [
+          "09.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BMSTL",
+        "alis": "42.84",
+        "stop": "42.12",
+        "risk": "1.68",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "INTEM",
+        "alis": "261.50",
+        "stop": "257.00",
+        "risk": "1.72",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "04.06.2026",
+        "formationDates": [
+          "04.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SISE",
+        "alis": "42.31",
+        "stop": "41.58",
+        "risk": "1.73",
+        "formation": "Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RYSAS",
+        "alis": "20.89",
+        "stop": "20.52",
+        "risk": "1.77",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "08.06.2026",
+        "formationDates": [
+          "08.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "OYYAT",
+        "alis": "40.22",
+        "stop": "39.50",
+        "risk": "1.79",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AFYON",
+        "alis": "12.70",
+        "stop": "12.47",
+        "risk": "1.81",
+        "formation": "Hamile Boğa",
+        "formationDate": "02.07.2026",
+        "formationDates": [
+          "02.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BJKAS",
+        "alis": "1.6400",
+        "stop": "1.6100",
+        "risk": "1.83",
+        "formation": "Hamile Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KLSER",
+        "alis": "25.55",
+        "stop": "25.08",
+        "risk": "1.84",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DOHOL",
+        "alis": "20.44",
+        "stop": "20.06",
+        "risk": "1.86",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VESTL",
+        "alis": "24.19",
+        "stop": "23.74",
+        "risk": "1.86",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "HLGYO",
+        "alis": "5.3700",
+        "stop": "5.2700",
+        "risk": "1.86",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ZOREN",
+        "alis": "2.6400",
+        "stop": "2.5900",
+        "risk": "1.89",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "VESBE",
+        "alis": "6.1000",
+        "stop": "5.9800",
+        "risk": "1.97",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MPARK",
+        "alis": "418.88",
+        "stop": "410.25",
+        "risk": "2.06",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DARDL",
+        "alis": "1.9200",
+        "stop": "1.8800",
+        "risk": "2.08",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "03.06.2026",
+        "formationDates": [
+          "03.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GLCVY",
+        "alis": "55.20",
+        "stop": "54.05",
+        "risk": "2.08",
+        "formation": "Hamile Boğa",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BASGZ",
+        "alis": "46.80",
+        "stop": "45.82",
+        "risk": "2.09",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PARSN",
+        "alis": "81.55",
+        "stop": "79.75",
+        "risk": "2.21",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "NUGYO",
+        "alis": "9.2750",
+        "stop": "9.0700",
+        "risk": "2.21",
+        "formation": "Hamile Boğa",
+        "formationDate": "11.06.2026",
+        "formationDates": [
+          "11.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "YUNSA",
+        "alis": "9.0000",
+        "stop": "8.8000",
+        "risk": "2.22",
+        "formation": "Hamile Boğa",
+        "formationDate": "26.06.2026",
+        "formationDates": [
+          "26.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KCHOL",
+        "alis": "186.35",
+        "stop": "182.10",
+        "risk": "2.28",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GRTHO",
+        "alis": "239.00",
+        "stop": "233.40",
+        "risk": "2.34",
+        "formation": "Hamile Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "THYAO",
+        "alis": "338.25",
+        "stop": "330.25",
+        "risk": "2.37",
+        "formation": "Hamile Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SRVGY",
+        "alis": "2.6750",
+        "stop": "2.6100",
+        "risk": "2.43",
+        "formation": "Hamile Boğa",
+        "formationDate": "16.06.2026",
+        "formationDates": [
+          "16.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CLEBI",
+        "alis": "1550",
+        "stop": "1512",
+        "risk": "2.45",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "04.06.2026",
+        "formationDates": [
+          "04.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KNFRT",
+        "alis": "12.12",
+        "stop": "11.82",
+        "risk": "2.48",
+        "formation": "Hamile Boğa",
+        "formationDate": "17.06.2026",
+        "formationDates": [
+          "17.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "GOKNR",
+        "alis": "23.34",
+        "stop": "22.76",
+        "risk": "2.49",
+        "formation": "Hamile Boğa",
+        "formationDate": "26.06.2026",
+        "formationDates": [
+          "26.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PGSUS",
+        "alis": "169.25",
+        "stop": "165.00",
+        "risk": "2.51",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "22.06.2026",
+        "formationDates": [
+          "22.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "CMENT",
+        "alis": "293.00",
+        "stop": "285.50",
+        "risk": "2.56",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "07.07.2026",
+        "formationDates": [
+          "07.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ENTRA",
+        "alis": "4.5800",
+        "stop": "4.4600",
+        "risk": "2.62",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ORGE",
+        "alis": "106.35",
+        "stop": "103.50",
+        "risk": "2.68",
+        "formation": "Hamile Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ALFAS",
+        "alis": "45.53",
+        "stop": "44.30",
+        "risk": "2.70",
+        "formation": "Hamile Boğa",
+        "formationDate": "24.06.2026",
+        "formationDates": [
+          "24.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "TABGD",
+        "alis": "221.40",
+        "stop": "215.20",
+        "risk": "2.80",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ALARK",
+        "alis": "100.13",
+        "stop": "97.15",
+        "risk": "2.98",
+        "formation": "Hamile Boğa",
+        "formationDate": "01.07.2026",
+        "formationDates": [
+          "01.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "PRKAB",
+        "alis": "34.80",
+        "stop": "33.76",
+        "risk": "2.99",
+        "formation": "Hamile Boğa",
+        "formationDate": "07.07.2026",
+        "formationDates": [
+          "07.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "TRMET",
+        "alis": "120.00",
+        "stop": "116.40",
+        "risk": "3.00",
+        "formation": "Hamile Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KRDMD",
+        "alis": "36.87",
+        "stop": "35.74",
+        "risk": "3.06",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SASA",
+        "alis": "2.2800",
+        "stop": "2.2100",
+        "risk": "3.07",
+        "formation": "Hamile Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "KRDMA",
+        "alis": "38.61",
+        "stop": "37.42",
+        "risk": "3.08",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "07.07.2026",
+        "formationDates": [
+          "07.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "SKYMD",
+        "alis": "14.86",
+        "stop": "14.40",
+        "risk": "3.10",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "03.07.2026",
+        "formationDates": [
+          "03.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "RUBNS",
+        "alis": "21.57",
+        "stop": "20.90",
+        "risk": "3.11",
+        "formation": "Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MERCN",
+        "alis": "23.90",
+        "stop": "23.14",
+        "risk": "3.18",
+        "formation": "Kros Hamile Boğa",
+        "formationDate": "23.06.2026",
+        "formationDates": [
+          "23.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ONCSM",
+        "alis": "244.20",
+        "stop": "236.10",
+        "risk": "3.32",
+        "formation": "Delen Mumlar",
+        "formationDate": "25.06.2026",
+        "formationDates": [
+          "25.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "OZGYO",
+        "alis": "2.1000",
+        "stop": "2.0300",
+        "risk": "3.33",
+        "formation": "Çakışan Dip Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "DGNMO",
+        "alis": "8.0950",
+        "stop": "7.8100",
+        "risk": "3.52",
+        "formation": "Hamile Boğa",
+        "formationDate": "26.06.2026",
+        "formationDates": [
+          "26.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ARFYE",
+        "alis": "30.03",
+        "stop": "28.92",
+        "risk": "3.70",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MMCAS",
+        "alis": "57.23",
+        "stop": "55.10",
+        "risk": "3.72",
+        "formation": "Doji Yıldız Boğa",
+        "formationDate": "29.06.2026",
+        "formationDates": [
+          "29.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "IZFAS",
+        "alis": "61.80",
+        "stop": "59.45",
+        "risk": "3.80",
+        "formation": "Hamile Boğa",
+        "formationDate": "03.07.2026",
+        "formationDates": [
+          "03.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "ISDMR",
+        "alis": "54.80",
+        "stop": "52.65",
+        "risk": "3.92",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "08.07.2026",
+        "formationDates": [
+          "08.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "MARKA",
+        "alis": "84.43",
+        "stop": "81.00",
+        "risk": "4.06",
+        "formation": "Güvercin Yuvası Boğa",
+        "formationDate": "29.06.2026",
+        "formationDates": [
+          "29.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "AKSA",
+        "alis": "11.70",
+        "stop": "11.22",
+        "risk": "4.10",
+        "formation": "Hamile Boğa",
+        "formationDate": "02.07.2026",
+        "formationDates": [
+          "02.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "EKSUN",
+        "alis": "6.4000",
+        "stop": "6.1000",
+        "risk": "4.69",
+        "formation": "Hamile Boğa",
+        "formationDate": "30.06.2026",
+        "formationDates": [
+          "30.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "HATSN",
+        "alis": "53.25",
+        "stop": "50.75",
+        "risk": "4.69",
+        "formation": "Hamile Boğa",
+        "formationDate": "29.06.2026",
+        "formationDates": [
+          "29.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "FADE",
+        "alis": "15.46",
+        "stop": "14.70",
+        "risk": "4.92",
+        "formation": "Hamile Boğa",
+        "formationDate": "29.06.2026",
+        "formationDates": [
+          "29.06.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      },
+      {
+        "ticker": "BIOEN",
+        "alis": "17.01",
+        "stop": "16.17",
+        "risk": "4.94",
+        "formation": "Hamile Boğa",
+        "formationDate": "07.07.2026",
+        "formationDates": [
+          "07.07.2026"
+        ],
+        "current": null,
+        "change": null,
+        "grafikUrl": null
+      }
+    ]
   }
 }
