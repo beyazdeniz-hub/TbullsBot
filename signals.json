@@ -1,5 +1,5 @@
 {
-  "updatedAt": "14.07.2026 12:20:35",
+  "updatedAt": "14.07.2026 14:22:26",
   "signals": [
     {
       "ticker": "GLYHO",
@@ -30,14 +30,28 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GOLTS",
-      "alis": "318.75",
-      "stop": "315.50",
-      "risk": "1.02",
+      "ticker": "CASA",
+      "alis": "71.50",
+      "stop": "70.90",
+      "risk": "0.84",
       "formation": "",
-      "formationDate": "07.07.2026",
+      "formationDate": "08.07.2026",
       "formationDates": [
-        "07.07.2026"
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BRKVY",
+      "alis": "82.85",
+      "stop": "82.00",
+      "risk": "1.03",
+      "formation": "",
+      "formationDate": "17.06.2026",
+      "formationDates": [
+        "17.06.2026"
       ],
       "current": null,
       "change": null,
@@ -170,14 +184,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MAKTK",
-      "alis": "12.39",
-      "stop": "12.22",
-      "risk": "1.37",
+      "ticker": "CONSE",
+      "alis": "2.5650",
+      "stop": "2.5300",
+      "risk": "1.36",
       "formation": "",
-      "formationDate": "06.07.2026",
+      "formationDate": "05.06.2026",
       "formationDates": [
-        "06.07.2026"
+        "05.06.2026"
       ],
       "current": null,
       "change": null,
@@ -234,34 +248,6 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SANKO",
-      "alis": "20.66",
-      "stop": "20.36",
-      "risk": "1.45",
-      "formation": "",
-      "formationDate": "29.06.2026",
-      "formationDates": [
-        "29.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MEGMT",
-      "alis": "68.00",
-      "stop": "67.00",
-      "risk": "1.47",
-      "formation": "",
-      "formationDate": "24.06.2026",
-      "formationDates": [
-        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -338,6 +324,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "POLTK",
+      "alis": "5130",
+      "stop": "5050",
+      "risk": "1.56",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "BOBET",
       "alis": "19.07",
       "stop": "18.77",
@@ -360,20 +360,6 @@
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MERKO",
-      "alis": "1.5850",
-      "stop": "1.5600",
-      "risk": "1.58",
-      "formation": "",
-      "formationDate": "11.06.2026",
-      "formationDates": [
-        "11.06.2026"
       ],
       "current": null,
       "change": null,
@@ -422,20 +408,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ZEDUR",
-      "alis": "8.6800",
-      "stop": "8.5400",
-      "risk": "1.61",
-      "formation": "",
-      "formationDate": "01.07.2026",
-      "formationDates": [
-        "01.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "DCTTR",
       "alis": "12.31",
       "stop": "12.10",
@@ -444,20 +416,6 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "INGRM",
-      "alis": "413.38",
-      "stop": "406.25",
-      "risk": "1.72",
-      "formation": "",
-      "formationDate": "10.07.2026",
-      "formationDates": [
-        "10.07.2026"
       ],
       "current": null,
       "change": null,
@@ -506,6 +464,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EKOS",
+      "alis": "6.2400",
+      "stop": "6.1300",
+      "risk": "1.76",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "LYDHO",
       "alis": "185.50",
       "stop": "182.10",
@@ -542,6 +514,20 @@
       "formationDate": "09.06.2026",
       "formationDates": [
         "09.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ISFIN",
+      "alis": "19.73",
+      "stop": "19.36",
+      "risk": "1.88",
+      "formation": "",
+      "formationDate": "01.07.2026",
+      "formationDates": [
+        "01.07.2026"
       ],
       "current": null,
       "change": null,
@@ -744,20 +730,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "YONGA",
-      "alis": "52.65",
-      "stop": "51.60",
-      "risk": "1.99",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "AGROT",
       "alis": "2.5000",
       "stop": "2.4500",
@@ -766,20 +738,6 @@
       "formationDate": "05.06.2026",
       "formationDates": [
         "05.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PSGYO",
-      "alis": "3.2150",
-      "stop": "3.1500",
-      "risk": "2.02",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -808,20 +766,6 @@
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BEYAZ",
-      "alis": "24.34",
-      "stop": "23.84",
-      "risk": "2.05",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -920,20 +864,6 @@
       "formationDate": "01.06.2026",
       "formationDates": [
         "01.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "HTTBT",
-      "alis": "38.30",
-      "stop": "37.50",
-      "risk": "2.09",
-      "formation": "",
-      "formationDate": "23.06.2026",
-      "formationDates": [
-        "23.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1108,20 +1038,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BRKO",
-      "alis": "13.10",
-      "stop": "12.80",
-      "risk": "2.29",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EGSER",
       "alis": "3.0200",
       "stop": "2.9500",
@@ -1206,6 +1122,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ENPRA",
+      "alis": "63.58",
+      "stop": "62.00",
+      "risk": "2.49",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KRSTL",
       "alis": "10.40",
       "stop": "10.14",
@@ -1262,20 +1192,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MIATK",
-      "alis": "36.56",
-      "stop": "35.64",
-      "risk": "2.52",
-      "formation": "",
-      "formationDate": "04.06.2026",
-      "formationDates": [
-        "04.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ELITE",
       "alis": "31.35",
       "stop": "30.56",
@@ -1284,20 +1200,6 @@
       "formationDate": "09.06.2026",
       "formationDates": [
         "09.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "KRGYO",
-      "alis": "2.5550",
-      "stop": "2.4900",
-      "risk": "2.54",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1498,6 +1400,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EUHOL",
+      "alis": "10.39",
+      "stop": "10.10",
+      "risk": "2.79",
+      "formation": "",
+      "formationDate": "24.06.2026",
+      "formationDates": [
+        "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "USAK",
       "alis": "1.4300",
       "stop": "1.3900",
@@ -1638,20 +1554,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "DERIM",
-      "alis": "38.42",
-      "stop": "37.26",
-      "risk": "3.02",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "CRFSA",
       "alis": "142.30",
       "stop": "138.00",
@@ -1730,6 +1632,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KCAER",
+      "alis": "13.69",
+      "stop": "13.26",
+      "risk": "3.14",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -2066,6 +1982,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KRDMB",
+      "alis": "137.00",
+      "stop": "131.80",
+      "risk": "3.80",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
