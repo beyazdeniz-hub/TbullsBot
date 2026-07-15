@@ -1,5 +1,5 @@
 {
-  "updatedAt": "14.07.2026 21:16:11",
+  "updatedAt": "15.07.2026 21:18:21",
   "signals": [
     {
       "ticker": "VAKKO",
@@ -542,20 +542,6 @@
       "formationDate": "18.06.2026",
       "formationDates": [
         "18.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "YKSLN",
-      "alis": "3.2400",
-      "stop": "3.0900",
-      "risk": "4.63",
-      "formation": "Yutan Boğa",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
