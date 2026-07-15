@@ -1,5 +1,5 @@
 {
-  "updatedAt": "15.07.2026 12:12:09",
+  "updatedAt": "15.07.2026 14:13:09",
   "signals": [
     {
       "ticker": "VAKKO",
@@ -332,20 +332,6 @@
       "formationDate": "01.07.2026",
       "formationDates": [
         "01.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OBAMS",
-      "alis": "5.1950",
-      "stop": "5.0400",
-      "risk": "2.98",
-      "formation": "Hamile Boğa",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
