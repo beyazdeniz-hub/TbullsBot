@@ -1,5 +1,5 @@
 {
-  "updatedAt": "16.07.2026 12:32:15",
+  "updatedAt": "16.07.2026 14:39:49",
   "signals": [
     {
       "ticker": "VBTYZ",
@@ -80,6 +80,20 @@
       "formationDate": "25.06.2026",
       "formationDates": [
         "25.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SODSN",
+      "alis": "8.6700",
+      "stop": "8.6000",
+      "risk": "0.81",
+      "formation": "",
+      "formationDate": "02.07.2026",
+      "formationDates": [
+        "02.07.2026"
       ],
       "current": null,
       "change": null,
@@ -436,20 +450,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BANVT",
-      "alis": "168.35",
-      "stop": "166.00",
-      "risk": "1.40",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "YYLGD",
       "alis": "10.72",
       "stop": "10.57",
@@ -472,6 +472,20 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KONYA",
+      "alis": "3918",
+      "stop": "3863",
+      "risk": "1.40",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -730,28 +744,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "POLTK",
-      "alis": "5130",
-      "stop": "5050",
-      "risk": "1.56",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "AHGAZ",
-      "alis": "37.56",
-      "stop": "36.96",
+      "ticker": "ERSU",
+      "alis": "22.50",
+      "stop": "22.14",
       "risk": "1.60",
       "formation": "",
-      "formationDate": "02.07.2026",
+      "formationDate": "08.07.2026",
       "formationDates": [
-        "02.07.2026"
+        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -892,20 +892,6 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SILVR",
-      "alis": "2.5150",
-      "stop": "2.4700",
-      "risk": "1.79",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1102,6 +1088,20 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IHEVA",
+      "alis": "2.1000",
+      "stop": "2.0600",
+      "risk": "1.90",
+      "formation": "",
+      "formationDate": "24.06.2026",
+      "formationDates": [
+        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1676,6 +1676,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PSDTC",
+      "alis": "131.05",
+      "stop": "128.00",
+      "risk": "2.33",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -2262,20 +2276,6 @@
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PENGD",
-      "alis": "11.01",
-      "stop": "10.68",
-      "risk": "3.00",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
