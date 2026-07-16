@@ -1,5 +1,5 @@
 {
-  "updatedAt": "16.07.2026 16:21:47",
+  "updatedAt": "16.07.2026 18:25:59",
   "signals": [
     {
       "ticker": "VBTYZ",
@@ -324,6 +324,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "LMKDC",
+      "alis": "24.48",
+      "stop": "24.18",
+      "risk": "1.23",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "FMIZP",
       "alis": "296.75",
       "stop": "293.00",
@@ -444,20 +458,6 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BANVT",
-      "alis": "168.35",
-      "stop": "166.00",
-      "risk": "1.40",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
       ],
       "current": null,
       "change": null,
@@ -828,6 +828,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "INGRM",
+      "alis": "413.38",
+      "stop": "406.25",
+      "risk": "1.72",
+      "formation": "",
+      "formationDate": "10.07.2026",
+      "formationDates": [
+        "10.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "OYAKC",
       "alis": "20.20",
       "stop": "19.85",
@@ -1018,6 +1032,20 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ZPLIBF",
+      "alis": "190.75",
+      "stop": "187.20",
+      "risk": "1.86",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1556,20 +1584,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ALVES",
-      "alis": "2.5050",
-      "stop": "2.4500",
-      "risk": "2.20",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ADESE",
       "alis": "0.9100",
       "stop": "0.8900",
@@ -1578,6 +1592,20 @@
       "formationDate": "22.06.2026",
       "formationDates": [
         "22.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "APLIBF",
+      "alis": "44.92",
+      "stop": "43.92",
+      "risk": "2.23",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1626,20 +1654,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "YESIL",
-      "alis": "1.3200",
-      "stop": "1.2900",
-      "risk": "2.27",
-      "formation": "",
-      "formationDate": "03.06.2026",
-      "formationDates": [
-        "03.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "PETUN",
       "alis": "11.43",
       "stop": "11.17",
@@ -1676,20 +1690,6 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PSDTC",
-      "alis": "131.05",
-      "stop": "128.00",
-      "risk": "2.33",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1788,20 +1788,6 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ZERGY",
-      "alis": "10.60",
-      "stop": "10.34",
-      "risk": "2.45",
-      "formation": "",
-      "formationDate": "24.06.2026",
-      "formationDates": [
-        "24.06.2026"
       ],
       "current": null,
       "change": null,
@@ -2478,20 +2464,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ASTOR",
-      "alis": "325.00",
-      "stop": "314.00",
-      "risk": "3.38",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "AYEN",
       "alis": "34.20",
       "stop": "33.04",
@@ -2696,20 +2668,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ASELS",
-      "alis": "370.00",
-      "stop": "355.00",
-      "risk": "4.05",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
