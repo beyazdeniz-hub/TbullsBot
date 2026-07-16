@@ -1,5 +1,5 @@
 {
-  "updatedAt": "16.07.2026 14:39:49",
+  "updatedAt": "16.07.2026 16:21:47",
   "signals": [
     {
       "ticker": "VBTYZ",
@@ -444,6 +444,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BANVT",
+      "alis": "168.35",
+      "stop": "166.00",
+      "risk": "1.40",
+      "formation": "",
+      "formationDate": "09.07.2026",
+      "formationDates": [
+        "09.07.2026"
       ],
       "current": null,
       "change": null,
@@ -898,6 +912,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "SILVR",
+      "alis": "2.5150",
+      "stop": "2.4700",
+      "risk": "1.79",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "VAKFA",
       "alis": "11.72",
       "stop": "11.51",
@@ -990,20 +1018,6 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ZPLIBF",
-      "alis": "190.75",
-      "stop": "187.20",
-      "risk": "1.86",
-      "formation": "",
-      "formationDate": "29.06.2026",
-      "formationDates": [
-        "29.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1570,20 +1584,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "APLIBF",
-      "alis": "44.92",
-      "stop": "43.92",
-      "risk": "2.23",
-      "formation": "",
-      "formationDate": "29.06.2026",
-      "formationDates": [
-        "29.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "KLNMA",
       "alis": "9.2050",
       "stop": "9.0000",
@@ -1990,20 +1990,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TARKM",
-      "alis": "493.63",
-      "stop": "480.75",
-      "risk": "2.61",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "RODRG",
       "alis": "25.43",
       "stop": "24.76",
@@ -2192,20 +2178,6 @@
       "formationDate": "25.06.2026",
       "formationDates": [
         "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SEGMN",
-      "alis": "52.65",
-      "stop": "51.15",
-      "risk": "2.85",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
       ],
       "current": null,
       "change": null,
@@ -2618,20 +2590,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BMSCH",
-      "alis": "13.72",
-      "stop": "13.23",
-      "risk": "3.57",
-      "formation": "",
-      "formationDate": "19.06.2026",
-      "formationDates": [
-        "19.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ARENA",
       "alis": "25.52",
       "stop": "24.60",
@@ -2962,20 +2920,6 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DOCO",
-      "alis": "11488",
-      "stop": "10953",
-      "risk": "4.66",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
