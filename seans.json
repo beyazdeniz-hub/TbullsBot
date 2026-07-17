@@ -1,5 +1,5 @@
 {
-  "updatedAt": "17.07.2026 12:15:48",
+  "updatedAt": "17.07.2026 14:14:20",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -44,20 +44,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KAYSE",
-      "alis": "4.1500",
-      "stop": "4.1000",
-      "risk": "1.20",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "TUCLK",
       "alis": "3.9900",
       "stop": "3.9400",
@@ -80,20 +66,6 @@
       "formationDate": "29.06.2026",
       "formationDates": [
         "29.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "YONGA",
-      "alis": "51.70",
-      "stop": "51.00",
-      "risk": "1.35",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -268,20 +240,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SMART",
-      "alis": "25.10",
-      "stop": "24.64",
-      "risk": "1.83",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "HTTBT",
       "alis": "37.76",
       "stop": "37.06",
@@ -366,20 +324,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ALVES",
-      "alis": "2.4800",
-      "stop": "2.4300",
-      "risk": "2.02",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "MTRYO",
       "alis": "10.41",
       "stop": "10.20",
@@ -394,20 +338,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TLMAN",
-      "alis": "86.45",
-      "stop": "84.70",
-      "risk": "2.02",
-      "formation": "",
-      "formationDate": "19.06.2026",
-      "formationDates": [
-        "19.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ERBOS",
       "alis": "165.45",
       "stop": "162.10",
@@ -416,20 +346,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "AVOD",
-      "alis": "4.1950",
-      "stop": "4.1100",
-      "risk": "2.03",
-      "formation": "",
-      "formationDate": "13.07.2026",
-      "formationDates": [
-        "13.07.2026"
       ],
       "current": null,
       "change": null,
@@ -506,20 +422,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "YESIL",
-      "alis": "1.3200",
-      "stop": "1.2900",
-      "risk": "2.27",
-      "formation": "",
-      "formationDate": "03.06.2026",
-      "formationDates": [
-        "03.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "AFYON",
       "alis": "13.11",
       "stop": "12.81",
@@ -562,20 +464,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MAKIM",
-      "alis": "18.46",
-      "stop": "18.02",
-      "risk": "2.38",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EGEPO",
       "alis": "18.69",
       "stop": "18.24",
@@ -584,6 +472,20 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KARSN",
+      "alis": "11.12",
+      "stop": "10.85",
+      "risk": "2.43",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -842,20 +744,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ADGYO",
-      "alis": "51.70",
-      "stop": "50.20",
-      "risk": "2.90",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "EUHOL",
       "alis": "10.30",
       "stop": "10.00",
@@ -864,6 +752,20 @@
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IHYAY",
+      "alis": "1.3700",
+      "stop": "1.3300",
+      "risk": "2.92",
+      "formation": "",
+      "formationDate": "05.06.2026",
+      "formationDates": [
+        "05.06.2026"
       ],
       "current": null,
       "change": null,
@@ -990,6 +892,20 @@
       "formationDate": "04.06.2026",
       "formationDates": [
         "04.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "BARMA",
+      "alis": "68.68",
+      "stop": "66.35",
+      "risk": "3.39",
+      "formation": "",
+      "formationDate": "13.07.2026",
+      "formationDates": [
+        "13.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1158,6 +1074,20 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MEPET",
+      "alis": "21.32",
+      "stop": "20.32",
+      "risk": "4.69",
+      "formation": "",
+      "formationDate": "17.06.2026",
+      "formationDates": [
+        "17.06.2026"
       ],
       "current": null,
       "change": null,
