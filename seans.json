@@ -1,5 +1,5 @@
 {
-  "updatedAt": "17.07.2026 15:51:45",
+  "updatedAt": "17.07.2026 17:39:06",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -114,6 +114,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MAALT",
+      "alis": "1106",
+      "stop": "1090",
+      "risk": "1.45",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "APMDLF",
       "alis": "24.87",
       "stop": "24.51",
@@ -122,20 +136,6 @@
       "formationDate": "23.06.2026",
       "formationDates": [
         "23.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DERHL",
-      "alis": "11.68",
-      "stop": "11.51",
-      "risk": "1.46",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
       ],
       "current": null,
       "change": null,
@@ -268,6 +268,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ZPLIBF",
+      "alis": "190.75",
+      "stop": "187.20",
+      "risk": "1.86",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ENTRA",
       "alis": "4.6700",
       "stop": "4.5800",
@@ -380,14 +394,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MACKO",
-      "alis": "33.98",
-      "stop": "33.28",
-      "risk": "2.06",
+      "ticker": "AVOD",
+      "alis": "4.1950",
+      "stop": "4.1100",
+      "risk": "2.03",
       "formation": "",
-      "formationDate": "14.07.2026",
+      "formationDate": "13.07.2026",
       "formationDates": [
-        "14.07.2026"
+        "13.07.2026"
       ],
       "current": null,
       "change": null,
@@ -450,14 +464,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MERKO",
-      "alis": "1.5350",
-      "stop": "1.5000",
-      "risk": "2.28",
+      "ticker": "YESIL",
+      "alis": "1.3200",
+      "stop": "1.2900",
+      "risk": "2.27",
       "formation": "",
-      "formationDate": "11.06.2026",
+      "formationDate": "03.06.2026",
       "formationDates": [
-        "11.06.2026"
+        "03.06.2026"
       ],
       "current": null,
       "change": null,
@@ -472,6 +486,20 @@
       "formationDate": "14.07.2026",
       "formationDates": [
         "14.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "EGSER",
+      "alis": "3.0200",
+      "stop": "2.9500",
+      "risk": "2.32",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
       ],
       "current": null,
       "change": null,
@@ -500,6 +528,20 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MAKIM",
+      "alis": "18.46",
+      "stop": "18.02",
+      "risk": "2.38",
+      "formation": "",
+      "formationDate": "09.07.2026",
+      "formationDates": [
+        "09.07.2026"
       ],
       "current": null,
       "change": null,
@@ -800,6 +842,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ADGYO",
+      "alis": "51.70",
+      "stop": "50.20",
+      "risk": "2.90",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "EUHOL",
       "alis": "10.30",
       "stop": "10.00",
@@ -808,6 +864,20 @@
       "formationDate": "24.06.2026",
       "formationDates": [
         "24.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IHYAY",
+      "alis": "1.3700",
+      "stop": "1.3300",
+      "risk": "2.92",
+      "formation": "",
+      "formationDate": "05.06.2026",
+      "formationDates": [
+        "05.06.2026"
       ],
       "current": null,
       "change": null,
@@ -934,20 +1004,6 @@
       "formationDate": "04.06.2026",
       "formationDates": [
         "04.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BARMA",
-      "alis": "68.68",
-      "stop": "66.35",
-      "risk": "3.39",
-      "formation": "",
-      "formationDate": "13.07.2026",
-      "formationDates": [
-        "13.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1116,20 +1172,6 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MEPET",
-      "alis": "21.32",
-      "stop": "20.32",
-      "risk": "4.69",
-      "formation": "",
-      "formationDate": "17.06.2026",
-      "formationDates": [
-        "17.06.2026"
       ],
       "current": null,
       "change": null,
