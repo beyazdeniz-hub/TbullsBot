@@ -1,5 +1,5 @@
 {
-  "updatedAt": "20.07.2026 13:04:33",
+  "updatedAt": "20.07.2026 15:23:28",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -52,6 +52,20 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "JANTS",
+      "alis": "15.99",
+      "stop": "15.82",
+      "risk": "1.06",
+      "formation": "",
+      "formationDate": "10.07.2026",
+      "formationDates": [
+        "10.07.2026"
       ],
       "current": null,
       "change": null,
@@ -122,6 +136,20 @@
       "formationDate": "14.07.2026",
       "formationDates": [
         "14.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MAALT",
+      "alis": "1106",
+      "stop": "1090",
+      "risk": "1.45",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
       ],
       "current": null,
       "change": null,
@@ -268,6 +296,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "KRPLS",
+      "alis": "9.1800",
+      "stop": "9.0100",
+      "risk": "1.85",
+      "formation": "",
+      "formationDate": "13.07.2026",
+      "formationDates": [
+        "13.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "HTTBT",
       "alis": "37.76",
       "stop": "37.06",
@@ -332,6 +374,20 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KLGYO",
+      "alis": "5.0000",
+      "stop": "4.9000",
+      "risk": "2.00",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -506,20 +562,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LINK",
-      "alis": "6.5250",
-      "stop": "6.3700",
-      "risk": "2.38",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "CGCAM",
       "alis": "46.50",
       "stop": "45.38",
@@ -646,6 +688,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "MZHLD",
+      "alis": "5.6450",
+      "stop": "5.5000",
+      "risk": "2.57",
+      "formation": "",
+      "formationDate": "04.06.2026",
+      "formationDates": [
+        "04.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "THYAO",
       "alis": "330.00",
       "stop": "321.50",
@@ -678,6 +734,20 @@
       "alis": "493.63",
       "stop": "480.75",
       "risk": "2.61",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RODRG",
+      "alis": "25.43",
+      "stop": "24.76",
+      "risk": "2.63",
       "formation": "",
       "formationDate": "08.07.2026",
       "formationDates": [
@@ -920,6 +990,20 @@
       "formationDate": "04.06.2026",
       "formationDates": [
         "04.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "SKTAS",
+      "alis": "3.5300",
+      "stop": "3.4100",
+      "risk": "3.40",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
       ],
       "current": null,
       "change": null,
