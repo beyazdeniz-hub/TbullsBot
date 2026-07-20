@@ -1,5 +1,5 @@
 {
-  "updatedAt": "20.07.2026 17:47:02",
+  "updatedAt": "20.07.2026 19:30:42",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -258,7 +258,7 @@
       "alis": "25.10",
       "stop": "24.64",
       "risk": "1.83",
-      "formation": "",
+      "formation": "Yutan Boğa",
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
@@ -930,7 +930,7 @@
       "alis": "32.26",
       "stop": "31.08",
       "risk": "3.66",
-      "formation": "",
+      "formation": "Hamile Boğa",
       "formationDate": "29.06.2026",
       "formationDates": [
         "29.06.2026"
