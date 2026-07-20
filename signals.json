@@ -1,5 +1,5 @@
 {
-  "updatedAt": "20.07.2026 15:23:28",
+  "updatedAt": "20.07.2026 17:47:02",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -58,20 +58,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "JANTS",
-      "alis": "15.99",
-      "stop": "15.82",
-      "risk": "1.06",
-      "formation": "",
-      "formationDate": "10.07.2026",
-      "formationDates": [
-        "10.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "TUCLK",
       "alis": "3.9900",
       "stop": "3.9400",
@@ -122,20 +108,6 @@
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "DENGE",
-      "alis": "2.4650",
-      "stop": "2.4300",
-      "risk": "1.42",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
       ],
       "current": null,
       "change": null,
@@ -296,34 +268,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KRPLS",
-      "alis": "9.1800",
-      "stop": "9.0100",
-      "risk": "1.85",
-      "formation": "",
-      "formationDate": "13.07.2026",
-      "formationDates": [
-        "13.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "HTTBT",
-      "alis": "37.76",
-      "stop": "37.06",
-      "risk": "1.85",
-      "formation": "",
-      "formationDate": "23.06.2026",
-      "formationDates": [
-        "23.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ENTRA",
       "alis": "4.6700",
       "stop": "4.5800",
@@ -380,20 +324,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KLGYO",
-      "alis": "5.0000",
-      "stop": "4.9000",
-      "risk": "2.00",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "ALVES",
       "alis": "2.4800",
       "stop": "2.4300",
@@ -402,20 +332,6 @@
       "formationDate": "25.06.2026",
       "formationDates": [
         "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MTRYO",
-      "alis": "10.41",
-      "stop": "10.20",
-      "risk": "2.02",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -604,20 +520,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "GARAN",
-      "alis": "128.90",
-      "stop": "125.70",
-      "risk": "2.48",
-      "formation": "",
-      "formationDate": "23.06.2026",
-      "formationDates": [
-        "23.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "IZINV",
       "alis": "61.75",
       "stop": "60.20",
@@ -766,34 +668,6 @@
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MHRGY",
-      "alis": "3.6800",
-      "stop": "3.5800",
-      "risk": "2.72",
-      "formation": "",
-      "formationDate": "02.07.2026",
-      "formationDates": [
-        "02.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "PKENT",
-      "alis": "141.10",
-      "stop": "137.20",
-      "risk": "2.76",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1080,20 +954,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SAMAT",
-      "alis": "6.0250",
-      "stop": "5.8000",
-      "risk": "3.73",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "SERNT",
       "alis": "9.1000",
       "stop": "8.7600",
@@ -1228,20 +1088,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "COSMO",
-      "alis": "142.00",
-      "stop": "135.00",
-      "risk": "4.93",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
       ],
       "current": null,
       "change": null,
