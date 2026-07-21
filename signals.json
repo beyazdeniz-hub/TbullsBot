@@ -1,5 +1,5 @@
 {
-  "updatedAt": "21.07.2026 16:02:11",
+  "updatedAt": "21.07.2026 18:11:01",
   "signals": [
     {
       "ticker": "MEGAP",
@@ -100,24 +100,24 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ISYAT",
-      "alis": "7.9300",
-      "stop": "7.8500",
-      "risk": "1.01",
+      "ticker": "VERTU",
+      "alis": "37.62",
+      "stop": "37.22",
+      "risk": "1.06",
       "formation": "",
-      "formationDate": "03.07.2026",
+      "formationDate": "17.07.2026",
       "formationDates": [
-        "03.07.2026"
+        "17.07.2026"
       ],
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "VERTU",
-      "alis": "37.62",
-      "stop": "37.22",
-      "risk": "1.06",
+      "ticker": "DURKN",
+      "alis": "20.40",
+      "stop": "20.18",
+      "risk": "1.08",
       "formation": "",
       "formationDate": "17.07.2026",
       "formationDates": [
@@ -164,6 +164,34 @@
       "formationDate": "10.07.2026",
       "formationDates": [
         "10.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "PENGD",
+      "alis": "10.52",
+      "stop": "10.38",
+      "risk": "1.33",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "AFYON",
+      "alis": "13.00",
+      "stop": "12.82",
+      "risk": "1.38",
+      "formation": "",
+      "formationDate": "14.07.2026",
+      "formationDates": [
+        "14.07.2026"
       ],
       "current": null,
       "change": null,
@@ -408,20 +436,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "ARZUM",
-      "alis": "1.8950",
-      "stop": "1.8600",
-      "risk": "1.85",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "KATMR",
       "alis": "2.3950",
       "stop": "2.3500",
@@ -590,6 +604,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EGPRO",
+      "alis": "37.28",
+      "stop": "36.44",
+      "risk": "2.25",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "TURSG",
       "alis": "6.6500",
       "stop": "6.5000",
@@ -612,20 +640,6 @@
       "formationDate": "03.06.2026",
       "formationDates": [
         "03.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "RYSAS",
-      "alis": "21.02",
-      "stop": "20.54",
-      "risk": "2.28",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
       ],
       "current": null,
       "change": null,
@@ -688,20 +702,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "CGCAM",
-      "alis": "46.50",
-      "stop": "45.38",
-      "risk": "2.41",
-      "formation": "",
-      "formationDate": "09.07.2026",
-      "formationDates": [
-        "09.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "MEPET",
       "alis": "20.60",
       "stop": "20.10",
@@ -744,6 +744,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "GIPTA",
+      "alis": "62.93",
+      "stop": "61.35",
+      "risk": "2.51",
+      "formation": "",
+      "formationDate": "25.06.2026",
+      "formationDates": [
+        "25.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "NUHCM",
       "alis": "222.60",
       "stop": "217.00",
@@ -766,6 +780,20 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "GLRYH",
+      "alis": "3.1300",
+      "stop": "3.0500",
+      "risk": "2.56",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1080,20 +1108,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "KAREL",
-      "alis": "10.57",
-      "stop": "10.19",
-      "risk": "3.60",
-      "formation": "",
-      "formationDate": "16.07.2026",
-      "formationDates": [
-        "16.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "DENGE",
       "alis": "2.4400",
       "stop": "2.3500",
@@ -1122,14 +1136,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "SDTTR",
-      "alis": "253.00",
-      "stop": "243.00",
-      "risk": "3.95",
+      "ticker": "SAMAT",
+      "alis": "6.0250",
+      "stop": "5.8000",
+      "risk": "3.73",
       "formation": "",
-      "formationDate": "06.07.2026",
+      "formationDate": "07.07.2026",
       "formationDates": [
-        "06.07.2026"
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
