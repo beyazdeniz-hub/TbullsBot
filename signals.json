@@ -1,5 +1,5 @@
 {
-  "updatedAt": "21.07.2026 12:38:36",
+  "updatedAt": "21.07.2026 14:35:44",
   "signals": [
     {
       "ticker": "MEGAP",
@@ -30,14 +30,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LYDHO",
-      "alis": "185.00",
-      "stop": "183.40",
-      "risk": "0.86",
+      "ticker": "SODSN",
+      "alis": "8.6700",
+      "stop": "8.6000",
+      "risk": "0.81",
       "formation": "",
-      "formationDate": "07.07.2026",
+      "formationDate": "02.07.2026",
       "formationDates": [
-        "07.07.2026"
+        "02.07.2026"
       ],
       "current": null,
       "change": null,
@@ -422,20 +422,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "MAALT",
-      "alis": "1100",
-      "stop": "1083",
-      "risk": "1.55",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "CANTE",
       "alis": "1.2900",
       "stop": "1.2700",
@@ -534,14 +520,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BASCM",
-      "alis": "14.04",
-      "stop": "13.80",
-      "risk": "1.71",
+      "ticker": "TUREX",
+      "alis": "6.9800",
+      "stop": "6.8600",
+      "risk": "1.72",
       "formation": "",
-      "formationDate": "13.07.2026",
+      "formationDate": "05.06.2026",
       "formationDates": [
-        "13.07.2026"
+        "05.06.2026"
       ],
       "current": null,
       "change": null,
@@ -570,20 +556,6 @@
       "formationDate": "19.06.2026",
       "formationDates": [
         "19.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "OPTGYF",
-      "alis": "162.63",
-      "stop": "159.70",
-      "risk": "1.80",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
       ],
       "current": null,
       "change": null,
@@ -674,6 +646,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "GRNYO",
+      "alis": "16.26",
+      "stop": "15.95",
+      "risk": "1.91",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "KARSN",
       "alis": "10.98",
       "stop": "10.77",
@@ -752,20 +738,6 @@
       "formationDate": "08.07.2026",
       "formationDates": [
         "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "EKGYO",
-      "alis": "20.64",
-      "stop": "20.20",
-      "risk": "2.13",
-      "formation": "",
-      "formationDate": "17.07.2026",
-      "formationDates": [
-        "17.07.2026"
       ],
       "current": null,
       "change": null,
@@ -940,6 +912,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "EGSER",
+      "alis": "3.0200",
+      "stop": "2.9500",
+      "risk": "2.32",
+      "formation": "",
+      "formationDate": "29.06.2026",
+      "formationDates": [
+        "29.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "SKTAS",
       "alis": "3.4000",
       "stop": "3.3200",
@@ -948,20 +934,6 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "LINK",
-      "alis": "6.5250",
-      "stop": "6.3700",
-      "risk": "2.38",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1032,20 +1004,6 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GARAN",
-      "alis": "128.90",
-      "stop": "125.70",
-      "risk": "2.48",
-      "formation": "",
-      "formationDate": "23.06.2026",
-      "formationDates": [
-        "23.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1144,6 +1102,20 @@
       "formationDate": "22.06.2026",
       "formationDates": [
         "22.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "RODRG",
+      "alis": "25.43",
+      "stop": "24.76",
+      "risk": "2.63",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1256,20 +1228,6 @@
       "formationDate": "05.06.2026",
       "formationDates": [
         "05.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ATATR",
-      "alis": "16.21",
-      "stop": "15.75",
-      "risk": "2.84",
-      "formation": "",
-      "formationDate": "17.07.2026",
-      "formationDates": [
-        "17.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1500,20 +1458,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TRMET",
-      "alis": "122.30",
-      "stop": "118.10",
-      "risk": "3.43",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "KAREL",
       "alis": "10.57",
       "stop": "10.19",
@@ -1662,20 +1606,6 @@
       "formationDate": "17.07.2026",
       "formationDates": [
         "17.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "IDGYO",
-      "alis": "4.5700",
-      "stop": "4.3600",
-      "risk": "4.60",
-      "formation": "",
-      "formationDate": "16.07.2026",
-      "formationDates": [
-        "16.07.2026"
       ],
       "current": null,
       "change": null,
