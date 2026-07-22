@@ -1,5 +1,5 @@
 {
-  "updatedAt": "22.07.2026 18:12:41",
+  "updatedAt": "22.07.2026 20:06:41",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -10,20 +10,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "LYDHO",
-      "alis": "185.00",
-      "stop": "183.40",
-      "risk": "0.86",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -114,20 +100,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "TKNSA",
-      "alis": "18.32",
-      "stop": "18.12",
-      "risk": "1.09",
-      "formation": "",
-      "formationDate": "25.06.2026",
-      "formationDates": [
-        "25.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "DNISI",
       "alis": "20.46",
       "stop": "20.22",
@@ -146,6 +118,20 @@
       "alis": "67.62",
       "stop": "66.82",
       "risk": "1.18",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "MEDTR",
+      "alis": "27.05",
+      "stop": "26.72",
+      "risk": "1.22",
       "formation": "",
       "formationDate": "08.07.2026",
       "formationDates": [
@@ -458,20 +444,6 @@
       "formationDate": "05.06.2026",
       "formationDates": [
         "05.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "POLTK",
-      "alis": "4960",
-      "stop": "4873",
-      "risk": "1.75",
-      "formation": "",
-      "formationDate": "07.07.2026",
-      "formationDates": [
-        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -814,20 +786,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "LILAK",
-      "alis": "31.44",
-      "stop": "30.66",
-      "risk": "2.48",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "GARAN",
       "alis": "128.90",
       "stop": "125.70",
@@ -1094,20 +1052,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "PRKME",
-      "alis": "18.66",
-      "stop": "18.08",
-      "risk": "3.11",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "LXGYO",
       "alis": "13.19",
       "stop": "12.78",
@@ -1214,20 +1158,6 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "ARENA",
-      "alis": "25.52",
-      "stop": "24.60",
-      "risk": "3.61",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1368,6 +1298,20 @@
       "formationDate": "17.07.2026",
       "formationDates": [
         "17.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "IDGYO",
+      "alis": "4.5700",
+      "stop": "4.3600",
+      "risk": "4.60",
+      "formation": "",
+      "formationDate": "16.07.2026",
+      "formationDates": [
+        "16.07.2026"
       ],
       "current": null,
       "change": null,
