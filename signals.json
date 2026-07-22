@@ -1,5 +1,5 @@
 {
-  "updatedAt": "22.07.2026 12:36:09",
+  "updatedAt": "22.07.2026 14:37:34",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -16,14 +16,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "BASGZ",
-      "alis": "46.40",
-      "stop": "45.98",
-      "risk": "0.91",
+      "ticker": "LYDHO",
+      "alis": "185.00",
+      "stop": "183.40",
+      "risk": "0.86",
       "formation": "",
-      "formationDate": "17.07.2026",
+      "formationDate": "07.07.2026",
       "formationDates": [
-        "17.07.2026"
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -94,6 +94,20 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "ISYAT",
+      "alis": "7.9300",
+      "stop": "7.8500",
+      "risk": "1.01",
+      "formation": "",
+      "formationDate": "03.07.2026",
+      "formationDates": [
+        "03.07.2026"
       ],
       "current": null,
       "change": null,
@@ -408,34 +422,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "DGNMO",
-      "alis": "7.8900",
-      "stop": "7.7600",
-      "risk": "1.65",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "TRALT",
-      "alis": "51.30",
-      "stop": "50.45",
-      "risk": "1.66",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "NUGYO",
       "alis": "9.1650",
       "stop": "9.0100",
@@ -534,6 +520,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ARZUM",
+      "alis": "1.8950",
+      "stop": "1.8600",
+      "risk": "1.85",
+      "formation": "",
+      "formationDate": "06.07.2026",
+      "formationDates": [
+        "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "ARDYZ",
       "alis": "69.30",
       "stop": "68.00",
@@ -556,20 +556,6 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MACKO",
-      "alis": "33.68",
-      "stop": "33.04",
-      "risk": "1.90",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
       ],
       "current": null,
       "change": null,
@@ -794,20 +780,6 @@
       "formationDate": "03.06.2026",
       "formationDates": [
         "03.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "RYSAS",
-      "alis": "21.02",
-      "stop": "20.54",
-      "risk": "2.28",
-      "formation": "",
-      "formationDate": "14.07.2026",
-      "formationDates": [
-        "14.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1052,6 +1024,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "BRKSN",
+      "alis": "7.7700",
+      "stop": "7.5500",
+      "risk": "2.83",
+      "formation": "",
+      "formationDate": "05.06.2026",
+      "formationDates": [
+        "05.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "SNICA",
       "alis": "3.9650",
       "stop": "3.8500",
@@ -1290,20 +1276,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "OYLUM",
-      "alis": "8.4100",
-      "stop": "8.1300",
-      "risk": "3.33",
-      "formation": "",
-      "formationDate": "04.06.2026",
-      "formationDates": [
-        "04.06.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "GUBRF",
       "alis": "416.25",
       "stop": "402.25",
@@ -1312,6 +1284,20 @@
       "formationDate": "13.07.2026",
       "formationDates": [
         "13.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "KAREL",
+      "alis": "10.57",
+      "stop": "10.19",
+      "risk": "3.60",
+      "formation": "",
+      "formationDate": "16.07.2026",
+      "formationDates": [
+        "16.07.2026"
       ],
       "current": null,
       "change": null,
