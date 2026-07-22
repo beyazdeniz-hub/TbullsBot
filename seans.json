@@ -1,5 +1,5 @@
 {
-  "updatedAt": "22.07.2026 16:07:19",
+  "updatedAt": "22.07.2026 18:12:41",
   "signals": [
     {
       "ticker": "DMLKT",
@@ -10,6 +10,20 @@
       "formationDate": "06.07.2026",
       "formationDates": [
         "06.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "LYDHO",
+      "alis": "185.00",
+      "stop": "183.40",
+      "risk": "0.86",
+      "formation": "",
+      "formationDate": "07.07.2026",
+      "formationDates": [
+        "07.07.2026"
       ],
       "current": null,
       "change": null,
@@ -332,20 +346,6 @@
       "formationDate": "07.07.2026",
       "formationDates": [
         "07.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "MAALT",
-      "alis": "1100",
-      "stop": "1083",
-      "risk": "1.55",
-      "formation": "",
-      "formationDate": "03.07.2026",
-      "formationDates": [
-        "03.07.2026"
       ],
       "current": null,
       "change": null,
@@ -730,20 +730,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "EGPRO",
-      "alis": "37.28",
-      "stop": "36.44",
-      "risk": "2.25",
-      "formation": "",
-      "formationDate": "08.07.2026",
-      "formationDates": [
-        "08.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "TURSG",
       "alis": "6.6500",
       "stop": "6.5000",
@@ -766,6 +752,20 @@
       "formationDate": "03.06.2026",
       "formationDates": [
         "03.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "DESA",
+      "alis": "10.42",
+      "stop": "10.18",
+      "risk": "2.30",
+      "formation": "",
+      "formationDate": "17.06.2026",
+      "formationDates": [
+        "17.06.2026"
       ],
       "current": null,
       "change": null,
@@ -822,6 +822,20 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "GARAN",
+      "alis": "128.90",
+      "stop": "125.70",
+      "risk": "2.48",
+      "formation": "",
+      "formationDate": "23.06.2026",
+      "formationDates": [
+        "23.06.2026"
       ],
       "current": null,
       "change": null,
@@ -906,20 +920,6 @@
       "formationDate": "02.07.2026",
       "formationDates": [
         "02.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "BMSTL",
-      "alis": "45.65",
-      "stop": "44.40",
-      "risk": "2.74",
-      "formation": "",
-      "formationDate": "20.07.2026",
-      "formationDates": [
-        "20.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1220,6 +1220,20 @@
       "grafikUrl": null
     },
     {
+      "ticker": "ARENA",
+      "alis": "25.52",
+      "stop": "24.60",
+      "risk": "3.61",
+      "formation": "",
+      "formationDate": "08.07.2026",
+      "formationDates": [
+        "08.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
       "ticker": "DENGE",
       "alis": "2.4400",
       "stop": "2.3500",
@@ -1238,34 +1252,6 @@
       "alis": "3843",
       "stop": "3700",
       "risk": "3.72",
-      "formation": "",
-      "formationDate": "06.07.2026",
-      "formationDates": [
-        "06.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "FZLGY",
-      "alis": "14.23",
-      "stop": "13.70",
-      "risk": "3.72",
-      "formation": "",
-      "formationDate": "20.07.2026",
-      "formationDates": [
-        "20.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "SDTTR",
-      "alis": "253.00",
-      "stop": "243.00",
-      "risk": "3.95",
       "formation": "",
       "formationDate": "06.07.2026",
       "formationDates": [
