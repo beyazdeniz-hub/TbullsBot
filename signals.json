@@ -1,5 +1,5 @@
 {
-  "updatedAt": "23.07.2026 12:39:28",
+  "updatedAt": "23.07.2026 14:41:41",
   "signals": [
     {
       "ticker": "SNPAM",
@@ -184,24 +184,24 @@
       "grafikUrl": null
     },
     {
-      "ticker": "EGPRO",
-      "alis": "36.61",
-      "stop": "36.22",
+      "ticker": "ANGEN",
+      "alis": "10.27",
+      "stop": "10.16",
       "risk": "1.07",
       "formation": "",
-      "formationDate": "08.07.2026",
+      "formationDate": "21.07.2026",
       "formationDates": [
-        "08.07.2026"
+        "21.07.2026"
       ],
       "current": null,
       "change": null,
       "grafikUrl": null
     },
     {
-      "ticker": "ANGEN",
-      "alis": "10.27",
-      "stop": "10.16",
-      "risk": "1.07",
+      "ticker": "AZTEK",
+      "alis": "4.6300",
+      "stop": "4.5800",
+      "risk": "1.08",
       "formation": "",
       "formationDate": "21.07.2026",
       "formationDates": [
@@ -388,6 +388,20 @@
       "formationDate": "29.06.2026",
       "formationDates": [
         "29.06.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "TUCLK",
+      "alis": "3.9900",
+      "stop": "3.9400",
+      "risk": "1.25",
+      "formation": "",
+      "formationDate": "19.06.2026",
+      "formationDates": [
+        "19.06.2026"
       ],
       "current": null,
       "change": null,
@@ -996,14 +1010,14 @@
       "grafikUrl": null
     },
     {
-      "ticker": "AKBNK",
-      "alis": "68.25",
-      "stop": "66.90",
-      "risk": "1.98",
+      "ticker": "KRONT",
+      "alis": "22.96",
+      "stop": "22.50",
+      "risk": "2.00",
       "formation": "",
-      "formationDate": "21.07.2026",
+      "formationDate": "16.07.2026",
       "formationDates": [
-        "21.07.2026"
+        "16.07.2026"
       ],
       "current": null,
       "change": null,
@@ -1410,20 +1424,6 @@
       "formationDate": "03.07.2026",
       "formationDates": [
         "03.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
-      "ticker": "GARAN",
-      "alis": "128.90",
-      "stop": "125.70",
-      "risk": "2.48",
-      "formation": "",
-      "formationDate": "23.06.2026",
-      "formationDates": [
-        "23.06.2026"
       ],
       "current": null,
       "change": null,
@@ -1934,20 +1934,6 @@
       "grafikUrl": null
     },
     {
-      "ticker": "FZLGY",
-      "alis": "14.23",
-      "stop": "13.70",
-      "risk": "3.72",
-      "formation": "",
-      "formationDate": "20.07.2026",
-      "formationDates": [
-        "20.07.2026"
-      ],
-      "current": null,
-      "change": null,
-      "grafikUrl": null
-    },
-    {
       "ticker": "BURVA",
       "alis": "837.00",
       "stop": "805.00",
@@ -1998,6 +1984,20 @@
       "formationDate": "17.07.2026",
       "formationDates": [
         "17.07.2026"
+      ],
+      "current": null,
+      "change": null,
+      "grafikUrl": null
+    },
+    {
+      "ticker": "AYES",
+      "alis": "32.36",
+      "stop": "31.00",
+      "risk": "4.20",
+      "formation": "",
+      "formationDate": "11.06.2026",
+      "formationDates": [
+        "11.06.2026"
       ],
       "current": null,
       "change": null,
